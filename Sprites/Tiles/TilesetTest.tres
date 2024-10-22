@@ -1,0 +1,31 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bmgm4phpvt3kr"]
+
+[ext_resource type="Texture2D" uid="uid://bbukc2axmb4hl" path="res://Sprites/Tiles/Blue.png" id="1_qlhft"]
+[ext_resource type="Texture2D" uid="uid://1y1510b6odp" path="res://Sprites/Tiles/Green.png" id="2_u1wwj"]
+[ext_resource type="Texture2D" uid="uid://dwbblfflonnc3" path="res://Sprites/Tiles/SlantGrass.png" id="3_lk8rx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p6usj"]
+texture = ExtResource("1_qlhft")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1s7gc"]
+texture = ExtResource("2_u1wwj")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4pme"]
+texture = ExtResource("3_lk8rx")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+
+[resource]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(64, 32)
+sources/0 = SubResource("TileSetAtlasSource_p6usj")
+sources/1 = SubResource("TileSetAtlasSource_1s7gc")
+sources/2 = SubResource("TileSetAtlasSource_r4pme")
