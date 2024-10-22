@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwqad86u2hhia"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerOWController.gd" id="1_s7pah"]
+[ext_resource type="Texture2D" uid="uid://b2kp2c8vbvr0f" path="res://icon.svg" id="2_btqgc"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_s7pah")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_btqgc")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(63.3333, 126.667, 126.667, 93.3333, 63.3333, 66.6667, 3.33333, 93.3333)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.4, 1.4)
