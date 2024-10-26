@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://rc0jhuc1cl1t"]
 
-[ext_resource type="Texture2D" uid="uid://dwbblfflonnc3" path="res://Sprites/Tiles/SlantGrass.png" id="1_1pu83"]
+[ext_resource type="Texture2D" uid="uid://dwbblfflonnc3" path="res://Sprites/Tiles/SlantGrass.png" id="1_w0t6g"]
 
 [node name="StaticBody2D" type="StaticBody2D"]
 
@@ -12,7 +12,7 @@ polygon = PackedVector2Array(1, 31, 31, -17, 31, 17)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-17, 7)
-texture = ExtResource("1_1pu83")
+texture = ExtResource("1_w0t6g")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-17, 7)

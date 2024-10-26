@@ -7,6 +7,7 @@
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
+collision_mask = 34
 script = ExtResource("1_s7pah")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

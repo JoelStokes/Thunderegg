@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://c32peshfgdx1c"]
+
+[ext_resource type="Script" path="res://Scripts/LadderController.gd" id="1_eax1v"]
+[ext_resource type="Texture2D" uid="uid://5j467ej80f40" path="res://Sprites/Objects/LadderBase.png" id="2_7qvl4"]
+[ext_resource type="Texture2D" uid="uid://w35qf6efbgjg" path="res://Sprites/Objects/LadderMid.png" id="3_yrm3a"]
+[ext_resource type="Texture2D" uid="uid://bcqknumctfovg" path="res://Sprites/Objects/LadderTop.png" id="4_03qte"]
+[ext_resource type="Script" path="res://Scripts/LadderWarp.gd" id="5_ve1dv"]
+
+[node name="LadderTall" type="Node2D"]
+z_as_relative = false
+y_sort_enabled = true
+script = ExtResource("1_eax1v")
+
+[node name="Base" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("2_7qvl4")
+
+[node name="Mid2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -15)
+texture = ExtResource("3_yrm3a")
+
+[node name="Mid3" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -28)
+texture = ExtResource("3_yrm3a")
+
+[node name="Mid4" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -41)
+texture = ExtResource("3_yrm3a")
+
+[node name="Mid" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -54)
+texture = ExtResource("3_yrm3a")
+
+[node name="Top" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -68.5)
+texture = ExtResource("4_03qte")
+
+[node name="BottomArea" type="Area2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-9, 10)
+collision_layer = 32
+script = ExtResource("5_ve1dv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BottomArea"]
+position = Vector2(4, -2)
+polygon = PackedVector2Array(16, -6, 16, 12, -9, 3, -9, -13)
+
+[node name="TopArea" type="Area2D" parent="."]
+y_sort_enabled = true
+position = Vector2(6, -83)
+collision_layer = 32
+script = ExtResource("5_ve1dv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TopArea"]
+position = Vector2(-1, 4)
+polygon = PackedVector2Array(10, -1, 10, 16, -16, 5, -16, -12)
+
+[connection signal="bodyStatus" from="BottomArea" to="." method="_update_body_status"]
+[connection signal="body_entered" from="BottomArea" to="BottomArea" method="_on_body_entered"]
+[connection signal="body_exited" from="BottomArea" to="BottomArea" method="_on_body_exited"]
+[connection signal="setPosition" from="BottomArea" to="." method="_set_position"]
+[connection signal="bodyStatus" from="TopArea" to="." method="_update_body_status"]
+[connection signal="body_entered" from="TopArea" to="TopArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TopArea" to="TopArea" method="_on_body_exited"]
+[connection signal="setPosition" from="TopArea" to="." method="_set_position"]

@@ -31,7 +31,7 @@ func place_boundaries():
 				set_cell(current_spot, main_source, boundary_atlas_pos)
 	
 	#Check next layer up to add collisions to base of higher blocks
-	if (layer != 4):
+	if (layer < 4):
 		var higherUsed = get_node("../Layer " + str(layer+1)).get_used_cells()
 		for spot in higherUsed:
 			if get_cell_source_id(spot):
