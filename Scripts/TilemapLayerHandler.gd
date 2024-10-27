@@ -1,6 +1,7 @@
 extends TileMapLayer
 
 const boundary_atlas_pos = Vector2i(1,0)
+const cube_atlas_pos = Vector2i(2,0)
 const main_source = 1
 @export var layer: int = 0
 
@@ -35,4 +36,4 @@ func place_boundaries():
 		var higherUsed = get_node("../Layer " + str(layer+1)).get_used_cells()
 		for spot in higherUsed:
 			if get_cell_source_id(spot):
-				set_cell(spot-Vector2i(-1,-1), main_source, boundary_atlas_pos)
+				set_cell(spot-Vector2i(-1,-1), main_source, cube_atlas_pos)
