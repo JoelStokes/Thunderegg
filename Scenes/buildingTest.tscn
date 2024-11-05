@@ -1,0 +1,69 @@
+[gd_scene load_steps=14 format=4 uid="uid://65ja6jhc17dh"]
+
+[ext_resource type="PackedScene" uid="uid://cwqad86u2hhia" path="res://Prefabs/PlayerOW.tscn" id="1_8v3po"]
+[ext_resource type="Texture2D" uid="uid://bbukc2axmb4hl" path="res://Sprites/Tiles/Blue.png" id="2_ynuwp"]
+[ext_resource type="Texture2D" uid="uid://buba3arumbehr" path="res://Sprites/Tiles/Tileset.png" id="3_ow2kl"]
+[ext_resource type="Texture2D" uid="uid://dwbblfflonnc3" path="res://Sprites/Tiles/SlantGrass.png" id="4_nqhp5"]
+[ext_resource type="Texture2D" uid="uid://qh32gth5c7m0" path="res://Sprites/Tiles/WaterTile.png" id="5_sj0te"]
+[ext_resource type="Texture2D" uid="uid://be5dfrgtoi8uw" path="res://Sprites/Tiles/Sand.png" id="6_eh4lm"]
+[ext_resource type="Script" path="res://Scripts/TilemapLayerHandler.gd" id="7_xg502"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4pp75"]
+texture = ExtResource("2_ynuwp")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bl18"]
+texture = ExtResource("3_ow2kl")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -16)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16, -32, 0, 0, -16, 32, 0)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -16)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16, 32, 0, 0, -16, -32, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1b7n"]
+texture = ExtResource("4_nqhp5")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vw16v"]
+texture = ExtResource("5_sj0te")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16, -32, 0, 0, -16, 32, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_codan"]
+texture = ExtResource("6_eh4lm")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+
+[sub_resource type="TileSet" id="TileSet_nnyeo"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(64, 32)
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_4pp75")
+sources/1 = SubResource("TileSetAtlasSource_4bl18")
+sources/2 = SubResource("TileSetAtlasSource_n1b7n")
+sources/3 = SubResource("TileSetAtlasSource_vw16v")
+sources/4 = SubResource("TileSetAtlasSource_codan")
+
+[node name="BuildingTest" type="Node2D"]
+
+[node name="PlayerOW" parent="." instance=ExtResource("1_8v3po")]
+position = Vector2(-94, 10)
+
+[node name="Layer 1" type="TileMapLayer" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD//wQAAQACAAAAAAD//wMAAQACAAAAAAD//wIAAQACAAAAAAD+/wIAAQACAAAAAAD9/wIAAQACAAAAAAD8/wIAAQACAAAAAAD7/wIAAQACAAAAAAD6/wIAAQACAAAAAAD6/wEAAQACAAAAAAD6/wAAAQACAAAAAAD6////AQACAAAAAAD6//7/AQACAAAAAAD6//3/AQACAAAAAAD6//z/AQACAAAAAAD7//z/AQACAAAAAAD7//3/AQACAAAAAAD8//3/AQACAAAAAAAAAAIAAQACAAAAAAABAAIAAQACAAAAAAACAAIAAQACAAAAAAADAAIAAQACAAAAAAAEAAIAAQACAAAAAAAEAAEAAQACAAAAAAAEAAAAAQACAAAAAAAEAP//AQACAAAAAAAEAP7/AQACAAAAAAAEAP3/AQACAAAAAAAEAPz/AQACAAAAAAADAPz/AQACAAAAAAACAPz/AQACAAAAAAABAPz/AQACAAAAAAAAAPz/AQACAAAAAAAAAP3/AQACAAAAAAD///3/AQACAAAAAAD///z/AQACAAAAAAD+//z/AQACAAAAAAD9//z/AQACAAAAAAD8//z/AQACAAAAAAD9//3/AQACAAAAAAD+//3/AQACAAAAAAABAP3/AQACAAAAAAACAP3/AQACAAAAAAADAP3/AQACAAAAAAADAP7/AQACAAAAAAACAP7/AQACAAAAAAACAP//AQACAAAAAAACAAAAAQACAAAAAAADAAAAAQACAAAAAAADAP//AQACAAAAAAACAAEAAQACAAAAAAABAAEAAQACAAAAAAABAAAAAQACAAAAAAABAP//AQACAAAAAAADAAEAAQACAAAAAAAAAP//AQACAAAAAAAAAP7/AQACAAAAAAD///7/AQACAAAAAAABAP7/AQACAAAAAAD+//7/AQACAAAAAAD+////AQACAAAAAAD+/wAAAQACAAAAAAD//wAAAQACAAAAAAAAAAAAAQACAAAAAAD/////AQACAAAAAAD9//7/AQACAAAAAAD9////AQACAAAAAAAAAAEAAQACAAAAAAD//wEAAQACAAAAAAD9/wAAAQACAAAAAAD9/wEAAQACAAAAAAD+/wEAAQACAAAAAAD8////AQACAAAAAAD8/wAAAQACAAAAAAD8/wEAAQACAAAAAAD7/wEAAQACAAAAAAD7/wAAAQACAAAAAAD8//7/AQACAAAAAAD7//7/AQACAAAAAAD7////AQACAAAAAAD6//v/AQACAAAAAAD7//v/AQACAAAAAAD8//v/AQACAAAAAAD9//v/AQACAAAAAAD+//v/AQACAAAAAAD///v/AQACAAAAAAAAAPv/AQACAAAAAAABAPv/AQACAAAAAAACAPv/AQACAAAAAAADAPv/AQACAAAAAAAEAPv/AQACAAAAAAA=")
+tile_set = SubResource("TileSet_nnyeo")
+script = ExtResource("7_xg502")
+layer = 1
