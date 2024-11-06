@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bfqbtpt2mbrn" path="res://Sprites/Objects/Shadow.png" id="10_tl38a"]
 [ext_resource type="PackedScene" uid="uid://q5emnecqj87q" path="res://Prefabs/house.tscn" id="12_1wv6u"]
 [ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="13_qe1us"]
-[ext_resource type="Texture2D" uid="uid://dy36p3eycrl1b" path="res://Sprites/Objects/Sign.png" id="14_4wvml"]
+[ext_resource type="PackedScene" uid="uid://c2n5ntm3viw34" path="res://Prefabs/sign.tscn" id="14_27uhp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d3jbk"]
 texture = ExtResource("2_m38bv")
@@ -65,17 +65,21 @@ texture = ExtResource("2_m38bv")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 34
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kw1c6"]
 texture = ExtResource("3_wf5yv")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 34
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -16)
+1:0/0/y_sort_origin = 34
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16, -32, 0, 0, -16, 32, 0)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, -16)
+2:0/0/y_sort_origin = 34
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16, 32, 0, 0, -16, -32, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wlin"]
@@ -83,11 +87,14 @@ texture = ExtResource("4_3b7as")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 34
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d6x4w"]
 texture = ExtResource("5_03h3v")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -6)
+0:0/0/y_sort_origin = 34
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16, -32, 0, 0, -16, 32, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8j5qc"]
@@ -95,6 +102,7 @@ texture = ExtResource("6_hmubl")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 34
 
 [sub_resource type="TileSet" id="TileSet_waj2m"]
 tile_shape = 1
@@ -112,17 +120,21 @@ texture = ExtResource("2_m38bv")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 34
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8obso"]
 texture = ExtResource("3_wf5yv")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 34
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -16)
+1:0/0/y_sort_origin = 34
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, -32, 0, 0, 16, 32, 0)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, -16)
+2:0/0/y_sort_origin = 34
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16, 32, 0, 0, -16, -32, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g8fnq"]
@@ -130,11 +142,14 @@ texture = ExtResource("4_3b7as")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 34
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5lbk"]
 texture = ExtResource("5_03h3v")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 34
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, -32, 0, 0.8, 15.6, 32, 0)
 
 [sub_resource type="TileSet" id="TileSet_mm0rh"]
@@ -152,17 +167,21 @@ texture = ExtResource("2_m38bv")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 32
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wgvs"]
 texture = ExtResource("3_wf5yv")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 32
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -16)
+1:0/0/y_sort_origin = 32
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, -32, 0, 0, 16, 32, 0)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, -16)
+2:0/0/y_sort_origin = 32
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16, 32, 0, 0, -16, -32, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nppkc"]
@@ -170,11 +189,13 @@ texture = ExtResource("4_3b7as")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 32
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_npxcs"]
 texture = ExtResource("5_03h3v")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+0:0/0/y_sort_origin = 32
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, -32, 0, 0.8, 15.6, 32, 0)
 
 [sub_resource type="TileSet" id="TileSet_tp3br"]
@@ -192,17 +213,21 @@ texture = ExtResource("2_m38bv")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 32
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxnj0"]
 texture = ExtResource("3_wf5yv")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 32
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -16)
+1:0/0/y_sort_origin = 32
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, -32, 0, 0, 16, 32, 0)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, -16)
+2:0/0/y_sort_origin = 32
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16, 32, 0, 0, -16, -32, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uukx3"]
@@ -210,11 +235,13 @@ texture = ExtResource("4_3b7as")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 32
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i13y7"]
 texture = ExtResource("5_03h3v")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+0:0/0/y_sort_origin = 32
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, -32, 0, 0.8, 15.6, 32, 0)
 
 [sub_resource type="TileSet" id="TileSet_kp3bc"]
@@ -284,16 +311,15 @@ position = Vector2(201, -8)
 
 [node name="Ladder" parent="." instance=ExtResource("7_6i32d")]
 z_index = 1
-position = Vector2(6, -15)
+position = Vector2(6, 32)
 bottomLayer = 2
 topLayer = 3
 topZ = 2
-bottomPos = Vector2(2, -3)
 topPos = Vector2(18, -46)
 
 [node name="Ladder2" parent="." instance=ExtResource("7_6i32d")]
 z_index = 1
-position = Vector2(484, -30)
+position = Vector2(485, 17)
 bottomLayer = 2
 topLayer = 3
 topZ = 2
@@ -302,7 +328,7 @@ topPos = Vector2(478, -77)
 
 [node name="Ladder3" parent="." instance=ExtResource("7_6i32d")]
 z_index = 1
-position = Vector2(58, -302)
+position = Vector2(58, -256)
 rotation = 3.14159
 scale = Vector2(1, -1)
 bottomLayer = 2
@@ -325,7 +351,7 @@ topPos = Vector2(51, -217)
 
 [node name="LadderTaller" parent="." instance=ExtResource("10_ghdms")]
 z_index = 1
-position = Vector2(306, -232)
+position = Vector2(305, -231)
 rotation = 3.14159
 scale = Vector2(1, -1)
 bottomLayer = 2
@@ -362,10 +388,6 @@ theme_override_fonts/font = ExtResource("13_qe1us")
 theme_override_font_sizes/font_size = 25
 text = "The quick brown fox jumped over the lazy dog"
 
-[node name="Sign" type="Node2D" parent="."]
+[node name="Sign" parent="." instance=ExtResource("14_27uhp")]
 z_index = 1
-y_sort_enabled = true
-position = Vector2(456, -210)
-
-[node name="Sprite2D" type="Sprite2D" parent="Sign"]
-texture = ExtResource("14_4wvml")
+z_as_relative = false

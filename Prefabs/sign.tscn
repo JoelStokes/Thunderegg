@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2n5ntm3viw34"]
+
+[ext_resource type="Texture2D" uid="uid://dy36p3eycrl1b" path="res://Sprites/Objects/Sign.png" id="1_4733f"]
+
+[node name="Sign" type="StaticBody2D"]
+y_sort_enabled = true
+position = Vector2(456, -210)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_4733f")
+offset = Vector2(0, -11.535)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -7.5)
+polygon = PackedVector2Array(-1, 11, 9, 7, -1, 2, -11, 6)

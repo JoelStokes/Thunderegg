@@ -16,6 +16,7 @@ texture = ExtResource("2_prft8")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 16
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -16)
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, -32, 0, 0, 16, 32, 0)

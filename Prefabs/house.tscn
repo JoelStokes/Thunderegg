@@ -8,9 +8,9 @@ collision_layer = 2
 
 [node name="Structure" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -33)
 texture = ExtResource("1_hh2ya")
+offset = Vector2(0, -32.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(0.800003, 32)
-polygon = PackedVector2Array(-1, -1, 63, -32, 0, -58, -63, -32)
+position = Vector2(1, 32)
+polygon = PackedVector2Array(-1, -1, 63, -33, -1, -58, -65, -33)

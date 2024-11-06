@@ -11,12 +11,15 @@ collision_mask = 34
 script = ExtResource("1_s7pah")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9, 0)
 texture = ExtResource("2_xb8yq")
 centered = false
+offset = Vector2(0, -36.975)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-2, -59)
+position = Vector2(-11, -96)
 polygon = PackedVector2Array(12, 96, 22, 89, 12, 83, 2, 89)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-9, -37)
 zoom = Vector2(1.4, 1.4)

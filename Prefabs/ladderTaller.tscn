@@ -13,44 +13,46 @@ script = ExtResource("1_rgw7l")
 
 [node name="Base" type="Sprite2D" parent="."]
 y_sort_enabled = true
+position = Vector2(0, 4)
 texture = ExtResource("2_ujfh6")
+offset = Vector2(0, -4)
 
-[node name="Mid2" type="Sprite2D" parent="."]
+[node name="Mid 1" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -15)
+position = Vector2(0, 4)
 texture = ExtResource("3_dc87h")
+offset = Vector2(0, -19)
 
-[node name="Mid3" type="Sprite2D" parent="."]
+[node name="Mid 2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("3_dc87h")
+offset = Vector2(0, -28)
+
+[node name="Mid 3" type="Sprite2D" parent="."]
 z_index = 3
 y_sort_enabled = true
-position = Vector2(0, -67)
+position = Vector2(0, -41)
 texture = ExtResource("3_dc87h")
 
-[node name="Mid5" type="Sprite2D" parent="."]
+[node name="Mid 4" type="Sprite2D" parent="."]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(0, -54)
 texture = ExtResource("3_dc87h")
 
-[node name="Mid6" type="Sprite2D" parent="."]
-z_index = 1
+[node name="Mid 5" type="Sprite2D" parent="."]
+z_index = 3
 y_sort_enabled = true
-position = Vector2(0, -41)
+position = Vector2(0, -67)
 texture = ExtResource("3_dc87h")
 
-[node name="Mid7" type="Sprite2D" parent="."]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(0, -28)
-texture = ExtResource("3_dc87h")
-
-[node name="Mid4" type="Sprite2D" parent="."]
+[node name="Mid 6" type="Sprite2D" parent="."]
 z_index = 3
 y_sort_enabled = true
 position = Vector2(0, -80)
 texture = ExtResource("3_dc87h")
 
-[node name="Mid" type="Sprite2D" parent="."]
+[node name="Mid 7" type="Sprite2D" parent="."]
 z_index = 3
 y_sort_enabled = true
 position = Vector2(0, -93)

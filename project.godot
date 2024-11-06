@@ -37,7 +37,8 @@ Cancel={
 2d_physics/layer_2="Tiles 1"
 2d_physics/layer_3="Tiles 2"
 2d_physics/layer_4="Tiles 3"
-2d_physics/layer_5="Tiles 1"
+2d_physics/layer_5="Tiles 4"
+2d_physics/layer_6="Interactables"
 
 [rendering]
 

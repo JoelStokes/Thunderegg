@@ -1,23 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1uvbmxbh1k1q"]
+[gd_scene load_steps=6 format=3 uid="uid://d1uvbmxbh1k1q"]
 
 [ext_resource type="Script" path="res://Scripts/LadderController.gd" id="1_dogih"]
-[ext_resource type="Texture2D" uid="uid://d1avbofltp4it" path="res://Sprites/Objects/Ladder.png" id="2_3kv6j"]
+[ext_resource type="Texture2D" uid="uid://5j467ej80f40" path="res://Sprites/Objects/LadderBase.png" id="2_jvxhn"]
+[ext_resource type="Texture2D" uid="uid://w35qf6efbgjg" path="res://Sprites/Objects/LadderMid.png" id="3_ilyyp"]
 [ext_resource type="Script" path="res://Scripts/LadderWarp.gd" id="4_axfuv"]
+[ext_resource type="Texture2D" uid="uid://bcqknumctfovg" path="res://Sprites/Objects/LadderTop.png" id="4_rkx7c"]
 
 [node name="Ladder" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_dogih")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="."]
 show_behind_parent = true
 y_sort_enabled = true
-texture = ExtResource("2_3kv6j")
+position = Vector2(0, -6)
+texture = ExtResource("2_jvxhn")
 centered = false
+offset = Vector2(0, -12)
+
+[node name="Middle" type="Sprite2D" parent="."]
+show_behind_parent = true
+y_sort_enabled = true
+position = Vector2(0, -6)
+texture = ExtResource("3_ilyyp")
+centered = false
+offset = Vector2(0, -25)
+
+[node name="Top" type="Sprite2D" parent="."]
+show_behind_parent = true
+y_sort_enabled = true
+position = Vector2(0, -6)
+texture = ExtResource("4_rkx7c")
+centered = false
+offset = Vector2(0, -42)
 
 [node name="BottomArea" type="Area2D" parent="."]
 y_sort_enabled = true
-position = Vector2(1, 51)
+position = Vector2(1, 3)
 collision_layer = 32
 script = ExtResource("4_axfuv")
 
@@ -27,7 +47,7 @@ polygon = PackedVector2Array(16, -6, 16, 12, -9, 3, -9, -13)
 
 [node name="TopArea" type="Area2D" parent="."]
 y_sort_enabled = true
-position = Vector2(16, -4)
+position = Vector2(16, -52)
 collision_layer = 32
 script = ExtResource("4_axfuv")
 

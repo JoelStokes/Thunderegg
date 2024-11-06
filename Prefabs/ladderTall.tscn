@@ -12,8 +12,9 @@ script = ExtResource("1_eax1v")
 
 [node name="Lower" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(10, 41)
+position = Vector2(10, 77)
 texture = ExtResource("2_qod77")
+offset = Vector2(0, -36)
 
 [node name="Upper" type="Sprite2D" parent="."]
 z_index = 1
