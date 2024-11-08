@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7qwcw3k01dhy"]
+
+[ext_resource type="Texture2D" uid="uid://be1vd0gj4aae3" path="res://Sprites/Objects/TileShadow.png" id="1_fw1k8"]
+[ext_resource type="Script" path="res://Scripts/LoadingZone.gd" id="1_uy276"]
+
+[node name="LoadingZone" type="Area2D"]
+position = Vector2(-128, 64)
+collision_layer = 32
+script = ExtResource("1_uy276")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-21, -6, -31, -1, 0, 15, 10, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.701961)
+z_index = 1
+position = Vector2(0, -1)
+texture = ExtResource("1_fw1k8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

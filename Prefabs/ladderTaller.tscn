@@ -18,21 +18,24 @@ texture = ExtResource("2_ujfh6")
 offset = Vector2(0, -4)
 
 [node name="Mid 1" type="Sprite2D" parent="."]
+z_index = 1
 y_sort_enabled = true
 position = Vector2(0, 4)
 texture = ExtResource("3_dc87h")
 offset = Vector2(0, -19)
 
 [node name="Mid 2" type="Sprite2D" parent="."]
+z_index = 1
 y_sort_enabled = true
+position = Vector2(0, 4)
 texture = ExtResource("3_dc87h")
-offset = Vector2(0, -28)
+offset = Vector2(0, -32)
 
 [node name="Mid 3" type="Sprite2D" parent="."]
 z_index = 3
 y_sort_enabled = true
-position = Vector2(0, -41)
 texture = ExtResource("3_dc87h")
+offset = Vector2(0, -41)
 
 [node name="Mid 4" type="Sprite2D" parent="."]
 z_index = 2

@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://1dmh6gmrfjqo"]
+
+[ext_resource type="Script" path="res://Scripts/CameraOWController.gd" id="1_txlsi"]
+[ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="2_llmv4"]
+[ext_resource type="Script" path="res://Scripts/TextController.gd" id="2_rbqyl"]
+
+[node name="CameraOW" type="Camera2D"]
+position = Vector2(-9, -37)
+zoom = Vector2(1.4, 1.4)
+script = ExtResource("1_txlsi")
+
+[node name="Text Parent" type="Control" parent="."]
+visible = false
+z_index = 50
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = 100.0
+offset_right = -229.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_rbqyl")
+
+[node name="ColorRect" type="ColorRect" parent="Text Parent"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = 42.0
+offset_right = 481.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.0980392, 0.0980392, 0.0980392, 0.905882)
+
+[node name="Textbox" type="Label" parent="Text Parent"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = 50.0
+offset_right = 473.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_font_sizes/font_size = 28
+text = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum placerat tincidunt arcu at rhoncus. Sed dictum enim quis libero elementum, sit amet cursus dui aliquam. Sed placerat feugiat orci, id consectetur magna. Suspendisse sagittis commodo eros, quis malesuada nisi vehicula vel. Maecenas consequat leo ac turpis laoreet, at mollis enim dignissim. Sed pellentesque dapibus ante, pretium rutrum felis tempor a. Integer scelerisque laoreet nisl, vitae pellentesque velit lacinia vel. Suspendisse elementum hendrerit orci sit amet bibendum. Phasellus eget dui convallis, ultrices sapien eu, dignissim justo. Fusce ante nisl, dictum sed ultrices ut, fermentum nec quam. Nullam sit amet odio elit. Suspendisse potenti. Ut dui felis, sodales vel orci ac, cursus gravida nulla. "
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="TextArrow" type="Label" parent="Text Parent"]
+visible = false
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = 50.0
+offset_right = 478.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_font_sizes/font_size = 28
+text = "→"
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 2
+text_overrun_behavior = 3
