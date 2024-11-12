@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3aqgmyck1voo"]
+[gd_scene load_steps=4 format=3 uid="uid://c3aqgmyck1voo"]
 
 [ext_resource type="Script" path="res://Scripts/BattleController.gd" id="1_278dn"]
 [ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="1_i644w"]
+[ext_resource type="Texture2D" uid="uid://dlku8usmpgocm" path="res://Sprites/Pokemon/1front.png" id="3_n3rp2"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_278dn")
@@ -14,53 +15,65 @@ offset_bottom = 40.0
 
 [node name="name" type="Label" parent="UI"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 44.0
+offset_top = 39.0
+offset_right = 632.0
+offset_bottom = 71.0
 theme_override_fonts/font = ExtResource("1_i644w")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "The quick, brown Foxparks jumped over the lazy Growlithe"
 
 [node name="size" type="Label" parent="UI"]
 layout_mode = 0
-offset_top = 54.0
-offset_right = 588.0
-offset_bottom = 86.0
+offset_left = 48.0
+offset_top = 118.0
+offset_right = 636.0
+offset_bottom = 150.0
 theme_override_fonts/font = ExtResource("1_i644w")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "The quick, brown Foxparks jumped over the lazy Growlithe"
 
 [node name="weight" type="Label" parent="UI"]
 layout_mode = 0
-offset_top = 109.0
-offset_right = 588.0
-offset_bottom = 141.0
+offset_left = 49.0
+offset_top = 196.0
+offset_right = 637.0
+offset_bottom = 228.0
 theme_override_fonts/font = ExtResource("1_i644w")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "The quick, brown Foxparks jumped over the lazy Growlithe"
 
 [node name="type" type="Label" parent="UI"]
 layout_mode = 0
-offset_top = 171.0
-offset_right = 588.0
-offset_bottom = 203.0
+offset_left = 47.0
+offset_top = 279.0
+offset_right = 635.0
+offset_bottom = 311.0
 theme_override_fonts/font = ExtResource("1_i644w")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "The quick, brown Foxparks jumped over the lazy Growlithe"
 
 [node name="level" type="Label" parent="UI"]
 layout_mode = 0
-offset_top = 228.0
-offset_right = 588.0
-offset_bottom = 260.0
+offset_left = 43.0
+offset_top = 365.0
+offset_right = 631.0
+offset_bottom = 397.0
 theme_override_fonts/font = ExtResource("1_i644w")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "The quick, brown Foxparks jumped over the lazy Growlithe"
 
 [node name="description" type="Label" parent="UI"]
 layout_mode = 0
-offset_top = 288.0
-offset_right = 588.0
-offset_bottom = 320.0
+offset_left = 44.0
+offset_top = 442.0
+offset_right = 632.0
+offset_bottom = 474.0
 theme_override_fonts/font = ExtResource("1_i644w")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "The quick, brown Foxparks jumped over the lazy Growlithe"
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1059, 357)
+texture = ExtResource("3_n3rp2")
