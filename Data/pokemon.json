@@ -1,0 +1,49 @@
+{
+    "1": {
+        "name": "Toygon",
+        "size": "12 in",
+        "weight": "5 lbs",
+        "type": "switch",
+        "evo": {
+            "cause": "cutscene",
+            "value": "1",
+            "id": "2"
+        },
+        "moves": {
+            "1": {
+                "level": "0"
+            },
+            "2":{
+                "level": "0"
+            }
+        },
+        "pet": "any",
+        "description": "It is a knockoff version of an artificial life form. It was meant as a toy for young children to learn and practice battle skills. Toygon Co. only made a few of them before closing its factory."
+    },
+    "2": {
+        "name": "Toygon2",
+        "size": "22 in",
+        "weight": "40 lbs",
+        "type": "switch",
+        "moves": "any",
+        "pet": "any",
+        "description": "After receiving many upgrades, it is now more capable of battling. It learns and stores information using artificial intelligence. It can also parallel park."
+    },
+    "3": {
+        "name": "Brinudge",
+        "size": "1 ft. 4 in",
+        "weight": "18 lbs",
+        "type": "water",
+        "evo": {
+            "cause": "level",
+            "value": "35",
+            "id": "4"
+        },
+        "moves": "TODO",
+        "pet": {
+            "likes": "head",
+            "hates": "body"
+        },
+        "description": "It bothers others into playing with it so it can practice its battle moves. It is very curious and needs an abundance of iron in its diet, otherwise it will steal metal objects to chew on."
+    }
+}

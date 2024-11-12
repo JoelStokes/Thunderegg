@@ -1,0 +1,66 @@
+{
+    "normal": {
+        "super": "",
+        "uneffective": "rock",
+        "incapable": "ghost",
+        "weak": "fighting",
+        "resist": "",
+        "immune": "ghost"
+    },
+    "fire": {
+        "super": "bug, steel, grass, ice",
+        "uneffective": "rock, fire, water, dragon",
+        "incapable": "",
+        "weak": "ground, rock, water",
+        "resist": "bug, steel, fire, grass, ice, fairy",
+        "immune": ""
+    },
+    "fighting": {
+
+    },
+    "water": {
+
+    },
+    "flying": {
+
+    }, 
+    "grass": {
+
+    }, 
+    "poison": {
+
+    }, 
+    "electric": {
+
+    }, 
+    "ground": {
+
+    }, 
+    "psychic": {
+
+    }, 
+    "rock": {
+
+    }, 
+    "ice": {
+
+    }, 
+    "bug": {
+
+    }, 
+    "dragon": {
+
+    }, 
+    "ghost": {
+
+    }, 
+    "dark": {
+
+    }, 
+    "steel": {
+
+    }, 
+    "fairy": {
+
+    }
+}

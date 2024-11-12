@@ -1,0 +1,22 @@
+{
+    "1": {
+        "name": "Protect",
+        "type": "normal",
+        "cat": "status",
+        "pp": "10",
+        "accuracy": "100",
+        "priority": "4",
+        "power": "0",
+        "description": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession."
+    },
+    "2": {
+        "name": "Waterfall Model",
+        "type": "water",
+        "cat": "physical",
+        "pp": "15",
+        "accuracy": "100",
+        "priority": "0",
+        "power": "80",
+        "description": "The user charges at the target and may make it flinch."
+    }
+}

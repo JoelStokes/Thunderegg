@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3aqgmyck1voo"]
+
+[ext_resource type="Script" path="res://Scripts/BattleController.gd" id="1_278dn"]
+[ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="1_i644w"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_278dn")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="name" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_i644w")
+theme_override_font_sizes/font_size = 30
+text = "The quick, brown Foxparks jumped over the lazy Growlithe"
+
+[node name="size" type="Label" parent="UI"]
+layout_mode = 0
+offset_top = 54.0
+offset_right = 588.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("1_i644w")
+theme_override_font_sizes/font_size = 30
+text = "The quick, brown Foxparks jumped over the lazy Growlithe"
+
+[node name="weight" type="Label" parent="UI"]
+layout_mode = 0
+offset_top = 109.0
+offset_right = 588.0
+offset_bottom = 141.0
+theme_override_fonts/font = ExtResource("1_i644w")
+theme_override_font_sizes/font_size = 30
+text = "The quick, brown Foxparks jumped over the lazy Growlithe"
+
+[node name="type" type="Label" parent="UI"]
+layout_mode = 0
+offset_top = 171.0
+offset_right = 588.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("1_i644w")
+theme_override_font_sizes/font_size = 30
+text = "The quick, brown Foxparks jumped over the lazy Growlithe"
+
+[node name="level" type="Label" parent="UI"]
+layout_mode = 0
+offset_top = 228.0
+offset_right = 588.0
+offset_bottom = 260.0
+theme_override_fonts/font = ExtResource("1_i644w")
+theme_override_font_sizes/font_size = 30
+text = "The quick, brown Foxparks jumped over the lazy Growlithe"
+
+[node name="description" type="Label" parent="UI"]
+layout_mode = 0
+offset_top = 288.0
+offset_right = 588.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("1_i644w")
+theme_override_font_sizes/font_size = 30
+text = "The quick, brown Foxparks jumped over the lazy Growlithe"
