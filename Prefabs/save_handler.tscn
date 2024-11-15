@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx8chle85wgvh"]
+
+[ext_resource type="Script" path="res://Scripts/SaveController.gd" id="1_m8e6x"]
+
+[node name="SaveHandler" type="Node2D" groups=["Persist"]]
+script = ExtResource("1_m8e6x")

@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dnrohtqq6e378" path="res://Prefabs/door.tscn" id="13_dr0kn"]
 [ext_resource type="PackedScene" uid="uid://c2n5ntm3viw34" path="res://Prefabs/sign.tscn" id="14_27uhp"]
 [ext_resource type="PackedScene" uid="uid://crm2584puxne" path="res://Prefabs/bush.tscn" id="16_ohut7"]
-[ext_resource type="Script" path="res://Scripts/SaveController.gd" id="17_psufb"]
+[ext_resource type="PackedScene" uid="uid://dx8chle85wgvh" path="res://Prefabs/save_handler.tscn" id="17_vd27w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d3jbk"]
 texture = ExtResource("2_m38bv")
@@ -398,22 +398,21 @@ textArray = Array[String](["This is a 3-part textbox.", "After finishing one sec
 [node name="Bush" parent="." instance=ExtResource("16_ohut7")]
 z_index = 1
 position = Vector2(353, 50)
-pokemonIDS = Array[int]([1, 2, 3])
+pokemonIDS = Array[Vector3]([Vector3(1, 5, 9), Vector3(2, 15, 25), Vector3(3, 6, 9), Vector3(4, 22, 29), Vector3(5, 31, 50)])
 
 [node name="Bush2" parent="." instance=ExtResource("16_ohut7")]
 z_index = 1
 position = Vector2(377, 37)
-pokemonIDS = Array[int]([1, 2, 3])
+pokemonIDS = Array[Vector3]([Vector3(1, 5, 9), Vector3(2, 15, 25), Vector3(3, 6, 9), Vector3(4, 22, 29), Vector3(5, 31, 50)])
 
 [node name="Bush3" parent="." instance=ExtResource("16_ohut7")]
 z_index = 1
 position = Vector2(356, 22)
-pokemonIDS = Array[int]([1, 2, 3])
+pokemonIDS = Array[Vector3]([Vector3(1, 5, 9), Vector3(2, 15, 25), Vector3(3, 6, 9), Vector3(4, 22, 29), Vector3(5, 31, 50)])
 
 [node name="Bush4" parent="." instance=ExtResource("16_ohut7")]
 z_index = 1
 position = Vector2(332, 35)
-pokemonIDS = Array[int]([1, 2, 3])
+pokemonIDS = Array[Vector3]([Vector3(1, 5, 9), Vector3(2, 15, 25), Vector3(3, 6, 9), Vector3(4, 22, 29), Vector3(5, 31, 50)])
 
-[node name="SaveHandler" type="Node2D" parent="." groups=["Persist"]]
-script = ExtResource("17_psufb")
+[node name="SaveHandler" parent="." instance=ExtResource("17_vd27w")]

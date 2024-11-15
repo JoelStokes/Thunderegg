@@ -1,14 +1,18 @@
 extends Node2D
 
+# Use Z axis as Z Depth to handle which layer player was on
+var prevPlayerPos = Vector3.ZERO
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+# Wild Battle Management
+var wildPokemonID = 0
+var wildPokemonLevel = 0
 
+func _get_wild_id() -> int:
+	return wildPokemonID
+	
+func _get_wild_level() -> int:
+	return wildPokemonLevel
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-See this for more info:
-	https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
+func _set_wild_data(newID, newLevel) -> void:
+	wildPokemonID = newID
+	wildPokemonLevel = newLevel

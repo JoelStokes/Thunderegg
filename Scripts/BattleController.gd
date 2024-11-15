@@ -1,5 +1,7 @@
 extends Node2D
 
+var saveNode
+
 var id
 var level
 
@@ -20,6 +22,9 @@ func _ready() -> void:
 	pokemonData = JSON.parse_string(FileAccess.get_file_as_string(pokemonFile))
 	
 	#Get ID & Level from previous scene saved info
+	var saveNode = get_tree().get_nodes_in_group("Persist")
+	id = saveNode._get_wild_id
+	level = saveNode._get_wild_level
 	
 	#Set nodes
 	nameNode = $UI/name
@@ -42,3 +47,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+# Need to look up proper saving & loading system
+# persistant node not the best way?
