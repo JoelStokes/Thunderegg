@@ -2,8 +2,8 @@ extends Node2D
 
 var saveNode
 
-var id
-var level
+var id = "1"
+var level = "1"
 
 # Json data
 var pokemonFile = "res://Data/pokemon.json"
@@ -22,11 +22,11 @@ func _ready() -> void:
 	pokemonData = JSON.parse_string(FileAccess.get_file_as_string(pokemonFile))
 	
 	#Get ID & Level from previous scene saved info
-	var saveNode = get_tree().get_nodes_in_group("Persist")
-	id = saveNode._get_wild_id
-	level = saveNode._get_wild_level
+	saveNode = get_node("../SaveHandler")
+	level = str(saveNode._get_wild_level())
+	id = str(saveNode._get_wild_id())
 	
-	#Set nodes
+	#Set nodes to populate data
 	nameNode = $UI/name
 	sizeNode = $UI/size
 	weightNode = $UI/weight
@@ -35,7 +35,7 @@ func _ready() -> void:
 	descriptionNode = $UI/description
 	spriteNode = $Sprite2D
 	
-	#Set text & image
+	#Apply text & image to nodes
 	nameNode.text = "Name: " + pokemonData.get(id).name
 	sizeNode.text = "Size: " + pokemonData.get(id).size
 	weightNode.text = "Weight: " + pokemonData.get(id).weight
@@ -46,7 +46,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if (Input.is_action_just_pressed("Confirm") || Input.is_key_pressed(KEY_Z)):
+		get_tree().change_scene_to_file("res://Scenes/isoTest.tscn")
 
 # Need to look up proper saving & loading system
 # persistant node not the best way?

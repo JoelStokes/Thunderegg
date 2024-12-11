@@ -2,7 +2,7 @@ extends Camera2D
 
 @export var followPlayer: bool = false
 var player
-var lerpspeed = .005
+var lerpspeed = .05
 
 func _ready() -> void:
 	player = get_node("../PlayerOW")

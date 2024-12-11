@@ -45,5 +45,34 @@
             "hates": "body"
         },
         "description": "It bothers others into playing with it so it can practice its battle moves. It is very curious and needs an abundance of iron in its diet, otherwise it will steal metal objects to chew on."
+    },
+    "4": {
+        "name": "Seaspar",
+        "size": "6 ft. 6 in",
+        "weight": "272 lbs",
+        "type": "water",
+        "evo": {
+            "cause": "level",
+            "value": "35",
+            "id": "5"
+        },
+        "moves": "TODO",
+        "pet": {
+            "likes": "head",
+            "hates": "legs"
+        },
+        "description": "Nautical vessels and attire are often decorated with depictions of Seaspar, which are believed to bring good luck and safe travels. Seaspar are known for being affectionate and fiercely protective towards their friends, family, and Trainer."
+    },
+    "5": {
+        "name": "Covelry",
+        "size": "9 ft. 9 in",
+        "weight": "301 lbs",
+        "type": "water",
+        "moves": "TODO",
+        "pet": {
+            "likes": "head",
+            "hates": "body"
+        },
+        "description": "This Pokémon is known for its strongly-bonded families, some of whose members are not of its species. Legends tell of lost children who were raised by Covelry and grew up to be mighty warriors. In the wild, they eat iron-rich seaweed and the metal wreckage of ships to strengthen their armor."
     }
 }

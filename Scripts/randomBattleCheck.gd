@@ -11,6 +11,6 @@ func _on_body_entered(body: Node2D) -> void:
 		if (randi_range(0,99) <= encounterRate):
 			var arrayPos = randi_range(0,pokemonIDS.size()-1)
 			var newLevel = randi_range(pokemonIDS[arrayPos].y, pokemonIDS[arrayPos].z)
-			var saveNode = get_tree().get_nodes_in_group("Persist")
-			set_wild_data.emit(pokemonIDS[arrayPos], newLevel)
+			var saveNode = get_node("/root/SaveHandler")
+			saveNode._set_wild_data(pokemonIDS[arrayPos].x, newLevel)
 			get_tree().change_scene_to_file(battleScenePath)
