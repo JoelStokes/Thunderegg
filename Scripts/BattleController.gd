@@ -16,7 +16,8 @@ var weightNode
 var typeNode
 var levelNode
 var descriptionNode
-var spriteNode
+var frontSpriteNode
+var typeSpriteNode
 
 func _ready() -> void:
 	pokemonData = JSON.parse_string(FileAccess.get_file_as_string(pokemonFile))
@@ -33,7 +34,8 @@ func _ready() -> void:
 	typeNode = $UI/type
 	levelNode = $UI/level
 	descriptionNode = $UI/description
-	spriteNode = $Sprite2D
+	frontSpriteNode = $FrontSprite
+	typeSpriteNode = $TypeSprite
 	
 	#Apply text & image to nodes
 	nameNode.text = "Name: " + pokemonData.get(id).name
@@ -42,7 +44,8 @@ func _ready() -> void:
 	typeNode.text = "Type: " + pokemonData.get(id).type
 	levelNode.text = "Level: " + level
 	descriptionNode.text = pokemonData.get(id).description
-	spriteNode.texture = load("res://Sprites/Pokemon/" + id + "front.png")
+	frontSpriteNode.texture = load("res://Sprites/Pokemon/" + id + "front.png")
+	typeSpriteNode.texture = load("res://Sprites/Types/" + pokemonData.get(id).type + ".png")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

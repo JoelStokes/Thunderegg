@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3aqgmyck1voo"]
+[gd_scene load_steps=5 format=3 uid="uid://c3aqgmyck1voo"]
 
 [ext_resource type="Script" path="res://Scripts/BattleController.gd" id="1_278dn"]
 [ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="1_i644w"]
 [ext_resource type="Texture2D" uid="uid://dlku8usmpgocm" path="res://Sprites/Pokemon/1front.png" id="3_n3rp2"]
+[ext_resource type="Texture2D" uid="uid://rhc4ko4lvfun" path="res://Sprites/Types/bug.png" id="4_wg20j"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_278dn")
@@ -74,6 +75,10 @@ theme_override_font_sizes/font_size = 35
 text = "The quick, brown Foxparks jumped over the lazy Growlithe"
 autowrap_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="FrontSprite" type="Sprite2D" parent="."]
 position = Vector2(1059, 357)
 texture = ExtResource("3_n3rp2")
+
+[node name="TypeSprite" type="Sprite2D" parent="."]
+position = Vector2(1052, 732)
+texture = ExtResource("4_wg20j")

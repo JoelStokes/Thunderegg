@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfxhiwrj4raqv"]
+
+[ext_resource type="Script" path="res://Scripts/ItemInteract.gd" id="1_b78r2"]
+[ext_resource type="Texture2D" uid="uid://dy36p3eycrl1b" path="res://Sprites/Objects/Sign.png" id="2_ux66c"]
+
+[node name="Item" type="Area2D"]
+y_sort_enabled = true
+position = Vector2(456, -210)
+collision_layer = 32
+script = ExtResource("1_b78r2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("2_ux66c")
+offset = Vector2(0, -11.535)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-9, -4, -17, -1, -1, 8, 6, 4)
+
+[node name="Collision" type="StaticBody2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision"]
+position = Vector2(1, -7.5)
+polygon = PackedVector2Array(-1, 11, 9, 7, -1, 2, -11, 6)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

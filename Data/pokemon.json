@@ -3,7 +3,7 @@
         "name": "Toygon",
         "size": "12 in",
         "weight": "5 lbs",
-        "type": "switch",
+        "type": "normal",
         "evo": {
             "cause": "cutscene",
             "value": "1",
@@ -24,7 +24,7 @@
         "name": "Toygon2",
         "size": "22 in",
         "weight": "40 lbs",
-        "type": "switch",
+        "type": "normal",
         "moves": "any",
         "pet": "any",
         "description": "After receiving many upgrades, it is now more capable of battling. It learns and stores information using artificial intelligence. It can also parallel park."
