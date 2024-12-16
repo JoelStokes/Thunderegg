@@ -4,7 +4,6 @@ extends Area2D
 @export var pokemonIDS: Array[Vector3] = []
 var battleScenePath = "res://Scenes/battle.tscn"
 var encounterRate = 15      #Percent chance that battle will start when player enters
-signal set_wild_data
 
 func _on_body_entered(body: Node2D) -> void:
 	if (body.name == "PlayerOW"):

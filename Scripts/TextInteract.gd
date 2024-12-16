@@ -2,6 +2,10 @@ extends Area2D
 
 #Trigger Dialog if player walks into area and presses interact
 @export_multiline var textArray: Array[String] = []
+@export_multiline var altTextArray: Array[String] = []	#Alt text used when item already collected
+@export var itemOWID: int
+@export var itemID: int
+@export var itemAmount: int
 var inZone = false
 var dialogStarted = false
 var textNode
@@ -14,10 +18,20 @@ var textLim = .04     #Amount of seconds until next letter revealed
 var textCounter = 0
 var textFinished = true
 
+#Save Node Access / Item Management
+var saveNode
+var useAltText = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	textNode = get_node("../CameraOW/Text Parent")
 	playerNode = get_node("../PlayerOW")
+
+	# If item given from interaction, check if the player has already recieved it
+	if (itemOWID):
+		saveNode = get_node("/root/SaveHandler")
+		if (saveNode.load_specific("item:" + itemOWID)):
+			useAltText = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -59,6 +73,9 @@ func _process(delta: float) -> void:
 				textFinished = true
 				textNode._show_text_end_icon()
 			textCounter = 0
+
+func _add_item():
+
 
 func _on_body_entered(body):
 	if (body.name == "PlayerOW"):

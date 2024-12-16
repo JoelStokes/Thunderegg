@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfxhiwrj4raqv"]
 
 [ext_resource type="Script" path="res://Scripts/ItemInteract.gd" id="1_b78r2"]
-[ext_resource type="Texture2D" uid="uid://dy36p3eycrl1b" path="res://Sprites/Objects/Sign.png" id="2_ux66c"]
+[ext_resource type="Texture2D" uid="uid://cxgpwwby82y2g" path="res://Sprites/Objects/Trashcan.png" id="2_7v742"]
 
 [node name="Item" type="Area2D"]
 y_sort_enabled = true
@@ -11,18 +11,21 @@ script = ExtResource("1_b78r2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
-texture = ExtResource("2_ux66c")
+position = Vector2(0.600006, 6.8)
+texture = ExtResource("2_7v742")
 offset = Vector2(0, -11.535)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-9, -4, -17, -1, -1, 8, 6, 4)
+position = Vector2(1.60001, -0.199997)
+polygon = PackedVector2Array(-0.600006, -5.8, -15.6, 0.199997, -1, 8, 13.4, 1.2)
 
 [node name="Collision" type="StaticBody2D" parent="."]
+position = Vector2(0.600006, 0.800003)
 collision_layer = 32
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision"]
 position = Vector2(1, -7.5)
-polygon = PackedVector2Array(-1, 11, 9, 7, -1, 2, -11, 6)
+polygon = PackedVector2Array(-1, 11, 8.39999, 7.7, -0.600006, 3.7, -10.6, 6.7)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
