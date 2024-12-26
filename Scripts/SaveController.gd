@@ -29,16 +29,40 @@ func save_specific(location, value):
 	file.store_string(json)
 	file.close()
 
-func load_specific(location) -> string:
+func add_item(itemID):
+	#Check if item has been saved before. If yes, add 1. If no, make this the first
+	var newValue = 1
 	var file = FileAccess.open("user://savegame.json", FileAccess.READ)
 
-	var json = file.get_as_text()
-	var saved_data = JSON.parse_string(json)
+	if (file):
+		var json = file.get_as_text()
+		var saved_data = JSON.parse_string(json)
+		
+		var oldValue = saved_data.get("items:" + str(itemID))
+		if (oldValue):
+			newValue += int(oldValue)
+	
+	file = FileAccess.open("user://savegame.data", FileAccess.WRITE)
 
-	var value = saved_data.get(location)
+	var saved_data = {}
+	saved_data["items:" + str(itemID)] = str(newValue)
+	
+	var json = JSON.stringify(saved_data)
+	
+	file.store_string(json)
+	file.close()
 
-	return value
+func load_specific(location):
+	var file = FileAccess.open("user://savegame.json", FileAccess.READ)
 
+	if (file):
+		var json = file.get_as_text()
+		var saved_data = JSON.parse_string(json)
+
+		var value = saved_data.get(location)
+		if (value):
+			return value
+	return "N/A"
 
 #Save OW position
 func save_OW(newX, newY, scene):

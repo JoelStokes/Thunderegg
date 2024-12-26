@@ -8,7 +8,6 @@ func _ready() -> void:
 	textboxNode = $Textbox
 	textArrowNode = $TextArrow
 	visible = false
-	pass # Replace with function body.
 
 func _set_text(newText) -> void:
 	textboxNode.text = newText

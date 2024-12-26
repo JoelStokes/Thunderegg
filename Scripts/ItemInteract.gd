@@ -1,17 +1,18 @@
 extends Area2D
 
 #Trigger Dialog if player walks into area and presses interact
-@export var itemID: int = 0
+@export var itemID = "0"
 var inZone = false
 var dialogStarted = false
 var textNode
 var playerNode
+var saveNode
 
 var itemFile = "res://Data/items.json"
 var itemData
 
 #Text scrolling variables
-var itemText
+var itemText = ""
 var currLetter = 0
 var currArrayPos = 0
 var textLim = .04     #Amount of seconds until next letter revealed
@@ -22,12 +23,14 @@ func _ready() -> void:
 	#Check if the player has collected the item to decide if it exists or not
 	textNode = get_node("../CameraOW/Text Parent")
 	playerNode = get_node("../PlayerOW")
+	saveNode = get_node("/root/SaveHandler")
 	
 	itemData = JSON.parse_string(FileAccess.get_file_as_string(itemFile))
-	itemText = "You found a " + itemData.get(itemID).name + "!"
+	var newItem = itemData.get(itemID)
+	itemText = "You found a " + newItem.get("name") + "!"
 
 func _process(delta: float) -> void:
-	if (Input.is_action_just_pressed("Confirm") || Input.is_key_pressed(KEY_Z)):
+	if (Input.is_action_just_pressed("Confirm")):
 		if (inZone):
 			#Start Dialog Box
 			if (!dialogStarted):
@@ -43,6 +46,7 @@ func _process(delta: float) -> void:
 				playerNode._set_freeze(false)
 				dialogStarted = false
 				currArrayPos = 0
+				saveNode.add_item(itemID)
 				queue_free()	#destroys self and all children
 				
 			#Text is still scrolling, immediately finish text scroll

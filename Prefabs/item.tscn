@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfxhiwrj4raqv"]
 
 [ext_resource type="Script" path="res://Scripts/ItemInteract.gd" id="1_b78r2"]
-[ext_resource type="Texture2D" uid="uid://cxgpwwby82y2g" path="res://Sprites/Objects/Trashcan.png" id="2_7v742"]
+[ext_resource type="Texture2D" uid="uid://c6jgaipws28ux" path="res://Sprites/Objects/PokeBall.png" id="2_2k6ua"]
 
 [node name="Item" type="Area2D"]
 y_sort_enabled = true
@@ -11,8 +11,9 @@ script = ExtResource("1_b78r2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0.600006, 6.8)
-texture = ExtResource("2_7v742")
+position = Vector2(0.6, 6.985)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_2k6ua")
 offset = Vector2(0, -11.535)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

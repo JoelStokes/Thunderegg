@@ -30,7 +30,7 @@ func _ready() -> void:
 	# If item given from interaction, check if the player has already recieved it
 	if (itemOWID):
 		saveNode = get_node("/root/SaveHandler")
-		if (saveNode.load_specific("item:" + itemOWID)):
+		if (saveNode.load_specific("item:" + str(itemOWID))):
 			useAltText = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -75,6 +75,8 @@ func _process(delta: float) -> void:
 			textCounter = 0
 
 func _add_item():
+	#TODO!
+	print("todo")
 
 
 func _on_body_entered(body):
