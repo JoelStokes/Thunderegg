@@ -383,13 +383,15 @@ position = Vector2(572, -226)
 [node name="GarbageCan" parent="." instance=ExtResource("14_ul5n6")]
 z_index = 1
 position = Vector2(129, 65)
-itemID = "2"
+OWID = 2
+itemID = 2
 
 [node name="Item" parent="." instance=ExtResource("14_c473j")]
 z_index = 1
 position = Vector2(-99, 78)
 scale = Vector2(-1, 1)
-itemID = "1"
+OWID = 1
+itemID = 1
 
 [node name="Door" parent="." instance=ExtResource("13_dr0kn")]
 z_index = 1

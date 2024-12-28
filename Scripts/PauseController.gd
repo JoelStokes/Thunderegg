@@ -39,10 +39,10 @@ func _toggle_pause():
 	paused = !paused
 	
 	if (paused):
-		trainerNameNode.text = "Trainer: " + saveNode.load_specific("name")
+		trainerNameNode.text = "Trainer: " + str(saveNode.load_specific("name"))
 		
 		#Find & loop through all saved items for total count & individual counts
-		var items = JSON.parse_string(saveNode.load_specific("items"))
+		var items = saveNode.load_specific("items")
 		var itemTotal = 0
 		if (items):
 			for key in items.keys():

@@ -1,7 +1,9 @@
 extends Area2D
 
 #Trigger Dialog if player walks into area and presses interact
-@export var itemID = "0"
+#OWID handles collection status of item (prevent appearing if already collected)
+@export var OWID = 0
+@export var itemID = 0
 var inZone = false
 var dialogStarted = false
 var textNode
@@ -20,14 +22,18 @@ var textCounter = 0
 var textFinished = true
 
 func _ready() -> void:
-	#Check if the player has collected the item to decide if it exists or not
 	textNode = get_node("../CameraOW/Text Parent")
 	playerNode = get_node("../PlayerOW")
 	saveNode = get_node("/root/SaveHandler")
 	
+	#Check if the player has already collected this item previously
+	var checkCollected = saveNode.load_specific("OWID", OWID)
+	if (checkCollected):
+		queue_free()
+	
 	itemData = JSON.parse_string(FileAccess.get_file_as_string(itemFile))
-	var newItem = itemData.get(itemID)
-	itemText = "You found a " + newItem.get("name") + "!"
+	var itemName = itemData.get(str(itemID)).get("name")
+	itemText = "You found a " + itemName + "!"
 
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Confirm")):
@@ -46,7 +52,7 @@ func _process(delta: float) -> void:
 				playerNode._set_freeze(false)
 				dialogStarted = false
 				currArrayPos = 0
-				saveNode.add_item(itemID)
+				saveNode.add_item(itemID, OWID)
 				queue_free()	#destroys self and all children
 				
 			#Text is still scrolling, immediately finish text scroll

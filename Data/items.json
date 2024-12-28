@@ -1,15 +1,15 @@
 {
-    "0": {
-        "name": "ERROR"
-    },
-    "1": {
-        "name": "Potion",
-        "type": "heal",
-        "amount": 50
-    },
-    "2": {
-        "name": "PokeBall",
-        "type": "pokeball",
-        "strength": 1
-    }
+	"0": {
+		"name": "ERROR"
+	},
+	"1": {
+		"name": "Potion",
+		"type": "heal",
+		"amount": 50
+	},
+	"2": {
+		"name": "PokeBall",
+		"type": "pokeball",
+		"strength": 1
+	}
 }
