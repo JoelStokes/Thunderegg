@@ -14,14 +14,35 @@ func _set_wild_data(newID, newLevel) -> void:
 	userSave.wildPokemonID = newID
 	userSave.wildPokemonLevel = newLevel
 	save_game()
+	
+func _get_name() -> String:
+	if (userSave):
+		return userSave.name
+	else:
+		return ""
+
+func _set_name(newName) -> void:
+	userSave.name = newName
+	save_game()
 
 func save_game():
-	var userSave:UserSave = UserSave.new()
+	#var userSave:UserSave = UserSave.new()
 	ResourceSaver.save(userSave, SAVE_GAME_PATH)
 
-static func load_game():
-	var userSave:UserSave = load(SAVE_GAME_PATH) as UserSave
-
+static func load_game() -> Resource:
+	if not ResourceLoader.has_cached(SAVE_GAME_PATH):
+		ResourceLoader.load(SAVE_GAME_PATH,"", true)
+	# From existing bug? See https://www.youtube.com/watch?v=TGdQ57qCCF0 for info
+	
+	var file := File.new()
+	if file.open(SAVE_GAME_PATH, File.READ) != OK:
+		printerr("Couldn't read file " + SAVE_GAME_PATH)
+		return null
+		
+	var data := file.get_as_text()
+	file.close()
+	#FINISH THIS SECTION FROM ABOVE VIDEO LINK!
+	
 func add_item(itemID, OWID):
 	var newValue = 1
 

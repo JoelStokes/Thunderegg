@@ -1,32 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://b02led24nyh76"]
+[gd_scene load_steps=4 format=3 uid="uid://b02led24nyh76"]
 
 [ext_resource type="Texture2D" uid="uid://cyosn7wabckr" path="res://Sprites/UI/Logo.png" id="1_t7vcx"]
+[ext_resource type="Script" path="res://Scripts/TitleController.gd" id="1_y0ror"]
+[ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="2_6c7ov"]
 
 [node name="Title" type="Node2D"]
+script = ExtResource("1_y0ror")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(0, -100)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_t7vcx")
 
-[node name="Trainer Name Box" type="LineEdit" parent="."]
-offset_left = 3.00001
-offset_top = 233.0
-offset_right = 70.0625
-offset_bottom = 264.0
-scale = Vector2(2.44, 1)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="New Save Data Text" type="Label" parent="."]
-offset_left = -192.0
-offset_top = 234.0
-offset_right = -14.0
-offset_bottom = 257.0
-text = "Create new Save Data: "
+[node name="ContinueButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = 164.0
+offset_right = 99.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_6c7ov")
+theme_override_font_sizes/font_size = 35
+text = "Continue - Trainer"
 
-[node name="Continue" type="Label" parent="."]
-offset_left = -192.0
-offset_top = 185.0
-offset_right = -14.0
-offset_bottom = 208.0
-text = "Continue:"
+[node name="NewGameButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = 232.0
+offset_right = -13.0
+offset_bottom = 278.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_6c7ov")
+theme_override_font_sizes/font_size = 35
+text = "New Game"
+
+[node name="TrainerNameBox" type="LineEdit" parent="."]
+offset_left = 3.0
+offset_top = 232.0
+offset_right = 70.0625
+offset_bottom = 263.0
+scale = Vector2(2, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("2_6c7ov")
+theme_override_font_sizes/font_size = 15
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]
