@@ -33,6 +33,8 @@ static func load_game() -> Resource:
 	if not ResourceLoader.has_cached(SAVE_GAME_PATH):
 		ResourceLoader.load(SAVE_GAME_PATH,"", true)
 	# From existing bug? See https://www.youtube.com/watch?v=TGdQ57qCCF0 for info
+	# Also check out https://forum.godotengine.org/t/how-to-create-a-shader-for-casting-shadows-on-an-isometric-tilemap/11234
+	# Shadows for Isometric world?
 	
 	var file := File.new()
 	if file.open(SAVE_GAME_PATH, File.READ) != OK:

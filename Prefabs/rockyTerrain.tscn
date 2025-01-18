@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpwf5gisvxt53"]
+
+[ext_resource type="Script" path="res://Scripts/randomBattleCheck.gd" id="1_2wqb2"]
+[ext_resource type="Texture2D" uid="uid://den24n5pvabi3" path="res://Sprites/Objects/RockyTerrain.png" id="2_pyue5"]
+
+[node name="RockyTerrain" type="Area2D"]
+y_sort_enabled = true
+scale = Vector2(1.5, 1.5)
+collision_layer = 32
+script = ExtResource("1_2wqb2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, -4, -2, 0, -4, 4, -2)
+
+[node name="sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_pyue5")
+offset = Vector2(0, -6)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
