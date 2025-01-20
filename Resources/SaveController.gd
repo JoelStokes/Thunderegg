@@ -2,7 +2,11 @@ extends Node
 
 const SAVE_GAME_PATH := "user://savegame.tres"
 
-@export var userSave: Resource
+var userSave = UserSave.new()
+
+# Load game data on startup
+func _ready() -> void:
+	load_game()
 
 func _get_wild_id() -> int:
 	return userSave.wildPokemonID
@@ -26,53 +30,68 @@ func _set_name(newName) -> void:
 	save_game()
 
 func save_game():
-	#var userSave:UserSave = UserSave.new()
-	ResourceSaver.save(userSave, SAVE_GAME_PATH)
+	var data = ResourceSaver.save(userSave, SAVE_GAME_PATH)
+	
+	if data != OK:
+		print("Error Saving Game: " + data)
 
-static func load_game() -> Resource:
-	if not ResourceLoader.has_cached(SAVE_GAME_PATH):
-		ResourceLoader.load(SAVE_GAME_PATH,"", true)
-	# From existing bug? See https://www.youtube.com/watch?v=TGdQ57qCCF0 for info
-	# Also check out https://forum.godotengine.org/t/how-to-create-a-shader-for-casting-shadows-on-an-isometric-tilemap/11234
-	# Shadows for Isometric world?
+func load_game():
+	userSave = ResourceLoader.load(SAVE_GAME_PATH)
 	
-	var file := File.new()
-	if file.open(SAVE_GAME_PATH, File.READ) != OK:
-		printerr("Couldn't read file " + SAVE_GAME_PATH)
-		return null
-		
-	var data := file.get_as_text()
-	file.close()
-	#FINISH THIS SECTION FROM ABOVE VIDEO LINK!
-	
+	if (userSave == null):
+		print("Error loading game")
+		userSave = UserSave.new()
+
+# Item picked up, add the itemID and OWID to prevent repeat pickups
 func add_item(itemID, OWID):
 	var newValue = 1
 
-	var oldValue = userSave.items[itemID]
+	var oldValue = userSave.Items[itemID]
 	if (oldValue):
 		newValue += int(oldValue)
 	
 	userSave.Items[itemID] = newValue
 	
 	if (OWID):
-		userSave.OWID[OWID] = 1
+		userSave.OWIDs[OWID] = 1                                      
 	
 	save_game()
 
-func load_specific(location, id : int = 0):
-	load_game()
+func load_specific(location, id : int = -1):
 	if (!userSave):
+		print("Error: No userSave data available for load call!")
 		return 0
 	
+	# Check location. If exists, check ID at location. If no array at expected location, return 0
 	var data
-	if (id != 0):
-		data = userSave.get(location)[id]
+	var dataLocation = userSave.get(location)
+	if (dataLocation):
+		if (id != -1):
+			data = dataLocation[id]
+		else:
+			data = userSave.get(location)
 	else:
-		data = userSave.get(location)
+		print("Error: Location " + location + " could not be found in userSave!")
+		return 0
 	return data
 
-#Save OW position
-func save_OW(newX, newY, scene):
-	load_game()
-	userSave.lastPos = Vector2(newX, newY)
-	userSave.lastScene = scene
+#Save OW level & location
+func save_OW(newPos: Vector3, newScene):
+	#Remove decimals from saved battle position
+	userSave.lastPos = Vector3(roundf(newPos.x), roundf(newPos.y), newPos.z)
+	
+	#Trim Suffix added to make sure scene name isn't accidently saved with one
+	userSave.lastScene = newScene.trim_suffix(".tscn")
+	save_game()
+
+#Save caught or seen Pokemon. Seen is 1, Caught is 2
+func save_Dex(id, newStatus):
+	userSave.Dex[id] = newStatus
+	save_game()
+
+#Remove previous save file to start from scratch
+func delete_save():
+	DirAccess.remove_absolute(SAVE_GAME_PATH)
+	
+	userSave = UserSave.new()
+	save_game()

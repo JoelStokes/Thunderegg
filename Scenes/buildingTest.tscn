@@ -75,6 +75,7 @@ layer = 1
 
 [node name="LoadingZone" parent="." instance=ExtResource("8_hoq4e")]
 newScene = "isoTest"
+newPos = Vector3(529, -199, 1)
 
 [node name="Sign" parent="." instance=ExtResource("10_x520n")]
 z_index = 1

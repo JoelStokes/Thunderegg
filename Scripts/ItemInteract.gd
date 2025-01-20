@@ -27,7 +27,7 @@ func _ready() -> void:
 	saveNode = get_node("/root/SaveHandler")
 	
 	#Check if the player has already collected this item previously
-	var checkCollected = saveNode.load_specific("OWID", OWID)
+	var checkCollected = saveNode.load_specific("OWIDs", OWID)
 	if (checkCollected):
 		queue_free()
 	

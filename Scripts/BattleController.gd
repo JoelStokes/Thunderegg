@@ -2,55 +2,61 @@ extends Node2D
 
 var saveNode
 
-var id = "1"
-var level = "1"
+var id = 1
+var level = 1
+var dexStatus = 0
 
 # Json data
 var pokemonFile = "res://Data/pokemon.json"
 var pokemonData
 
 # Text Nodes
-var nameNode
-var sizeNode
-var weightNode
-var typeNode
-var levelNode
-var descriptionNode
-var frontSpriteNode
-var typeSpriteNode
+@onready var nameNode = $UI/name
+@onready var sizeNode = $UI/size
+@onready var weightNode = $UI/weight
+@onready var levelNode = $UI/level
+@onready var descriptionNode = $UI/description
+@onready var frontSpriteNode = $FrontSprite
+@onready var typeSpriteNode = $TypeSprite
+@onready var caughtSpriteNode = $CaughtSprite
+@onready var seenSpriteNode = $SeenSprite
 
 func _ready() -> void:
 	pokemonData = JSON.parse_string(FileAccess.get_file_as_string(pokemonFile))
 	
 	#Get ID & Level from previous scene saved info
 	saveNode = get_node("../SaveHandler")
-	level = str(saveNode._get_wild_level())
-	id = str(saveNode._get_wild_id())
-	
-	#Set nodes to populate data
-	nameNode = $UI/name
-	sizeNode = $UI/size
-	weightNode = $UI/weight
-	typeNode = $UI/type
-	levelNode = $UI/level
-	descriptionNode = $UI/description
-	frontSpriteNode = $FrontSprite
-	typeSpriteNode = $TypeSprite
+	level = saveNode._get_wild_level()
+	id = saveNode._get_wild_id()
 	
 	#Apply text & image to nodes
-	nameNode.text = "Name: " + pokemonData.get(id).name
-	sizeNode.text = "Size: " + pokemonData.get(id).size
-	weightNode.text = "Weight: " + pokemonData.get(id).weight
-	typeNode.text = "Type: " + pokemonData.get(id).type
-	levelNode.text = "Level: " + level
-	descriptionNode.text = pokemonData.get(id).description
-	frontSpriteNode.texture = load("res://Sprites/Pokemon/" + id + "front.png")
-	typeSpriteNode.texture = load("res://Sprites/Types/" + pokemonData.get(id).type + ".png")
+	nameNode.text = "A wild " + pokemonData.get(str(id)).name + " appeared!"
+	sizeNode.text = "Size: " + pokemonData.get(str(id)).size
+	weightNode.text = "Weight: " + pokemonData.get(str(id)).weight
+	levelNode.text = "Lv: " + str(level)
+	descriptionNode.text = pokemonData.get(str(id)).description
+	frontSpriteNode.texture = load("res://Sprites/Pokemon/" + str(id) + "front.png")
+	typeSpriteNode.texture = load("res://Sprites/Types/" + pokemonData.get(str(id)).type + ".png")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if (Input.is_action_just_pressed("Confirm") || Input.is_key_pressed(KEY_Z)):
-		get_tree().change_scene_to_file("res://Scenes/isoTest.tscn")
+	#Set Seen & Caught sprites
+	dexStatus = saveNode.load_specific("Dex", id)
+	if (dexStatus > 0):
+		seenSpriteNode.modulate = Color(1,1,1)
+	if(dexStatus > 1):
+		caughtSpriteNode.modulate = Color(1,1,1)
 
-# Need to look up proper saving & loading system
-# persistant node not the best way?
+# Capture Pokemon, Save & return to previous scene
+func _on_catch_button_down() -> void:
+	if (dexStatus != 2):
+		saveNode.save_Dex(id, 2)
+	return_to_OW()
+
+# Run away, save pokemon as seen but not captured. Return to previous scene
+func _on_flee_button_down() -> void:
+	if (dexStatus < 1):
+		saveNode.save_Dex(id, 1)
+	return_to_OW()
+
+func return_to_OW():
+	var scene = saveNode.load_specific("lastScene")
+	get_tree().change_scene_to_file("res://Scenes/" + scene + ".tscn")

@@ -1,17 +1,20 @@
 extends Area2D
 
 @export var newScene: String = ""
+@export var newPos:= Vector3(0,0,0)
+
 var scenePath = "res://Scenes/"
 var playerInside = false
+var saveNode
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	saveNode = get_node("/root/SaveHandler")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# If user presses Confirm inside 
 func _process(delta: float) -> void:
-	if (Input.is_action_just_pressed("Confirm") || Input.is_key_pressed(KEY_Z)):
+	if (Input.is_action_just_pressed("Confirm")):
 		if (playerInside):
+			saveNode.save_OW(newPos, newScene)
 			get_tree().change_scene_to_file(scenePath + newScene + ".tscn")
 
 func _on_body_entered(body):

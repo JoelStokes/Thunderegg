@@ -1,12 +1,9 @@
 extends Control
 
-var textboxNode
-var textArrowNode
+@onready var textboxNode = $Textbox
+@onready var textArrowNode = $TextArrow
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	textboxNode = $Textbox
-	textArrowNode = $TextArrow
 	visible = false
 
 func _set_text(newText) -> void:

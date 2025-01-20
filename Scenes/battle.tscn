@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3aqgmyck1voo"]
+[gd_scene load_steps=7 format=3 uid="uid://c3aqgmyck1voo"]
 
 [ext_resource type="Script" path="res://Scripts/BattleController.gd" id="1_278dn"]
 [ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="1_i644w"]
 [ext_resource type="Texture2D" uid="uid://dlku8usmpgocm" path="res://Sprites/Pokemon/1front.png" id="3_n3rp2"]
 [ext_resource type="Texture2D" uid="uid://rhc4ko4lvfun" path="res://Sprites/Types/bug.png" id="4_wg20j"]
+[ext_resource type="Texture2D" uid="uid://c6jgaipws28ux" path="res://Sprites/Objects/PokeBall.png" id="5_v5jnn"]
+[ext_resource type="Texture2D" uid="uid://vk2tsqnj46xn" path="res://Sprites/UI/Eyeball.png" id="6_3fvrm"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_278dn")
@@ -32,53 +34,94 @@ offset_right = 636.0
 offset_bottom = 150.0
 theme_override_fonts/font = ExtResource("1_i644w")
 theme_override_font_sizes/font_size = 35
-text = "The quick, brown Foxparks jumped over the lazy Growlithe"
+text = "Size: ##' ##\""
 
 [node name="weight" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 49.0
-offset_top = 196.0
-offset_right = 637.0
-offset_bottom = 228.0
+offset_left = 278.0
+offset_top = 118.0
+offset_right = 866.0
+offset_bottom = 156.0
 theme_override_fonts/font = ExtResource("1_i644w")
 theme_override_font_sizes/font_size = 35
-text = "The quick, brown Foxparks jumped over the lazy Growlithe"
-
-[node name="type" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 279.0
-offset_right = 635.0
-offset_bottom = 311.0
-theme_override_fonts/font = ExtResource("1_i644w")
-theme_override_font_sizes/font_size = 35
-text = "The quick, brown Foxparks jumped over the lazy Growlithe"
+text = "Weight: ###lbs"
 
 [node name="level" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 365.0
-offset_right = 631.0
-offset_bottom = 397.0
+offset_left = 513.0
+offset_top = 118.0
+offset_right = 1199.0
+offset_bottom = 156.0
 theme_override_fonts/font = ExtResource("1_i644w")
 theme_override_font_sizes/font_size = 35
-text = "The quick, brown Foxparks jumped over the lazy Growlithe"
+text = "Lv: ##"
 
 [node name="description" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 44.0
-offset_top = 442.0
-offset_right = 632.0
-offset_bottom = 474.0
+offset_left = 46.0
+offset_top = 217.0
+offset_right = 634.0
+offset_bottom = 296.0
 theme_override_fonts/font = ExtResource("1_i644w")
 theme_override_font_sizes/font_size = 35
 text = "The quick, brown Foxparks jumped over the lazy Growlithe"
 autowrap_mode = 2
 
 [node name="FrontSprite" type="Sprite2D" parent="."]
-position = Vector2(1059, 357)
+position = Vector2(962, 239)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_n3rp2")
 
 [node name="TypeSprite" type="Sprite2D" parent="."]
-position = Vector2(1052, 732)
+position = Vector2(1021.5, 492.75)
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("4_wg20j")
+
+[node name="CaughtSprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(872.5, 496)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("5_v5jnn")
+
+[node name="SeenSprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(811, 496)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("6_3fvrm")
+
+[node name="CatchButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 444.0
+offset_top = 609.0
+offset_right = 532.0
+offset_bottom = 660.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_i644w")
+theme_override_font_sizes/font_size = 40
+text = "Catch"
+
+[node name="FleeButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 636.0
+offset_top = 609.0
+offset_right = 724.0
+offset_bottom = 660.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_i644w")
+theme_override_font_sizes/font_size = 40
+text = "Flee"
+
+[connection signal="button_down" from="CatchButton" to="." method="_on_catch_button_down"]
+[connection signal="button_down" from="FleeButton" to="." method="_on_flee_button_down"]

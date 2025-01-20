@@ -394,10 +394,18 @@ scale = Vector2(-1, 1)
 OWID = 1
 itemID = 1
 
+[node name="Item2" parent="." instance=ExtResource("14_c473j")]
+z_index = 1
+position = Vector2(425, -305)
+scale = Vector2(-1, 1)
+OWID = 3
+itemID = 1
+
 [node name="Door" parent="." instance=ExtResource("13_dr0kn")]
 z_index = 1
 position = Vector2(538, -211)
 newScene = "buildingTest"
+newPos = Vector3(0, 0, 1)
 
 [node name="Sign" parent="." instance=ExtResource("14_27uhp")]
 z_index = 1

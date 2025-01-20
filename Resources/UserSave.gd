@@ -1,11 +1,12 @@
-class_name UserSave
 extends Resource
+class_name UserSave
 
 @export var name := "Blue"
 @export var money := 0
 
 #Used to load player position after game restart, battles, or travelling between scenes
-@export var lastPos := Vector2(0,0)
+@export var lastPos := Vector3(0,0,0)
+@export var lastLayer := 0
 @export var lastScene := ""
 
 #Used to transition from overworld to battle

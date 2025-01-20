@@ -88,7 +88,6 @@ autowrap_mode = 2
 text_overrun_behavior = 3
 
 [node name="Pause Menu" type="Control" parent="."]
-visible = false
 z_index = 50
 layout_direction = 2
 layout_mode = 3
@@ -195,7 +194,7 @@ grow_vertical = 0
 theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("2_llmv4")
 theme_override_font_sizes/font_size = 28
-text = "Pokemon Seen: 0"
+text = "Pokemon Caught: 0"
 autowrap_mode = 2
 text_overrun_behavior = 3
 
