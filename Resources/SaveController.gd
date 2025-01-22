@@ -42,19 +42,28 @@ func load_game():
 		print("Error loading game")
 		userSave = UserSave.new()
 
-# Item picked up, add the itemID and OWID to prevent repeat pickups
-func add_item(itemID, OWID):
+# Item picked up, add the itemID and OWID to prevent repeat pickups. Add money if no itemID
+func add_item(itemID, OWID, itemAmount:int = 0):
 	var newValue = 1
+	if (itemAmount):
+		newValue = itemAmount
 
-	var oldValue = userSave.Items[itemID]
-	if (oldValue):
-		newValue += int(oldValue)
-	
-	userSave.Items[itemID] = newValue
-	
+	if (itemID):
+		var oldValue = userSave.Items[itemID]
+		if (oldValue):
+			newValue += int(oldValue)
+		
+		userSave.Items[itemID] = newValue
+	else:
+		userSave.money += newValue
+		
 	if (OWID):
 		userSave.OWIDs[OWID] = 1                                      
 	
+	save_game()
+	
+func use_item(itemID, amount):
+	userSave.Items[itemID] = userSave.Items[itemID] - 1
 	save_game()
 
 func load_specific(location, id : int = -1):

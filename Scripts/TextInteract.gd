@@ -5,7 +5,7 @@ extends Area2D
 @export_multiline var altTextArray: Array[String] = []	#Alt text used when item already collected
 @export var itemOWID: int
 @export var itemID: int
-@export var itemAmount: int
+@export var itemAmount: int #If Item amount but no itemID, add it to money
 var inZone = false
 var dialogStarted = false
 var textNode
@@ -21,6 +21,7 @@ var textFinished = true
 #Save Node Access / Item Management
 var saveNode
 var useAltText = false
+var currTextArray
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,54 +31,60 @@ func _ready() -> void:
 	# If item given from interaction, check if the player has already recieved it
 	if (itemOWID):
 		saveNode = get_node("/root/SaveHandler")
-		if (saveNode.load_specific("item:" + str(itemOWID))):
+		if (saveNode.load_specific("OWIDs", itemOWID) > 0):
 			useAltText = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Confirm") || Input.is_key_pressed(KEY_Z)):
 		if (inZone):
+			if (useAltText):
+				currTextArray = altTextArray
+			else:
+				currTextArray = textArray
+			
 			#Start Dialog Box
 			if (!dialogStarted):
 				currLetter = 1
-				textNode._set_text(textArray[currArrayPos].substr(0,currLetter))
+				textNode._set_text(currTextArray[currArrayPos].substr(0,currLetter))
 				playerNode._set_freeze(true)
 				dialogStarted = true
 				textFinished = false
 				
 			#Advance to next text block or end if full array traversed
 			elif (textFinished):
-				if (currArrayPos >= textArray.size()-1):
+				if (currArrayPos >= currTextArray.size()-1):
+					if (itemAmount && !useAltText):
+						_add_item()
 					textNode._hide_box()
 					playerNode._set_freeze(false)
 					dialogStarted = false
 					currArrayPos = 0
+					useAltText = true
 				else:
 					currLetter = 1
 					currArrayPos += 1
 					textFinished = false
-					textNode._set_text(textArray[currArrayPos].substr(0,currLetter))
+					textNode._set_text(currTextArray[currArrayPos].substr(0,currLetter))
 			#Text is still scrolling, immediately finish text scroll
 			else:
-				textNode._set_text(textArray[currArrayPos])
+				textNode._set_text(currTextArray[currArrayPos])
 				textFinished = true
 				textNode._show_text_end_icon()
 	
 	if (!textFinished):
 		textCounter += delta
 		if (textCounter > textLim):
-			if (currLetter < textArray[currArrayPos].length()):
+			if (currLetter < currTextArray[currArrayPos].length()):
 				currLetter += 1
-				textNode._set_text(textArray[currArrayPos].substr(0,currLetter))
+				textNode._set_text(currTextArray[currArrayPos].substr(0,currLetter))
 			else:
 				textFinished = true
 				textNode._show_text_end_icon()
 			textCounter = 0
 
 func _add_item():
-	#TODO!
-	print("todo")
-
+	saveNode.add_item(itemID, itemOWID, itemAmount)
 
 func _on_body_entered(body):
 	if (body.name == "PlayerOW"):

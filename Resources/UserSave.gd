@@ -1,7 +1,7 @@
 extends Resource
 class_name UserSave
 
-@export var name := "Blue"
+@export var name := ""
 @export var money := 0
 
 #Used to load player position after game restart, battles, or travelling between scenes

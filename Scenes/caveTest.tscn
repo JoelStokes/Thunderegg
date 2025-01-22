@@ -1,0 +1,149 @@
+[gd_scene load_steps=20 format=4 uid="uid://bdgtv3du0tt48"]
+
+[ext_resource type="PackedScene" uid="uid://bpwf5gisvxt53" path="res://Prefabs/rockyTerrain.tscn" id="1_cfjyw"]
+[ext_resource type="PackedScene" uid="uid://1dmh6gmrfjqo" path="res://Prefabs/CameraOW.tscn" id="1_te5xl"]
+[ext_resource type="PackedScene" uid="uid://cwqad86u2hhia" path="res://Prefabs/PlayerOW.tscn" id="2_xve6a"]
+[ext_resource type="Texture2D" uid="uid://bbukc2axmb4hl" path="res://Sprites/Tiles/Blue.png" id="3_m7i8j"]
+[ext_resource type="Texture2D" uid="uid://buba3arumbehr" path="res://Sprites/Tiles/Tileset.png" id="4_d3dgw"]
+[ext_resource type="Texture2D" uid="uid://dwbblfflonnc3" path="res://Sprites/Tiles/SlantGrass.png" id="5_j3bg5"]
+[ext_resource type="Texture2D" uid="uid://qh32gth5c7m0" path="res://Sprites/Tiles/WaterTile.png" id="6_h014g"]
+[ext_resource type="Texture2D" uid="uid://be5dfrgtoi8uw" path="res://Sprites/Tiles/Sand.png" id="7_cwiiu"]
+[ext_resource type="Script" path="res://Scripts/TilemapLayerHandler.gd" id="8_o2ssq"]
+[ext_resource type="PackedScene" uid="uid://b7qwcw3k01dhy" path="res://Prefabs/loading_zone.tscn" id="9_a0b64"]
+[ext_resource type="PackedScene" uid="uid://c2n5ntm3viw34" path="res://Prefabs/sign.tscn" id="10_nmps4"]
+[ext_resource type="PackedScene" uid="uid://bfkv7mbaps77h" path="res://Prefabs/boulder.tscn" id="12_bhlef"]
+[ext_resource type="PackedScene" uid="uid://dfxhiwrj4raqv" path="res://Prefabs/item.tscn" id="13_x311e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4pp75"]
+texture = ExtResource("3_m7i8j")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bl18"]
+texture = ExtResource("4_d3dgw")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -16)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16, -32, 0, 0, -16, 32, 0)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1b7n"]
+texture = ExtResource("5_j3bg5")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vw16v"]
+texture = ExtResource("6_h014g")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16, -32, 0, 0, -16, 32, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_codan"]
+texture = ExtResource("7_cwiiu")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+
+[sub_resource type="TileSet" id="TileSet_nnyeo"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(64, 32)
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_4pp75")
+sources/1 = SubResource("TileSetAtlasSource_4bl18")
+sources/2 = SubResource("TileSetAtlasSource_n1b7n")
+sources/3 = SubResource("TileSetAtlasSource_vw16v")
+sources/4 = SubResource("TileSetAtlasSource_codan")
+
+[node name="CaveTest" type="Node2D"]
+y_sort_enabled = true
+
+[node name="CameraOW" parent="." instance=ExtResource("1_te5xl")]
+followPlayer = true
+
+[node name="PlayerOW" parent="." instance=ExtResource("2_xve6a")]
+position = Vector2(41, 91)
+
+[node name="Layer 1" type="TileMapLayer" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD//wMABAAAAAAAAAD//wIABAAAAAAAAAD+/wIABAAAAAAAAAD9/wIABAAAAAAAAAD8/wIABAAAAAAAAAD7/wIABAAAAAAAAAD6/wIABAAAAAAAAAD6/wEABAAAAAAAAAD8//3/BAAAAAAAAAAAAAIABAAAAAAAAAABAAIABAAAAAAAAAACAAIABAAAAAAAAAD///3/BAAAAAAAAAD///z/BAAAAAAAAAD+//z/BAAAAAAAAAD9//z/BAAAAAAAAAD8//z/BAAAAAAAAAD9//3/BAAAAAAAAAD+//3/BAAAAAAAAAD///7/BAAAAAAAAAD+//7/BAAAAAAAAAD+////BAAAAAAAAAD+/wAABAAAAAAAAAD9//7/BAAAAAAAAAD9////BAAAAAAAAAAAAAEABAAAAAAAAAD//wEABAAAAAAAAAD9/wAABAAAAAAAAAD9/wEABAAAAAAAAAD+/wEABAAAAAAAAAD8//7/BAAAAAAAAAAAAAMABAAAAAAAAAD+/wMABAAAAAAAAAD9/wMABAAAAAAAAAD8/wMABAAAAAAAAAD7/wMABAAAAAAAAAD6/wMABAAAAAAAAAD6/wQABAAAAAAAAAD7/wQABAAAAAAAAAD7/wUABAAAAAAAAAD6/wUABAAAAAAAAAD6/wYABAAAAAAAAAD7/wYABAAAAAAAAAD7/wcABAAAAAAAAAD6/wcABAAAAAAAAAD5/wcABAAAAAAAAAD5/wYABAAAAAAAAAD4/wcABAAAAAAAAAD4/wYABAAAAAAAAAD3/wcABAAAAAAAAAD3/wYABAAAAAAAAAD2/wYABAAAAAAAAAD3/wgABAAAAAAAAAD2/wcABAAAAAAAAAD2/wgABAAAAAAAAAD3/wkABAAAAAAAAAD3/woABAAAAAAAAAD2/woABAAAAAAAAAD2/wkABAAAAAAAAAD5/wEABAAAAAAAAAD4/wEABAAAAAAAAAD4/wAABAAAAAAAAAD4////BAAAAAAAAAD4//7/BAAAAAAAAAD3//7/BAAAAAAAAAD2//7/BAAAAAAAAAD1//7/BAAAAAAAAAD1////BAAAAAAAAAADAAIABAAAAAAAAAD3/wsABAAAAAAAAAD2/wsABAAAAAAAAAD1/wsABAAAAAAAAAD1/woABAAAAAAAAAD0/woABAAAAAAAAAD0/wsABAAAAAAAAAD0/wwABAAAAAAAAAD1/wwABAAAAAAAAAD2/wwABAAAAAAAAAD0/w0ABAAAAAAAAAD1/w0ABAAAAAAAAAD2/w0ABAAAAAAAAAD1/w4ABAAAAAAAAAD1/w8ABAAAAAAAAAD1/xAABAAAAAAAAAD0////BAAAAAAAAAD0//7/BAAAAAAAAADz//7/BAAAAAAAAADy//7/BAAAAAAAAADz////BAAAAAAAAADy////BAAAAAAAAADz//3/BAAAAAAAAADz//z/BAAAAAAAAADy//3/BAAAAAAAAADy//z/BAAAAAAAAADy//v/BAAAAAAAAADz//v/BAAAAAAAAADz//r/BAAAAAAAAADy//r/BAAAAAAAAAD0//r/BAAAAAAAAAD0//n/BAAAAAAAAAD0//j/BAAAAAAAAADz//j/BAAAAAAAAADy//n/BAAAAAAAAADz//n/BAAAAAAAAADz//f/BAAAAAAAAAD0//f/BAAAAAAAAADy//f/BAAAAAAAAADy//b/BAAAAAAAAADx//b/BAAAAAAAAADx//X/BAAAAAAAAADy//X/BAAAAAAAAADy//T/BAAAAAAAAADz//T/BAAAAAAAAAD0//T/BAAAAAAAAAD0//X/BAAAAAAAAAD1//X/BAAAAAAAAAD2//X/BAAAAAAAAAD2//b/BAAAAAAAAAD2//f/BAAAAAAAAAD1//f/BAAAAAAAAAD1//b/BAAAAAAAAAD3//b/BAAAAAAAAAD3//X/BAAAAAAAAAD4//X/BAAAAAAAAAD4//T/BAAAAAAAAAD4//P/BAAAAAAAAAD4//L/BAAAAAAAAAD3//L/BAAAAAAAAAD3//H/BAAAAAAAAAD2//H/BAAAAAAAAAD1//H/BAAAAAAAAAD1//D/BAAAAAAAAAD1/+//BAAAAAAAAAD1/+7/BAAAAAAAAAD0/+3/BAAAAAAAAADz/+3/BAAAAAAAAADz/+7/BAAAAAAAAADy/+7/BAAAAAAAAADy/+3/BAAAAAAAAADx/+3/BAAAAAAAAADx/+z/BAAAAAAAAADx/+v/BAAAAAAAAADy/+v/BAAAAAAAAADy/+r/BAAAAAAAAADz/+r/BAAAAAAAAADz/+v/BAAAAAAAAAD0/+v/BAAAAAAAAAD0/+z/BAAAAAAAAAD1/+3/BAAAAAAAAADz/+z/BAAAAAAAAADy/+z/BAAAAAAAAADw/+v/BAAAAAAAAADv/+v/BAAAAAAAAADv/+r/BAAAAAAAAADv/+n/BAAAAAAAAADv/+j/BAAAAAAAAAA=")
+tile_set = SubResource("TileSet_nnyeo")
+script = ExtResource("8_o2ssq")
+layer = 1
+
+[node name="LoadingZone" parent="." instance=ExtResource("9_a0b64")]
+position = Vector2(65, 97)
+scale = Vector2(-1, 1)
+newScene = "isoTest"
+newPos = Vector3(-54, -283, 1)
+
+[node name="Sign" parent="." instance=ExtResource("10_nmps4")]
+z_index = 1
+position = Vector2(-332, -3)
+scale = Vector2(-1, 1)
+textArray = Array[String](["It looks like this way is completely blocked off.", "...Maybe you could find some way to move these large stones?"])
+
+[node name="Boulder" parent="." instance=ExtResource("12_bhlef")]
+position = Vector2(-412, -11)
+
+[node name="Boulder5" parent="." instance=ExtResource("12_bhlef")]
+position = Vector2(-448, -46)
+
+[node name="Boulder6" parent="." instance=ExtResource("12_bhlef")]
+position = Vector2(-541, -30)
+
+[node name="Boulder4" parent="." instance=ExtResource("12_bhlef")]
+position = Vector2(-433, 0)
+
+[node name="Boulder2" parent="." instance=ExtResource("12_bhlef")]
+position = Vector2(-393, -1)
+
+[node name="Boulder3" parent="." instance=ExtResource("12_bhlef")]
+position = Vector2(-374, -10)
+
+[node name="Item" parent="." instance=ExtResource("13_x311e")]
+z_index = 1
+position = Vector2(-80, -31)
+OWID = 6
+itemID = 1
+
+[node name="RockyTerrain" parent="." instance=ExtResource("1_cfjyw")]
+z_index = 1
+position = Vector2(-26, -72)
+pokemonIDS = Array[Vector3]([Vector3(6, 3, 9), Vector3(7, 19, 25), Vector3(8, 31, 76)])
+
+[node name="RockyTerrain2" parent="." instance=ExtResource("1_cfjyw")]
+z_index = 1
+position = Vector2(26, -72)
+pokemonIDS = Array[Vector3]([Vector3(6, 3, 9), Vector3(7, 19, 25), Vector3(8, 31, 76)])
+
+[node name="RockyTerrain3" parent="." instance=ExtResource("1_cfjyw")]
+z_index = 1
+position = Vector2(60, -55)
+pokemonIDS = Array[Vector3]([Vector3(6, 3, 9), Vector3(7, 19, 25), Vector3(8, 31, 76)])
+
+[node name="RockyTerrain4" parent="." instance=ExtResource("1_cfjyw")]
+z_index = 1
+position = Vector2(33, -103)
+pokemonIDS = Array[Vector3]([Vector3(6, 3, 9), Vector3(7, 19, 25), Vector3(8, 31, 76)])
+
+[node name="RockyTerrain5" parent="." instance=ExtResource("1_cfjyw")]
+z_index = 1
+position = Vector2(84, -74)
+pokemonIDS = Array[Vector3]([Vector3(6, 3, 9), Vector3(7, 19, 25), Vector3(8, 31, 76)])
+
+[node name="RockyTerrain6" parent="." instance=ExtResource("1_cfjyw")]
+z_index = 1
+position = Vector2(121, -59)
+pokemonIDS = Array[Vector3]([Vector3(6, 3, 9), Vector3(7, 19, 25), Vector3(8, 31, 76)])
+
+[node name="RockyTerrain7" parent="." instance=ExtResource("1_cfjyw")]
+z_index = 1
+position = Vector2(63, -29)
+pokemonIDS = Array[Vector3]([Vector3(6, 3, 9), Vector3(7, 19, 25), Vector3(8, 31, 76)])

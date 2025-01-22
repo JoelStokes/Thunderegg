@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfkv7mbaps77h"]
+
+[ext_resource type="Texture2D" uid="uid://dlllow1medtpe" path="res://Sprites/Objects/Boulder.png" id="1_ykgns"]
+
+[node name="Boulder" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ykgns")
+
+[node name="Collision" type="StaticBody2D" parent="."]
+position = Vector2(0, 9)
+collision_layer = 32
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision"]
+position = Vector2(1, -7.5)
+polygon = PackedVector2Array(-1, 11, 9, 7, -1, 2, -11, 6)

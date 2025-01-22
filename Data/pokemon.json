@@ -53,7 +53,7 @@
 		"name": "Seaspar",
 		"size": "6 ft. 6 in",
 		"weight": "272 lbs",
-		"type": "water",
+		"type": "water/steel",
 		"evo": {
 			"cause": "level",
 			"value": "35",
@@ -70,12 +70,48 @@
 		"name": "Covelry",
 		"size": "9 ft. 9 in",
 		"weight": "301 lbs",
-		"type": "water",
+		"type": "water/steel",
 		"moves": "TODO",
 		"pet": {
 			"likes": "head",
 			"hates": "body"
 		},
 		"description": "This Pokémon is known for its strongly-bonded families, some of whose members are not of its species. Legends tell of lost children who were raised by Covelry and grew up to be mighty warriors. In the wild, they eat iron-rich seaweed and the metal wreckage of ships to strengthen their armor."
+	},
+	"6": {
+		"name": "Scoopuff",
+		"size": "1 ft. 2 in",
+		"weight": "15 lbs",
+		"type": "ground",
+		"moves": "TODO",
+		"pet": {
+			"likes": "TODO",
+			"hates": "TODO"
+		},
+		"description": "When nervous or afraid, it curls up into a tight ball to shield its soft belly. It likes to play in sand and dirt, where it builds cozy hideouts."
+	},
+	"7": {
+		"name": "Digadune",
+		"size": "2 ft.",
+		"weight": "50 lbs",
+		"type": "ground/fairy",
+		"moves": "TODO",
+		"pet": {
+			"likes": "TODO",
+			"hates": "TODO"
+		},
+		"description": "It uses loud cries to alert others to any dangerous ground or dune collapses it finds. Using its sensitive nose, it can also locate and dig up edible roots and truffles in record time."
+	},
+	"8": {
+		"name": "Charmatillo",
+		"size": "5 ft. 7 in.",
+		"weight": "586 lbs",
+		"type": "ground/fairy",
+		"moves": "TODO",
+		"pet": {
+			"likes": "TODO",
+			"hates": "TODO"
+		},
+		"description": "It saves people who have fallen into sand dunes by digging them out and carrying them to safety. A well-trained Charmatillo will help farmers prepare their fields for planting. While it loves to work hard alongside humans, it also enjoys resting and eating potatoes."
 	}
 }

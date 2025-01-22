@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfhod4u000rks"]
 
-[ext_resource type="Script" path="res://Scripts/ItemInteract.gd" id="1_1y1r2"]
+[ext_resource type="Script" path="res://Scripts/TextInteract.gd" id="1_x1kdl"]
 [ext_resource type="Texture2D" uid="uid://cxgpwwby82y2g" path="res://Sprites/Objects/Trashcan.png" id="2_vk7c2"]
 
 [node name="GarbageCan" type="Area2D"]
 y_sort_enabled = true
 position = Vector2(456, -210)
 collision_layer = 32
-script = ExtResource("1_1y1r2")
+script = ExtResource("1_x1kdl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true

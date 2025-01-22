@@ -1,6 +1,7 @@
 extends Control
 
 @onready var trainerNameNode = $Trainer
+@onready var moneyNode = $Money
 @onready var itemTotalNode = $Items
 @onready var itemListNode = $ItemList
 @onready var dexTotalNode = $Pokemon
@@ -35,7 +36,8 @@ func _toggle_pause():
 	
 	if (paused):
 		trainerNameNode.text = "Trainer: " + str(saveNode.load_specific("name"))
-		
+		moneyNode.text = "Money: " + str(saveNode.load_specific("money")) + "$"
+
 		#Find & loop through all saved items for total count & individual counts
 		var items = saveNode.load_specific("Items")
 		var itemTotal = 0
@@ -61,7 +63,7 @@ func _toggle_pause():
 				dexListNode.text += str(pokemonData.get(str(index)).name)
 				dexTotal += 1
 		
-		dexTotalNode.text = "Pokemon Caught: " + str(dexTotal)
+		dexTotalNode.text = "Pokémon Caught: " + str(dexTotal)
 		
 		#Set Position & Scene
 		lastPositionNode.text = "Last Position: " + str(saveNode.load_specific("lastPos"))
