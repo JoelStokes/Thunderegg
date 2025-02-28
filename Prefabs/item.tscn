@@ -6,7 +6,8 @@
 [node name="Item" type="Area2D"]
 y_sort_enabled = true
 position = Vector2(456, -210)
-collision_layer = 32
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_b78r2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,7 +23,8 @@ polygon = PackedVector2Array(-0.600006, -5.8, -15.6, 0.199997, -1, 8, 13.4, 1.2)
 
 [node name="Collision" type="StaticBody2D" parent="."]
 position = Vector2(0.600006, 0.800003)
-collision_layer = 32
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision"]
 position = Vector2(1, -7.5)

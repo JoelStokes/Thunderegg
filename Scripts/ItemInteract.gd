@@ -34,6 +34,12 @@ func _ready() -> void:
 	itemData = JSON.parse_string(FileAccess.get_file_as_string(itemFile))
 	var itemName = itemData.get(str(itemID)).get("name")
 	itemText = "You found a " + itemName + "!"
+	
+	#Set item trigger collisions to match layer to prevent impossible item grabs
+	set_collision_mask_value(z_index+1, true)
+	set_collision_layer_value(z_index+1, true)
+	$Collision.set_collision_mask_value(z_index+1, true)
+	$Collision.set_collision_layer_value(z_index+1, true)
 
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Confirm")):

@@ -9,6 +9,10 @@ var saveNode
 
 func _ready() -> void:
 	saveNode = get_node("/root/SaveHandler")
+	
+	#Set item trigger collisions to match layer to prevent impossible item grabs
+	set_collision_mask_value(z_index+1, true)
+	set_collision_layer_value(z_index+1, true)
 
 # If user presses Confirm inside 
 func _process(delta: float) -> void:

@@ -7,10 +7,11 @@
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
-collision_mask = 34
+collision_mask = 0
 script = ExtResource("1_s7pah")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-9, 0)
 texture = ExtResource("2_xb8yq")
 centered = false

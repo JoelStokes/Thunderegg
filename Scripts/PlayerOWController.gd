@@ -23,6 +23,11 @@ var northwestSprite = preload("res://Sprites/Objects/PlayerNorthwest.png")
 var southeastSprite = preload("res://Sprites/Objects/PlayerSoutheast.png")
 @onready var sprite2D = get_node("Sprite2D")
 
+func _ready() -> void:
+	set_collision_mask_value(z_index+1, true)
+	set_collision_layer_value(z_index+1, true)
+	print("Player Mask: " + str(z_index+1))
+
 func _physics_process(_delta: float) -> void:
 	#Handle player movement
 	#Once save data, add toggle that lets user set control preference between 2 styles?

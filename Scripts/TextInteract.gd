@@ -33,6 +33,12 @@ func _ready() -> void:
 		saveNode = get_node("/root/SaveHandler")
 		if (saveNode.load_specific("OWIDs", itemOWID) > 0):
 			useAltText = true
+	
+	#Set item trigger collisions to match layer to prevent impossible item grabs
+	set_collision_mask_value(z_index+1, true)
+	set_collision_layer_value(z_index+1, true)
+	$Collision.set_collision_mask_value(z_index+1, true)
+	$Collision.set_collision_layer_value(z_index+1, true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

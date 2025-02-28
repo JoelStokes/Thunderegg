@@ -10,14 +10,14 @@ z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_eax1v")
 
-[node name="Lower" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(10, 77)
 texture = ExtResource("2_qod77")
 offset = Vector2(0, -36)
 
-[node name="Upper" type="Sprite2D" parent="."]
-z_index = 1
+[node name="Top" type="Sprite2D" parent="."]
+z_index = 3
 y_sort_enabled = true
 position = Vector2(10, 41)
 texture = ExtResource("3_bjxf1")
@@ -25,7 +25,8 @@ texture = ExtResource("3_bjxf1")
 [node name="BottomArea" type="Area2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 87)
-collision_layer = 32
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("5_ve1dv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BottomArea"]
@@ -35,7 +36,8 @@ polygon = PackedVector2Array(16, -6, 16, 12, -9, 3, -9, -13)
 [node name="TopArea" type="Area2D" parent="."]
 y_sort_enabled = true
 position = Vector2(15, -6)
-collision_layer = 32
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("5_ve1dv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TopArea"]

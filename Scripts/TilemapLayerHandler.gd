@@ -40,6 +40,7 @@ func place_boundaries():
 				# Check if there's a block underneath. If not, do invisible collider. If yes, do self.
 				# THIS NEEDS WORK! TODO
 				if(get_cell_tile_data(spot-Vector2i(-1,-1)) == null):
-					#set_cell(spot-Vector2i(-1,-1), main_source, boundary_atlas_pos)
-				#else:
-					set_cell(spot-Vector2i(-1,-1), main_source, get_cell_atlas_coords(spot))
+					set_cell(spot-Vector2i(-1,-1), main_source, boundary_atlas_pos)
+				else:
+					set_cell(spot-Vector2i(-1,-1), main_source, boundary_atlas_pos)
+					#set_cell(spot-Vector2i(-1,-1), main_source, get_cell_atlas_coords(spot))
