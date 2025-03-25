@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://crm2584puxne"]
 
-[ext_resource type="Texture2D" uid="uid://c1xni1psll3f4" path="res://Sprites/Tiles/Bush.png" id="1_7uifn"]
+[ext_resource type="Texture2D" uid="uid://c1xni1psll3f4" path="res://Sprites/Plants/Bush.png" id="1_7uifn"]
 [ext_resource type="Script" path="res://Scripts/randomBattleCheck.gd" id="1_pkkjp"]
 
 [node name="Bush" type="Area2D"]

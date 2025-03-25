@@ -1,13 +1,13 @@
-[gd_scene load_steps=49 format=4 uid="uid://cwehblmg01cju"]
+[gd_scene load_steps=50 format=4 uid="uid://cwehblmg01cju"]
 
 [ext_resource type="PackedScene" uid="uid://1dmh6gmrfjqo" path="res://Prefabs/CameraOW.tscn" id="1_qeklh"]
 [ext_resource type="PackedScene" uid="uid://cwqad86u2hhia" path="res://Prefabs/PlayerOW.tscn" id="2_grrin"]
-[ext_resource type="Texture2D" uid="uid://bbukc2axmb4hl" path="res://Sprites/Tiles/Blue.png" id="2_m38bv"]
-[ext_resource type="Texture2D" uid="uid://buba3arumbehr" path="res://Sprites/Tiles/Tileset.png" id="3_wf5yv"]
-[ext_resource type="Texture2D" uid="uid://dwbblfflonnc3" path="res://Sprites/Tiles/SlantGrass.png" id="4_3b7as"]
-[ext_resource type="Texture2D" uid="uid://qh32gth5c7m0" path="res://Sprites/Tiles/WaterTile.png" id="5_03h3v"]
+[ext_resource type="Texture2D" uid="uid://bbukc2axmb4hl" path="res://Sprites/Tiles/Alpha/Blue.png" id="2_m38bv"]
+[ext_resource type="Texture2D" uid="uid://buba3arumbehr" path="res://Sprites/Tiles/Alpha/Tileset.png" id="3_wf5yv"]
+[ext_resource type="Texture2D" uid="uid://dwbblfflonnc3" path="res://Sprites/Tiles/Alpha/SlantGrass.png" id="4_3b7as"]
+[ext_resource type="Texture2D" uid="uid://qh32gth5c7m0" path="res://Sprites/Tiles/Alpha/WaterTile.png" id="5_03h3v"]
 [ext_resource type="Script" path="res://Scripts/TilemapLayerHandler.gd" id="6_10en8"]
-[ext_resource type="Texture2D" uid="uid://be5dfrgtoi8uw" path="res://Sprites/Tiles/Sand.png" id="6_hmubl"]
+[ext_resource type="Texture2D" uid="uid://be5dfrgtoi8uw" path="res://Sprites/Tiles/Alpha/Sand.png" id="6_hmubl"]
 [ext_resource type="PackedScene" uid="uid://d1uvbmxbh1k1q" path="res://Prefabs/ladder.tscn" id="7_6i32d"]
 [ext_resource type="PackedScene" uid="uid://c32peshfgdx1c" path="res://Prefabs/ladderTall.tscn" id="9_f6nth"]
 [ext_resource type="PackedScene" uid="uid://bac2ffod4di5" path="res://Prefabs/ladderTaller.tscn" id="10_ghdms"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bpwf5gisvxt53" path="res://Prefabs/rockyTerrain.tscn" id="19_vxvsr"]
 [ext_resource type="PackedScene" uid="uid://b7qwcw3k01dhy" path="res://Prefabs/loading_zone.tscn" id="20_dp05e"]
 [ext_resource type="Texture2D" uid="uid://c28nvlr65iuu0" path="res://Sprites/Objects/Bird.png" id="21_p8ai4"]
+[ext_resource type="PackedScene" uid="uid://blcyfpt4w7k17" path="res://Prefabs/book.tscn" id="22_3mbai"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d3jbk"]
 texture = ExtResource("2_m38bv")
@@ -317,7 +318,7 @@ script = ExtResource("6_10en8")
 layer = 4
 
 [node name="PlayerOW" parent="." instance=ExtResource("2_grrin")]
-position = Vector2(309, 15)
+position = Vector2(226, -1)
 
 [node name="Ladder" parent="." instance=ExtResource("7_6i32d")]
 z_index = 1
@@ -392,7 +393,7 @@ itemID = 2
 
 [node name="Item2" parent="." instance=ExtResource("14_c473j")]
 z_index = 1
-position = Vector2(425, -305)
+position = Vector2(422, -307)
 scale = Vector2(-1, 1)
 OWID = 3
 itemID = 1
@@ -465,3 +466,8 @@ z_index = 1
 position = Vector2(679, -35)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("21_p8ai4")
+
+[node name="Book" parent="." instance=ExtResource("22_3mbai")]
+z_index = 1
+position = Vector2(478, -271)
+textArray = Array[String](["This is an example of a book that can be found & read in the world."])

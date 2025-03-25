@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://rc0jhuc1cl1t"]
 
-[ext_resource type="Texture2D" uid="uid://dwbblfflonnc3" path="res://Sprites/Tiles/SlantGrass.png" id="1_w0t6g"]
+[ext_resource type="Texture2D" uid="uid://dwbblfflonnc3" path="res://Sprites/Tiles/Alpha/SlantGrass.png" id="1_w0t6g"]
 
 [node name="StaticBody2D" type="StaticBody2D"]
 
