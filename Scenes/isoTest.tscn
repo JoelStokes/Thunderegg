@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://cwehblmg01cju"]
+[gd_scene load_steps=51 format=4 uid="uid://cwehblmg01cju"]
 
 [ext_resource type="PackedScene" uid="uid://1dmh6gmrfjqo" path="res://Prefabs/CameraOW.tscn" id="1_qeklh"]
 [ext_resource type="PackedScene" uid="uid://cwqad86u2hhia" path="res://Prefabs/PlayerOW.tscn" id="2_grrin"]
@@ -68,8 +68,11 @@ sources/2 = SubResource("TileSetAtlasSource_oldyo")
 sources/3 = SubResource("TileSetAtlasSource_hmvts")
 sources/4 = SubResource("TileSetAtlasSource_ijsqn")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_fqn26"]
+diffuse_texture = ExtResource("2_m38bv")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sm6dy"]
-texture = ExtResource("2_m38bv")
+texture = SubResource("CanvasTexture_fqn26")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)

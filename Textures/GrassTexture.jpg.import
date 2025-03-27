@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr2uyspo1qdx3"
-path.s3tc="res://.godot/imported/stallFruit.png-8786f24017a1d4d75ce58c30c689e571.s3tc.ctex"
+uid="uid://drq5jfo2pyc56"
+path="res://.godot/imported/GrassTexture.jpg-4cdac8d6b0fa15e860ec72b9da3f8eeb.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Buildings/stallFruit.png"
-dest_files=["res://.godot/imported/stallFruit.png-8786f24017a1d4d75ce58c30c689e571.s3tc.ctex"]
+source_file="res://Textures/GrassTexture.jpg"
+dest_files=["res://.godot/imported/GrassTexture.jpg-4cdac8d6b0fa15e860ec72b9da3f8eeb.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
