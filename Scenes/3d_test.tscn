@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://twwp3yvlq7rh"]
+[gd_scene load_steps=147 format=3 uid="uid://twwp3yvlq7rh"]
 
 [ext_resource type="Texture2D" uid="uid://drq5jfo2pyc56" path="res://Textures/GrassTexture.jpg" id="1_5g4x4"]
 [ext_resource type="Script" path="res://Scripts/Camera3DController.gd" id="1_fme5v"]
@@ -429,21 +429,6 @@ material = SubResource("StandardMaterial3D_3u0g7")
 left_to_right = 1.0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gd0v8"]
-data = PackedVector3Array(0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_iqv1b"]
-data = PackedVector3Array(0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_l8u76"]
-data = PackedVector3Array(0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1jm56"]
-data = PackedVector3Array(0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jh3p7"]
-data = PackedVector3Array(0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_y668d"]
 data = PackedVector3Array(0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_on7b4"]
@@ -2158,7 +2143,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_pagbp")
 
 [node name="Slope" type="MeshInstance3D" parent="Terrain"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 0.7, 0, -0.707107, 0, 0.707107, -0.7, 0, 0.7)
+transform = Transform3D(0.70387, 0, 0.700449, 0, 0.7, 0, -0.70387, 0, 0.700449, -0.702829, 0, 0.707265)
 mesh = SubResource("PrismMesh_fqh17")
 skeleton = NodePath("../..")
 
@@ -2167,55 +2152,55 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Slope/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gd0v8")
 
-[node name="Slope5" type="MeshInstance3D" parent="Terrain"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 0.7, 0, -0.707107, 0, 0.707107, -4.9, -0.7, -0.7)
-mesh = SubResource("PrismMesh_fqh17")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Slope5"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Slope5/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_iqv1b")
-
-[node name="Slope6" type="MeshInstance3D" parent="Terrain"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 0.7, 0, -0.707107, 0, 0.707107, -4.2, -0.7, -1.19209e-07)
-mesh = SubResource("PrismMesh_fqh17")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Slope6"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Slope6/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_l8u76")
-
 [node name="Slope2" type="MeshInstance3D" parent="Terrain"]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 0.7, 0, -0.707107, 0, -0.707107, 3.5, 0, -0.7)
+transform = Transform3D(0.70387, 0, 0.700449, 0, 0.7, 0, -0.70387, 0, 0.700449, -4.21192, -0.7, 0.0136598)
 mesh = SubResource("PrismMesh_fqh17")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Slope2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Slope2/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_1jm56")
+shape = SubResource("ConcavePolygonShape3D_gd0v8")
 
 [node name="Slope3" type="MeshInstance3D" parent="Terrain"]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 0.7, 0, -0.707107, 0, -0.707107, 3.5, -0.7, 0.7)
+transform = Transform3D(0.70387, 0, 0.700449, 0, 0.7, 0, -0.70387, 0, 0.700449, -4.91236, -0.7, -0.686789)
 mesh = SubResource("PrismMesh_fqh17")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Slope3"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Slope3/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_jh3p7")
+shape = SubResource("ConcavePolygonShape3D_gd0v8")
 
-[node name="Slope4" type="MeshInstance3D" parent="Terrain"]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 0.7, 0, -0.707107, 0, -0.707107, 2.8, -0.7, 1.4)
+[node name="Slope5" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(-0.70387, 0, 0.700449, 0, 0.7, 0, -0.70387, 0, -0.700449, 3.51355, 0, -0.70732)
 mesh = SubResource("PrismMesh_fqh17")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Slope4"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Slope5"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Slope4/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_y668d")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Slope5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gd0v8")
+
+[node name="Slope6" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(-0.70387, 0, 0.700449, 0, 0.7, 0, -0.70387, 0, -0.700449, 2.81652, -0.7, 1.39745)
+mesh = SubResource("PrismMesh_fqh17")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Slope6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Slope6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gd0v8")
+
+[node name="Slope7" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(-0.70387, 0, 0.700449, 0, 0.7, 0, -0.70387, 0, -0.700449, 3.51697, -0.7, 0.696999)
+mesh = SubResource("PrismMesh_fqh17")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Slope7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Slope7/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gd0v8")
 
 [node name="Player3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.356445, 0)
