@@ -7,7 +7,7 @@ var saveNode
 var startPos
 
 func _ready() -> void:
-	player = get_node("../Player3D")
+	player = get_node("../PlayerOW")
 	saveNode = get_node("/root/SaveHandler")
 	startPos = self.position
 

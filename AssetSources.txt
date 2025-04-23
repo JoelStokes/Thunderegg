@@ -46,3 +46,6 @@ https://opengameart.org/content/isometric-medieval-city-sim-assets
 
 PC
 https://opengameart.org/content/rust-sprites
+
+64x64 textures
+https://opengameart.org/content/64x-textures-an-overlays

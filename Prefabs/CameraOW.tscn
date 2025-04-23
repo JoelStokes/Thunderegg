@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://1dmh6gmrfjqo"]
+[gd_scene load_steps=5 format=3 uid="uid://y7go1fv6pbns"]
 
-[ext_resource type="Script" path="res://Scripts/CameraOWController.gd" id="1_txlsi"]
-[ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="2_llmv4"]
-[ext_resource type="Script" path="res://Scripts/TextController.gd" id="2_rbqyl"]
-[ext_resource type="Script" path="res://Scripts/PauseController.gd" id="4_t8x80"]
+[ext_resource type="Script" path="res://Scripts/Camera3DController.gd" id="1_13c2l"]
+[ext_resource type="Script" path="res://Scripts/TextController.gd" id="2_m6tbe"]
+[ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="3_lg0bn"]
+[ext_resource type="Script" path="res://Scripts/PauseController.gd" id="4_8col2"]
 
-[node name="CameraOW" type="Camera2D"]
-position = Vector2(-9, -37)
-script = ExtResource("1_txlsi")
+[node name="CameraOW" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10.9938, 19.6938)
+projection = 1
+size = 12.0
+far = 150.0
+script = ExtResource("1_13c2l")
+followPlayer = true
 
 [node name="Text Parent" type="Control" parent="."]
-visible = false
 z_index = 50
 layout_mode = 3
 anchors_preset = 7
@@ -19,13 +22,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -229.0
-offset_top = 128.0
+offset_top = -236.0
 offset_right = -229.0
-offset_bottom = 128.0
+offset_bottom = -236.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.2, 1.2)
-script = ExtResource("2_rbqyl")
+script = ExtResource("2_m6tbe")
 
 [node name="ColorRect" type="ColorRect" parent="Text Parent"]
 layout_mode = 1
@@ -57,7 +60,7 @@ offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 5
-theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
 text = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum placerat tincidunt arcu at rhoncus. Sed dictum enim quis libero elementum, sit amet cursus dui aliquam. Sed placerat feugiat orci, id consectetur magna. Suspendisse sagittis commodo eros, quis malesuada nisi vehicula vel. Maecenas consequat leo ac turpis laoreet, at mollis enim dignissim. Sed pellentesque dapibus ante, pretium rutrum felis tempor a. Integer scelerisque laoreet nisl, vitae pellentesque velit lacinia vel. Suspendisse elementum hendrerit orci sit amet bibendum. Phasellus eget dui convallis, ultrices sapien eu, dignissim justo. Fusce ante nisl, dictum sed ultrices ut, fermentum nec quam. Nullam sit amet odio elit. Suspendisse potenti. Ut dui felis, sodales vel orci ac, cursus gravida nulla. "
 autowrap_mode = 2
@@ -79,7 +82,7 @@ offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 5
-theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
 text = "→"
 horizontal_alignment = 2
@@ -92,11 +95,11 @@ z_index = 50
 layout_direction = 2
 layout_mode = 3
 anchors_preset = 0
-offset_left = -541.0
-offset_top = -341.0
-offset_right = -541.0
-offset_bottom = -341.0
-script = ExtResource("4_t8x80")
+offset_left = 59.0
+offset_top = -8.0
+offset_right = 59.0
+offset_bottom = -8.0
+script = ExtResource("4_8col2")
 
 [node name="ColorRect" type="ColorRect" parent="Pause Menu"]
 layout_mode = 1
@@ -129,7 +132,7 @@ offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 5
-theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
 text = "Name: N/A"
 autowrap_mode = 2
@@ -150,7 +153,7 @@ offset_bottom = 207.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 5
-theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
 text = "Money: 0$"
 autowrap_mode = 2
@@ -171,7 +174,7 @@ offset_bottom = 259.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 5
-theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
 text = "Items Held: 0"
 autowrap_mode = 2
@@ -192,7 +195,7 @@ offset_bottom = 300.25
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 5
-theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 20
 text = "N/A"
 autowrap_mode = 2
@@ -213,7 +216,7 @@ offset_bottom = 383.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 5
-theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
 text = "Pokémon Caught: 0"
 autowrap_mode = 2
@@ -234,7 +237,7 @@ offset_bottom = 424.25
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 5
-theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 20
 text = "N/A"
 autowrap_mode = 2
@@ -255,7 +258,7 @@ offset_bottom = 537.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 5
-theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
 text = "Last Position: (0,0)"
 autowrap_mode = 2
@@ -276,7 +279,7 @@ offset_bottom = 585.75
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 5
-theme_override_fonts/font = ExtResource("2_llmv4")
+theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
 text = "Last Scene: N/A"
 autowrap_mode = 2

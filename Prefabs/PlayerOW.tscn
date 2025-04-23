@@ -1,22 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwqad86u2hhia"]
+[gd_scene load_steps=4 format=3 uid="uid://otd78ly42xmf"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerOWController.gd" id="1_s7pah"]
+[ext_resource type="Script" path="res://Scripts/Player3DController.gd" id="1_cocyq"]
 [ext_resource type="Texture2D" uid="uid://b8pbjxccj4nlg" path="res://Sprites/Objects/PlayerSouth.png" id="2_xb8yq"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
-collision_mask = 0
-script = ExtResource("1_s7pah")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_on7b4"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-9, 0)
+[node name="PlayerOW" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.356445, 0)
+script = ExtResource("1_cocyq")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.320691, 0)
+billboard = 1
+double_sided = false
+alpha_cut = 2
 texture = ExtResource("2_xb8yq")
-centered = false
-offset = Vector2(0, -36.975)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-11, -96)
-polygon = PackedVector2Array(12, 96, 22, 89, 12, 83, 2, 89)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0.343872, 0)
+shape = SubResource("CapsuleShape3D_on7b4")

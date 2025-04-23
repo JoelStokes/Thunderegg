@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6jgaipws28ux"
-path.s3tc="res://.godot/imported/PokeBall.png-0d9db9576056fc6d0f3f67de9e3cacb1.s3tc.ctex"
+uid="uid://dyu31vi524yk5"
+path.s3tc="res://.godot/imported/sand.png-1d6c88aaf6c1af214276d9e8436b46dc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/Objects/PokeBall.png"
-dest_files=["res://.godot/imported/PokeBall.png-0d9db9576056fc6d0f3f67de9e3cacb1.s3tc.ctex"]
+source_file="res://Textures/sand.png"
+dest_files=["res://.godot/imported/sand.png-1d6c88aaf6c1af214276d9e8436b46dc.s3tc.ctex"]
 
 [params]
 

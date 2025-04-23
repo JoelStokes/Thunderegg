@@ -1,7 +1,7 @@
 [gd_scene load_steps=51 format=4 uid="uid://cwehblmg01cju"]
 
-[ext_resource type="PackedScene" uid="uid://1dmh6gmrfjqo" path="res://Prefabs/CameraOW.tscn" id="1_qeklh"]
-[ext_resource type="PackedScene" uid="uid://cwqad86u2hhia" path="res://Prefabs/PlayerOW.tscn" id="2_grrin"]
+[ext_resource type="PackedScene" uid="uid://y7go1fv6pbns" path="res://Prefabs/CameraOW.tscn" id="1_qeklh"]
+[ext_resource type="PackedScene" uid="uid://otd78ly42xmf" path="res://Prefabs/PlayerOW.tscn" id="2_grrin"]
 [ext_resource type="Texture2D" uid="uid://bbukc2axmb4hl" path="res://Sprites/Tiles/Alpha/Blue.png" id="2_m38bv"]
 [ext_resource type="Texture2D" uid="uid://buba3arumbehr" path="res://Sprites/Tiles/Alpha/Tileset.png" id="3_wf5yv"]
 [ext_resource type="Texture2D" uid="uid://dwbblfflonnc3" path="res://Sprites/Tiles/Alpha/SlantGrass.png" id="4_3b7as"]
@@ -267,7 +267,6 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="CameraOW" parent="." instance=ExtResource("1_qeklh")]
-followPlayer = true
 
 [node name="Low Decorative Layer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -293,7 +292,7 @@ z_index = 1
 z_as_relative = false
 y_sort_enabled = true
 texture_filter = 1
-tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AAAAAAAAAAD///3/AAAAAAAAAAD+////AAAAAAAAAAD9////AAAAAAAAAAD8////AAAAAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD9//z/AAAAAAAAAAD+//z/AAAAAAAAAAD+//3/AAAAAAAAAAD8//3/AAAAAAAAAAD8//z/AAAAAAAAAAD9//v/AAAAAAAAAAD+//v/AAAAAAAAAAD///z/AAAAAAAAAAAGAPf/AQAAAAAAAAAFAPf/AQAAAAAAAAAFAPb/AQAAAAAAAAAFAPX/AQAAAAAAAAAGAPX/AQAAAAAAAAAGAPb/AQAAAAAAAAAEAPX/AQAAAAAAAAAFAPT/AQAAAAAAAAD+/wAAAAAAAAAAAAD8//v/AAAAAAAAAAD7//v/AAAAAAAAAAD7//P/AAAAAAAAAAD0//j/AQAAAAAAAAD0//b/AQAAAAAAAADz//j/AQAAAAAAAADz//b/AQAAAAAAAADy//f/AQAAAAAAAADz//n/AQAAAAAAAADy//b/AQAAAAAAAADy//X/AQAAAAAAAADx//f/AQAAAAAAAADy//j/AQAAAAAAAADx//b/AQAAAAAAAADz//X/AQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AAAAAAAAAAD///3/AAAAAAAAAAD+////AAAAAAAAAAD9////AAAAAAAAAAD8////AAAAAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD9//z/AAAAAAAAAAD+//z/AAAAAAAAAAD+//3/AAAAAAAAAAD8//3/AAAAAAAAAAD8//z/AAAAAAAAAAD9//v/AAAAAAAAAAD+//v/AAAAAAAAAAD///z/AAAAAAAAAAAGAPf/AQAAAAAAAAAFAPf/AQAAAAAAAAAFAPb/AQAAAAAAAAAFAPX/AQAAAAAAAAAGAPX/AQAAAAAAAAAGAPb/AQAAAAAAAAAEAPX/AQAAAAAAAAAFAPT/AQAAAAAAAAD+/wAAAgAAAAAAAAD8//v/AAAAAAAAAAD7//v/AAAAAAAAAAD7//P/AAAAAAAAAAD0//j/AQAAAAAAAAD0//b/AQAAAAAAAADz//j/AQAAAAAAAADz//b/AQAAAAAAAADy//f/AQAAAAAAAADz//n/AQAAAAAAAADy//b/AQAAAAAAAADy//X/AQAAAAAAAADx//f/AQAAAAAAAADy//j/AQAAAAAAAADx//b/AQAAAAAAAADz//X/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_mm0rh")
 y_sort_origin = 1
 script = ExtResource("6_10en8")
@@ -321,9 +320,10 @@ script = ExtResource("6_10en8")
 layer = 4
 
 [node name="PlayerOW" parent="." instance=ExtResource("2_grrin")]
-position = Vector2(226, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226, -1, 0)
 
 [node name="Ladder" parent="." instance=ExtResource("7_6i32d")]
+visible = false
 z_index = 1
 position = Vector2(6, 32)
 

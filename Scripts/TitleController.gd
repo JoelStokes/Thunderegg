@@ -30,4 +30,4 @@ func _on_new_game_button_pressed() -> void:
 	else:
 		saveNode._set_name("Ace") #No name input, revert to default
 	saveNode.save_OW(Vector3(309, 15, 1), "isoTest") #New Save starting location
-	get_tree().change_scene_to_file("res://Scenes/isoTest.tscn")
+	get_tree().change_scene_to_file("res://Scenes/3d_test.tscn")
