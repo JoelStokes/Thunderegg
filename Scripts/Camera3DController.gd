@@ -11,6 +11,14 @@ func _ready() -> void:
 	saveNode = get_node("/root/SaveHandler")
 	startPos = self.position
 
+	# Set player position if a non-zero save exists
+	var lastX = saveNode.load_specific("lastPos", 0)
+	var lastY = saveNode.load_specific("lastPos", 1)
+	var lastZ = saveNode.load_specific("lastPos", 2)
+	var lastPos = Vector3(lastX, lastY, lastZ)
+	if (lastPos != Vector3.ZERO):
+		player.position = lastPos
+
 	# Teleport camera to player position on scene start so there's no weird, slow lerp
 	self.position = Vector3(startPos.x + player.position.x, startPos.y + player.position.y, startPos.z + player.position.z)
 

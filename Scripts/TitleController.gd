@@ -29,5 +29,5 @@ func _on_new_game_button_pressed() -> void:
 		saveNode._set_name(newTrainerTextbox.text)
 	else:
 		saveNode._set_name("Ace") #No name input, revert to default
-	saveNode.save_OW(Vector3(309, 15, 1), "isoTest") #New Save starting location
+	saveNode.save_OW(Vector3(0,0,0), "3d_test") #New Save starting location
 	get_tree().change_scene_to_file("res://Scenes/3d_test.tscn")

@@ -1,34 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfxhiwrj4raqv"]
+[gd_scene load_steps=4 format=3 uid="uid://b87rgey2gttlu"]
 
 [ext_resource type="Script" path="res://Scripts/ItemInteract.gd" id="1_b78r2"]
 [ext_resource type="Texture2D" uid="uid://c6jgaipws28ux" path="res://Sprites/Objects/PokeBall.png" id="2_2k6ua"]
 
-[node name="Item" type="Area2D"]
-y_sort_enabled = true
-position = Vector2(456, -210)
-collision_layer = 0
-collision_mask = 0
+[sub_resource type="BoxShape3D" id="BoxShape3D_0swgm"]
+
+[node name="Item" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1, -1.25334, 2.84021)
 script = ExtResource("1_b78r2")
+OWID = 1
+itemID = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(0.6, 6.985)
-scale = Vector2(0.8, 0.8)
+[node name="InteractRegion" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0.396226, 0.039917)
+shape = SubResource("BoxShape3D_0swgm")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.320691, 0)
+billboard = 1
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
 texture = ExtResource("2_2k6ua")
-offset = Vector2(0, -11.535)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(1.60001, -0.199997)
-polygon = PackedVector2Array(-0.600006, -5.8, -15.6, 0.199997, -1, 8, 13.4, 1.2)
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="Collision" type="StaticBody2D" parent="."]
-position = Vector2(0.600006, 0.800003)
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision"]
-position = Vector2(1, -7.5)
-polygon = PackedVector2Array(-1, 11, 8.39999, 7.7, -0.600006, 3.7, -10.6, 6.7)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.176777, 0, 0.176777, 0, 0.25, 0, -0.176777, 0, 0.176777, 0, 0.396226, 0.039917)
+shape = SubResource("BoxShape3D_0swgm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

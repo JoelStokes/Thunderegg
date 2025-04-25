@@ -87,7 +87,7 @@ func load_specific(location, id : int = -1):
 #Save OW level & location
 func save_OW(newPos: Vector3, newScene):
 	#Remove decimals from saved battle position
-	userSave.lastPos = Vector3(roundf(newPos.x), roundf(newPos.y), newPos.z)
+	userSave.lastPos = Vector3(roundf(newPos.x), roundf(newPos.y), roundf(newPos.z))
 	
 	#Trim Suffix added to make sure scene name isn't accidently saved with one
 	userSave.lastScene = newScene.trim_suffix(".tscn")

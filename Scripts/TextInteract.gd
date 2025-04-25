@@ -1,4 +1,4 @@
-extends Area2D
+extends Area3D
 
 #Trigger Dialog if player walks into area and presses interact
 @export_multiline var textArray: Array[String] = []
@@ -33,12 +33,6 @@ func _ready() -> void:
 		saveNode = get_node("/root/SaveHandler")
 		if (saveNode.load_specific("OWIDs", itemOWID) > 0):
 			useAltText = true
-	
-	#Set item trigger collisions to match layer to prevent impossible item grabs
-	set_collision_mask_value(z_index+1, true)
-	set_collision_layer_value(z_index+1, true)
-	$Collision.set_collision_mask_value(z_index+1, true)
-	$Collision.set_collision_layer_value(z_index+1, true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -66,7 +60,10 @@ func _process(delta: float) -> void:
 					playerNode._set_freeze(false)
 					dialogStarted = false
 					currArrayPos = 0
-					useAltText = true
+					
+					#If there's alternate text, switch to use it for next read
+					if (altTextArray):
+						useAltText = true
 				else:
 					currLetter = 1
 					currArrayPos += 1
