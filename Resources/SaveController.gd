@@ -80,8 +80,8 @@ func load_specific(location, id : int = -1):
 		else:
 			data = userSave.get(location)
 	else:
-		print("Error: Location " + location + " could not be found in userSave!")
-		return 0
+		# No position has been set yet, default to empty vector3
+		return Vector3(0,0,0)
 	return data
 
 #Save OW level & location

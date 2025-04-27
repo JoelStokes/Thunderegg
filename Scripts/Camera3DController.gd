@@ -12,10 +12,7 @@ func _ready() -> void:
 	startPos = self.position
 
 	# Set player position if a non-zero save exists
-	var lastX = saveNode.load_specific("lastPos", 0)
-	var lastY = saveNode.load_specific("lastPos", 1)
-	var lastZ = saveNode.load_specific("lastPos", 2)
-	var lastPos = Vector3(lastX, lastY, lastZ)
+	var lastPos = saveNode.load_specific("lastPos")
 	if (lastPos != Vector3.ZERO):
 		player.position = lastPos
 
