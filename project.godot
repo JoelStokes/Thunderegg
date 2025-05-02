@@ -13,6 +13,7 @@ config_version=5
 config/name="Thunderegg"
 run/main_scene="res://Scenes/Title.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+run/max_fps=60
 config/icon="res://Sprites/UI/Logo.png"
 
 [autoload]
@@ -98,5 +99,6 @@ Pause={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

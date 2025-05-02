@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d27ree5gk36lc"]
+
+[ext_resource type="Texture2D" uid="uid://buhks7brbsibb" path="res://Sprites/Objects/Rock.png" id="1_iq6l0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pusyy"]
+size = Vector3(0.725, 0.795, 0.875)
+
+[node name="Boulder" type="Sprite3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.9, -0.603296, 2.1)
+billboard = 1
+double_sided = false
+alpha_cut = 2
+texture = ExtResource("1_iq6l0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.367696, 0, 0.367696, 0, 0.52, 0, -0.367696, 0, 0.367696, 0.002, -0.045, -0.072)
+shape = SubResource("BoxShape3D_pusyy")

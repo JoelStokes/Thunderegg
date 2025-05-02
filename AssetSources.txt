@@ -49,3 +49,10 @@ https://opengameart.org/content/rust-sprites
 
 64x64 textures
 https://opengameart.org/content/64x-textures-an-overlays
+
+32x32 textures
+https://opengameart.org/content/pixel-texture-pack
+https://opengameart.org/content/ground-texture-tiles-32-x-32
+https://opengameart.org/content/32x32-grass-block
+https://opengameart.org/content/wooden-box-pixel-art-32x32
+https://opengameart.org/content/grass-texture-pack

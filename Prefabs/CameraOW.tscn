@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://y7go1fv6pbns"]
+[gd_scene load_steps=6 format=3 uid="uid://y7go1fv6pbns"]
 
 [ext_resource type="Script" path="res://Scripts/Camera3DController.gd" id="1_13c2l"]
 [ext_resource type="Script" path="res://Scripts/TextController.gd" id="2_m6tbe"]
 [ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="3_lg0bn"]
 [ext_resource type="Script" path="res://Scripts/PauseController.gd" id="4_8col2"]
+[ext_resource type="Texture2D" uid="uid://62k8xld60e5q" path="res://Sprites/UI/Textbox.png" id="4_rt5if"]
 
 [node name="CameraOW" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10.9938, 19.6938)
@@ -30,7 +31,20 @@ grow_vertical = 0
 scale = Vector2(1.2, 1.2)
 script = ExtResource("2_m6tbe")
 
+[node name="NinePatchRect" type="NinePatchRect" parent="Text Parent"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 42.0
+offset_right = 482.0
+offset_bottom = 173.0
+texture = ExtResource("4_rt5if")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
 [node name="ColorRect" type="ColorRect" parent="Text Parent"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -53,12 +67,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -9.0
-offset_top = 50.0
-offset_right = 473.0
-offset_bottom = 157.0
+offset_left = -7.0
+offset_top = 53.0
+offset_right = 471.0
+offset_bottom = 162.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
@@ -67,7 +82,6 @@ autowrap_mode = 2
 text_overrun_behavior = 3
 
 [node name="TextArrow" type="Label" parent="Text Parent"]
-visible = false
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -77,10 +91,11 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -9.0
 offset_top = 50.0
-offset_right = 478.0
-offset_bottom = 173.0
+offset_right = 475.0
+offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
@@ -101,7 +116,19 @@ offset_right = 59.0
 offset_bottom = -8.0
 script = ExtResource("4_8col2")
 
+[node name="NinePatchRect" type="NinePatchRect" parent="Pause Menu"]
+offset_left = -23.0
+offset_top = 39.0
+offset_right = 298.0
+offset_bottom = 528.0
+texture = ExtResource("4_rt5if")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
 [node name="ColorRect" type="ColorRect" parent="Pause Menu"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -131,6 +158,7 @@ offset_right = 281.0
 offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
@@ -152,6 +180,7 @@ offset_right = 281.0
 offset_bottom = 207.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
@@ -173,6 +202,7 @@ offset_right = 281.0
 offset_bottom = 259.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
@@ -194,6 +224,7 @@ offset_right = 282.25
 offset_bottom = 300.25
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 20
@@ -215,6 +246,7 @@ offset_right = 282.5
 offset_bottom = 383.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
@@ -236,6 +268,7 @@ offset_right = 282.5
 offset_bottom = 424.25
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 20
@@ -257,6 +290,7 @@ offset_right = 282.5
 offset_bottom = 537.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
@@ -278,6 +312,7 @@ offset_right = 283.75
 offset_bottom = 585.75
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("3_lg0bn")
 theme_override_font_sizes/font_size = 28
