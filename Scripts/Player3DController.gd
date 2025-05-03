@@ -23,6 +23,12 @@ var northwestSprite = preload("res://Sprites/Objects/PlayerNorthwest.png")
 var southeastSprite = preload("res://Sprites/Objects/PlayerSoutheast.png")
 @onready var sprite3D = get_node("Sprite3D")
 
+#Ground checks for movement to prevent falling off map
+var raycastMove = .25
+var rayX = 0
+var rayZ = 0
+@onready var raycast = get_node("RayCast3D")
+
 func _physics_process(_delta: float) -> void:
 	#Handle player movement
 	#Once save data, add toggle that lets user set control preference between 2 styles?
@@ -44,31 +50,33 @@ func _physics_process(_delta: float) -> void:
 			self.velocity += get_gravity() * _delta
 		
 		if (direction.x < -buffer && direction.y < -buffer):		#UpLeft / W
-			sprite3D.texture = northSprite
-			sprite3D.flip_h = true
+			_set_move(northSprite, true, -raycastMove, -raycastMove)
 		elif (direction.x < -buffer && direction.y > buffer):		#DownLeft / S
-			sprite3D.texture = southSprite
-			sprite3D.flip_h = false
+			_set_move(southSprite, false, -raycastMove, raycastMove)
 		elif (direction.x > buffer && direction.y < -buffer):		#UpRight / N
-			sprite3D.texture = northSprite
-			sprite3D.flip_h = false
+			_set_move(northSprite, false, raycastMove, -raycastMove)
 		elif (direction.x > buffer && direction.y > buffer):		#DownRight / E
-			sprite3D.texture = southSprite
-			sprite3D.flip_h = true
+			_set_move(southSprite, true, raycastMove, raycastMove)
 		elif (direction.x < -buffer):		#Left / SW
-			sprite3D.texture = northeastSprite
-			sprite3D.flip_h = true
+			_set_move(northeastSprite, true, -raycastMove, 0)
 		elif (direction.x > buffer):	#Right / NE
-			sprite3D.texture = northeastSprite
-			sprite3D.flip_h = false
+			_set_move(northeastSprite, false, raycastMove, 0)
 		elif (direction.y > buffer):	#Down / SE
-			sprite3D.texture = southeastSprite
-			sprite3D.flip_h = false
+			_set_move(southeastSprite, false, 0, raycastMove)	
 		elif (direction.y < -buffer):	#Up / NW
-			sprite3D.texture = northwestSprite
-			sprite3D.flip_h = false
+			_set_move(northwestSprite, false, 0, -raycastMove)
 		
-		move_and_slide()
+		# Check Raycast in direction player is moving. If Raycast is not null, let the player move
+		raycast.position = Vector3(rayX, raycast.position.y, rayZ)
+		if (raycast.get_collider()):
+			move_and_slide()
 
 func _set_freeze(state) -> void:
 	frozen = state
+
+# Apply sprite, flip sprite if applicable, update moving direction's next raycast to check
+func _set_move(sprite, flip, x, z) -> void:
+	sprite3D.texture = sprite
+	sprite3D.flip_h = flip
+	rayX = x
+	rayZ = z

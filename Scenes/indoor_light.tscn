@@ -1,0 +1,153 @@
+[gd_scene load_steps=16 format=3 uid="uid://djuckvve52anx"]
+
+[ext_resource type="PackedScene" uid="uid://y7go1fv6pbns" path="res://Prefabs/CameraOW.tscn" id="1_d613c"]
+[ext_resource type="Texture2D" uid="uid://datdxk3ynr8pr" path="res://Textures/32x32/CREAKYWOOD.png" id="3_aeptd"]
+[ext_resource type="Texture2D" uid="uid://dgqyrfxj02u4g" path="res://Textures/32x32/wooden_box1.png" id="4_einn2"]
+[ext_resource type="Texture2D" uid="uid://cl3f5kfofc06g" path="res://Spritesheets/furnitureandwalls.png" id="5_erjwi"]
+[ext_resource type="PackedScene" uid="uid://otd78ly42xmf" path="res://Prefabs/PlayerOW.tscn" id="12_6q3k2"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_x35rb"]
+
+[sub_resource type="Sky" id="Sky_d4yba"]
+sky_material = SubResource("PhysicalSkyMaterial_x35rb")
+
+[sub_resource type="Environment" id="Environment_xmvl4"]
+background_mode = 2
+sky = SubResource("Sky_d4yba")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghdty"]
+albedo_texture = ExtResource("3_aeptd")
+uv1_scale = Vector3(13, 9, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lfuss"]
+material = SubResource("StandardMaterial3D_ghdty")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_k2mwa"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkipr"]
+albedo_texture = ExtResource("4_einn2")
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_snix3"]
+material = SubResource("StandardMaterial3D_kkipr")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vyjpe"]
+size = Vector3(1.225, 1, 1.99)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uqaqt"]
+size = Vector3(1.195, 3.045, 1.81)
+
+[node name="3DTest" type="Node3D"]
+
+[node name="CameraOW" parent="." instance=ExtResource("1_d613c")]
+followPlayer = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xmvl4")
+
+[node name="PlayerOW" parent="." instance=ExtResource("12_6q3k2")]
+
+[node name="Terrain" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(4.65263, 0, 4.98253, 0, 0.21434, 0, -4.65263, 0, 4.98253, 0.0749779, 0.238098, 0.220879)
+mesh = SubResource("BoxMesh_lfuss")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_k2mwa")
+
+[node name="Crate" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 0.7, 0, -0.707107, 0, 0.707107, -0.994516, 0.7, -2.97442)
+mesh = SubResource("BoxMesh_snix3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Crate"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Crate/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_k2mwa")
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Bed" type="Sprite3D" parent="Objects"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.2814, 0.748187, 1.25439)
+billboard = 1
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("5_erjwi")
+region_enabled = true
+region_rect = Rect2(3.19311, 8.03668, 58.2122, 46.6035)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Objects/Bed"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Bed/StaticBody3D"]
+transform = Transform3D(0.212132, 0, 0.212132, 0, 0.3, 0, -0.212132, 0, 0.212132, -0.0073111, 0, -0.0648944)
+shape = SubResource("BoxShape3D_vyjpe")
+
+[node name="Lamp" type="Sprite3D" parent="Objects"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.206563, 0.748187, 4.97863)
+billboard = 1
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("5_erjwi")
+region_enabled = true
+region_rect = Rect2(264.903, 195.909, 14.2136, 23.074)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Objects/Lamp"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Lamp/StaticBody3D"]
+transform = Transform3D(0.212132, 0, 0.212132, 0, 0.3, 0, -0.212132, 0, 0.212132, -0.0073111, 0, -0.0648944)
+shape = SubResource("BoxShape3D_vyjpe")
+
+[node name="EmptyBookshelf" type="Sprite3D" parent="Objects"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.77449, 0.849688, -2.45801)
+billboard = 1
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("5_erjwi")
+region_enabled = true
+region_rect = Rect2(127.771, 2.74741, 32.2831, 57.361)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Objects/EmptyBookshelf"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/EmptyBookshelf/StaticBody3D"]
+transform = Transform3D(0.127279, 0, 0.127279, 0, 0.18, 0, -0.127279, 0, 0.127279, 0.00982656, 0.0177917, -0.0212745)
+shape = SubResource("BoxShape3D_uqaqt")
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Objects"]
+transform = Transform3D(0.999929, 0, -0.0119552, 0, 1, 0, 0.0119552, 0, 0.999929, 0.199559, 0.696856, 4.9096)
+light_color = Color(1, 0.712199, 0.492531, 1)
+light_energy = 15.0
+light_size = 1.0
+shadow_enabled = true
+shadow_bias = 0.1
+spot_range = 8.10371
+spot_angle = 41.92
+spot_angle_attenuation = 0.554785
+
+[node name="Rug" type="Node3D" parent="Objects"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.89691, 0.781085, 2.64099)
+
+[node name="Sprite" type="Sprite3D" parent="Objects/Rug"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009552, 0.110474)
+layers = 2
+cast_shadow = 0
+billboard = 1
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("5_erjwi")
+region_enabled = true
+region_rect = Rect2(193.008, 584.967, 91.0272, 47.0009)

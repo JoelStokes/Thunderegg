@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://ctq167gmrgmix"]
+[gd_scene load_steps=16 format=3 uid="uid://djuckvve52anx"]
 
-[ext_resource type="PackedScene" uid="uid://y7go1fv6pbns" path="res://Prefabs/CameraOW.tscn" id="1_d613c"]
-[ext_resource type="Texture2D" uid="uid://datdxk3ynr8pr" path="res://Textures/32x32/CREAKYWOOD.png" id="3_aeptd"]
-[ext_resource type="Texture2D" uid="uid://dgqyrfxj02u4g" path="res://Textures/32x32/wooden_box1.png" id="4_einn2"]
-[ext_resource type="Texture2D" uid="uid://cl3f5kfofc06g" path="res://Spritesheets/furnitureandwalls.png" id="5_erjwi"]
-[ext_resource type="PackedScene" uid="uid://otd78ly42xmf" path="res://Prefabs/PlayerOW.tscn" id="12_6q3k2"]
+[ext_resource type="PackedScene" uid="uid://y7go1fv6pbns" path="res://Prefabs/CameraOW.tscn" id="1_q3q74"]
+[ext_resource type="PackedScene" uid="uid://otd78ly42xmf" path="res://Prefabs/PlayerOW.tscn" id="2_reu2k"]
+[ext_resource type="Texture2D" uid="uid://datdxk3ynr8pr" path="res://Textures/32x32/CREAKYWOOD.png" id="3_bovse"]
+[ext_resource type="Texture2D" uid="uid://dgqyrfxj02u4g" path="res://Textures/32x32/wooden_box1.png" id="4_uxb2d"]
+[ext_resource type="Texture2D" uid="uid://cl3f5kfofc06g" path="res://Spritesheets/furnitureandwalls.png" id="5_mm7di"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_x35rb"]
 
@@ -19,7 +19,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghdty"]
-albedo_texture = ExtResource("3_aeptd")
+albedo_texture = ExtResource("3_bovse")
 uv1_scale = Vector3(13, 9, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lfuss"]
@@ -29,7 +29,7 @@ material = SubResource("StandardMaterial3D_ghdty")
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkipr"]
-albedo_texture = ExtResource("4_einn2")
+albedo_texture = ExtResource("4_uxb2d")
 uv1_scale = Vector3(3, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_snix3"]
@@ -43,13 +43,17 @@ size = Vector3(1.195, 3.045, 1.81)
 
 [node name="3DTest" type="Node3D"]
 
-[node name="CameraOW" parent="." instance=ExtResource("1_d613c")]
+[node name="CameraOW" parent="." instance=ExtResource("1_q3q74")]
 followPlayer = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xmvl4")
 
-[node name="PlayerOW" parent="." instance=ExtResource("12_6q3k2")]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0389252, -0.976156, 0.213553, 0.271409, 0.216009, 0.937911, -0.961677, 0.021452, 0.273346, 0, 3.66357, 0)
+light_energy = 2.5
+
+[node name="PlayerOW" parent="." instance=ExtResource("2_reu2k")]
 
 [node name="Terrain" type="Node3D" parent="."]
 
@@ -81,7 +85,7 @@ billboard = 1
 double_sided = false
 alpha_cut = 2
 texture_filter = 0
-texture = ExtResource("5_erjwi")
+texture = ExtResource("5_mm7di")
 region_enabled = true
 region_rect = Rect2(3.19311, 8.03668, 58.2122, 46.6035)
 
@@ -97,7 +101,7 @@ billboard = 1
 double_sided = false
 alpha_cut = 2
 texture_filter = 0
-texture = ExtResource("5_erjwi")
+texture = ExtResource("5_mm7di")
 region_enabled = true
 region_rect = Rect2(127.771, 2.74741, 32.2831, 57.361)
 
@@ -120,20 +124,9 @@ billboard = 1
 double_sided = false
 alpha_cut = 2
 texture_filter = 0
-texture = ExtResource("5_erjwi")
+texture = ExtResource("5_mm7di")
 region_enabled = true
 region_rect = Rect2(43.9898, 447.901, 36.9568, 64.1136)
-
-[node name="OmniLight3D" type="SpotLight3D" parent="Objects/Fireplace"]
-transform = Transform3D(-0.783411, 0, 0.621503, 0, 1, 0, -0.621503, 0, -0.783411, 0.111467, 0, -0.311096)
-light_color = Color(1, 0.712199, 0.492531, 1)
-light_energy = 15.0
-light_size = 1.0
-shadow_enabled = true
-shadow_bias = 0.1
-spot_range = 8.10371
-spot_angle = 41.92
-spot_angle_attenuation = 0.554785
 
 [node name="Rug" type="Node3D" parent="Objects"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.89691, 0.781085, 2.64099)
@@ -146,6 +139,6 @@ billboard = 1
 double_sided = false
 alpha_cut = 2
 texture_filter = 0
-texture = ExtResource("5_erjwi")
+texture = ExtResource("5_mm7di")
 region_enabled = true
 region_rect = Rect2(193.008, 584.967, 91.0272, 47.0009)
