@@ -1,4 +1,4 @@
-extends Area2D
+extends Area3D
 
 #Trigger Dialog if player walks into area and presses interact
 #OWID handles collection status of item (prevent appearing if already collected)
@@ -35,12 +35,6 @@ func _ready() -> void:
 	var itemName = itemData.get(str(itemID)).get("name")
 	itemText = "You found a " + itemName + "!"
 	
-	#Set item trigger collisions to match layer to prevent impossible item grabs
-	set_collision_mask_value(z_index+1, true)
-	set_collision_layer_value(z_index+1, true)
-	$Collision.set_collision_mask_value(z_index+1, true)
-	$Collision.set_collision_layer_value(z_index+1, true)
-
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Confirm")):
 		if (inZone):
@@ -78,10 +72,12 @@ func _process(delta: float) -> void:
 				textNode._show_text_end_icon()
 			textCounter = 0
 
-func _on_body_entered(body):
+func _on_body_entered(body: Node3D) -> void:
 	if (body.name == "PlayerOW"):
+		body._toggle_question(true)
 		inZone = true
 
-func _on_body_exited(body):
+func _on_body_exited(body: Node3D) -> void:
 	if (body.name == "PlayerOW"):
+		body._toggle_question(false)
 		inZone = false

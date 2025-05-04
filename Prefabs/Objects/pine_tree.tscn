@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://uo7hgr7rti0s"]
+
+[ext_resource type="Texture2D" uid="uid://bk076ybtjb6xj" path="res://Sprites/Plants/pinetree.png" id="1_tdiwy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pusyy"]
+size = Vector3(0.725, 0.795, 0.875)
+
+[node name="PineTree" type="Sprite3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.27013, 0.0985041, -7.66223)
+billboard = 1
+double_sided = false
+alpha_cut = 2
+texture = ExtResource("1_tdiwy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0308228, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, 0.141421, -0.0241652, -0.471313, 0.341912)
+shape = SubResource("BoxShape3D_pusyy")

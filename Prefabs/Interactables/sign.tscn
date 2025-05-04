@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7axjc5fi2i2b"]
+
+[ext_resource type="Texture2D" uid="uid://dy36p3eycrl1b" path="res://Sprites/Objects/Sign.png" id="1_4733f"]
+[ext_resource type="Script" path="res://Scripts/TextInteract.gd" id="1_e7qx7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0swgm"]
+
+[node name="Sign" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33007, -0.950562, 2.68921)
+script = ExtResource("1_e7qx7")
+textArray = Array[String](["Why isn't this working? :("])
+
+[node name="InteractRegion" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0.0661479, 0.039917)
+shape = SubResource("BoxShape3D_0swgm")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.00743508, 0.100232, -0.0488281)
+flip_h = true
+billboard = 1
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_4733f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.176777, 0, 0.176777, 0, 0.25, 0, -0.176777, 0, 0.176777, 0, 0.049058, 0.039917)
+shape = SubResource("BoxShape3D_0swgm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
