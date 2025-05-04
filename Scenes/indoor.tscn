@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://djuckvve52anx"]
+[gd_scene load_steps=20 format=3 uid="uid://djuckvve52anx"]
 
 [ext_resource type="PackedScene" uid="uid://y7go1fv6pbns" path="res://Prefabs/CameraOW.tscn" id="1_q3q74"]
 [ext_resource type="PackedScene" uid="uid://otd78ly42xmf" path="res://Prefabs/PlayerOW.tscn" id="2_reu2k"]
 [ext_resource type="Texture2D" uid="uid://datdxk3ynr8pr" path="res://Textures/32x32/CREAKYWOOD.png" id="3_bovse"]
+[ext_resource type="PackedScene" uid="uid://pthci4chbqq5" path="res://Prefabs/Interactables/exit_area.tscn" id="4_jwacg"]
 [ext_resource type="Texture2D" uid="uid://dgqyrfxj02u4g" path="res://Textures/32x32/wooden_box1.png" id="4_uxb2d"]
 [ext_resource type="Texture2D" uid="uid://cl3f5kfofc06g" path="res://Spritesheets/furnitureandwalls.png" id="5_mm7di"]
+[ext_resource type="PackedScene" uid="uid://b87rgey2gttlu" path="res://Prefabs/Interactables/item.tscn" id="8_vnchy"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_x35rb"]
 
@@ -38,6 +40,12 @@ material = SubResource("StandardMaterial3D_kkipr")
 [sub_resource type="BoxShape3D" id="BoxShape3D_vyjpe"]
 size = Vector3(1.225, 1, 1.99)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qledx"]
+size = Vector3(0.75, 1, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1kpvw"]
+size = Vector3(0.9, 1.25, 0.9)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_uqaqt"]
 size = Vector3(1.195, 3.045, 1.81)
 
@@ -54,6 +62,7 @@ transform = Transform3D(0.0389252, -0.976156, 0.213553, 0.271409, 0.216009, 0.93
 light_energy = 2.5
 
 [node name="PlayerOW" parent="." instance=ExtResource("2_reu2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56842, 0.356445, 2.71362)
 
 [node name="Terrain" type="Node3D" parent="."]
 
@@ -66,6 +75,10 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_k2mwa")
+
+[node name="ExitArea" parent="Terrain" instance=ExtResource("4_jwacg")]
+newScene = "OW_test"
+newPos = Vector3(-5.35214, -1.0304, -3.74841)
 
 [node name="Crate" type="MeshInstance3D" parent="Terrain"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 0.7, 0, -0.707107, 0, 0.707107, -0.994516, 0.7, -2.97442)
@@ -95,6 +108,55 @@ region_rect = Rect2(3.19311, 8.03668, 58.2122, 46.6035)
 transform = Transform3D(0.212132, 0, 0.212132, 0, 0.3, 0, -0.212132, 0, 0.212132, -0.0073111, 0, -0.0648944)
 shape = SubResource("BoxShape3D_vyjpe")
 
+[node name="Table" type="Sprite3D" parent="Objects"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.712339, 0.748187, 0.13293)
+billboard = 1
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("5_mm7di")
+region_enabled = true
+region_rect = Rect2(68.9561, 272.835, 51.0677, 33.3709)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Objects/Table"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Table/StaticBody3D"]
+transform = Transform3D(0.212132, 0, 0.212132, 0, 0.3, 0, -0.212132, 0, 0.212132, -0.0073111, 0, -0.0648944)
+shape = SubResource("BoxShape3D_vyjpe")
+
+[node name="Barrel" type="Sprite3D" parent="Objects"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.865345, 0.748187, 3.59497)
+billboard = 1
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("5_mm7di")
+region_enabled = true
+region_rect = Rect2(193.876, 64.864, 27.3505, 29.4315)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Objects/Barrel"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Barrel/StaticBody3D"]
+transform = Transform3D(0.212132, 0, 0.212132, 0, 0.3, 0, -0.212132, 0, 0.212132, -0.0073111, 0, -0.0648944)
+shape = SubResource("BoxShape3D_qledx")
+
+[node name="Table2" type="Sprite3D" parent="Objects"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0204713, 0.748187, -4.20508)
+flip_h = true
+billboard = 1
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("5_mm7di")
+region_enabled = true
+region_rect = Rect2(254.658, 391.147, 34.5002, 47.2538)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Objects/Table2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Table2/StaticBody3D"]
+transform = Transform3D(0.212132, 0, 0.212132, 0, 0.3, 0, -0.212132, 0, 0.212132, -0.0073111, -0.0634766, -0.0648944)
+shape = SubResource("BoxShape3D_1kpvw")
+
 [node name="EmptyBookshelf" type="Sprite3D" parent="Objects"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.77449, 0.849688, -2.45801)
 billboard = 1
@@ -109,6 +171,22 @@ region_rect = Rect2(127.771, 2.74741, 32.2831, 57.361)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/EmptyBookshelf/StaticBody3D"]
 transform = Transform3D(0.127279, 0, 0.127279, 0, 0.18, 0, -0.127279, 0, 0.127279, 0.00982656, 0.0177917, -0.0212745)
+shape = SubResource("BoxShape3D_uqaqt")
+
+[node name="Dresser" type="Sprite3D" parent="Objects"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.61094, 0.849688, -1.651)
+billboard = 1
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("5_mm7di")
+region_enabled = true
+region_rect = Rect2(109.799, 132.807, 34.3262, 54.306)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Objects/Dresser"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Dresser/StaticBody3D"]
+transform = Transform3D(0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, 0.141421, 0.00982656, 0.0177917, -0.0212745)
 shape = SubResource("BoxShape3D_uqaqt")
 
 [node name="Fireplace" type="StaticBody3D" parent="Objects"]
@@ -128,17 +206,20 @@ texture = ExtResource("5_mm7di")
 region_enabled = true
 region_rect = Rect2(43.9898, 447.901, 36.9568, 64.1136)
 
-[node name="Rug" type="Node3D" parent="Objects"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.89691, 0.781085, 2.64099)
-
-[node name="Sprite" type="Sprite3D" parent="Objects/Rug"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009552, 0.110474)
-layers = 2
+[node name="Rug" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.88324, 0.481384, 2.14564)
+sorting_offset = -1.0
 cast_shadow = 0
 billboard = 1
+shaded = true
 double_sided = false
+no_depth_test = true
 alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("5_mm7di")
 region_enabled = true
 region_rect = Rect2(193.008, 584.967, 91.0272, 47.0009)
+
+[node name="Item" parent="." instance=ExtResource("8_vnchy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46471, 0.15291, 2.77563)
+OWID = 10

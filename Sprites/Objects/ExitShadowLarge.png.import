@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn2imeldbspfk"
-path.s3tc="res://.godot/imported/CHESS.png-638cd31d5a026a9b32b5602212d0eb20.s3tc.ctex"
+uid="uid://der8twlexdaah"
+path.s3tc="res://.godot/imported/ExitShadowLarge.png-8c4f671c903331a2c7b1864073a6f871.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/32x32/CHESS.png"
-dest_files=["res://.godot/imported/CHESS.png-638cd31d5a026a9b32b5602212d0eb20.s3tc.ctex"]
+source_file="res://Sprites/Objects/ExitShadowLarge.png"
+dest_files=["res://.godot/imported/ExitShadowLarge.png-8c4f671c903331a2c7b1864073a6f871.s3tc.ctex"]
 
 [params]
 

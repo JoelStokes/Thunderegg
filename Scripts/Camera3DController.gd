@@ -16,8 +16,9 @@ func _ready() -> void:
 	if (lastPos != Vector3.ZERO):
 		player.position = lastPos
 
-	# Teleport camera to player position on scene start so there's no weird, slow lerp
-	self.position = Vector3(startPos.x + player.position.x, startPos.y + player.position.y, startPos.z + player.position.z)
+	# Teleport camera to player position on scene start (if follow) so there's no weird, slow lerp
+	if (followPlayer):
+		self.position = Vector3(startPos.x + player.position.x, startPos.y + player.position.y, startPos.z + player.position.z)
 
 # Smoothly lerp the camera to the player's position if set to follow
 func _process(delta: float) -> void:

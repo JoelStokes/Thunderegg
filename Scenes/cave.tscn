@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://8ruj3mtceerm"]
 
-[ext_resource type="Script" path="res://Scripts/Camera3DController.gd" id="1_j1oxy"]
+[ext_resource type="PackedScene" uid="uid://y7go1fv6pbns" path="res://Prefabs/CameraOW.tscn" id="1_ui008"]
 [ext_resource type="Texture2D" uid="uid://buhks7brbsibb" path="res://Sprites/Objects/Rock.png" id="2_uqi5k"]
 [ext_resource type="Texture2D" uid="uid://drq5jfo2pyc56" path="res://Textures/GrassTexture.jpg" id="7_f4cn5"]
 [ext_resource type="Texture2D" uid="uid://pab8oc3n00mv" path="res://Textures/dirt.png" id="9_ogel7"]
@@ -50,13 +50,8 @@ background_energy_multiplier = 0.0
 
 [node name="3DCave" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="CameraOW" parent="." instance=ExtResource("1_ui008")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10.9938, 19.6938)
-projection = 1
-size = 12.0
-far = 150.0
-script = ExtResource("1_j1oxy")
-followPlayer = true
 
 [node name="Rock" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 12.6, 0.096704, 0.7)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://twwp3yvlq7rh"]
+[gd_scene load_steps=119 format=3 uid="uid://twwp3yvlq7rh"]
 
 [ext_resource type="Texture2D" uid="uid://drq5jfo2pyc56" path="res://Textures/GrassTexture.jpg" id="1_5g4x4"]
 [ext_resource type="PackedScene" uid="uid://y7go1fv6pbns" path="res://Prefabs/CameraOW.tscn" id="1_glhbo"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://uo7hgr7rti0s" path="res://Prefabs/Objects/pine_tree.tscn" id="4_v2bit"]
 [ext_resource type="Texture2D" uid="uid://djsa0be2pxipr" path="res://Sprites/Buildings/house.png" id="5_bufjn"]
 [ext_resource type="Texture2D" uid="uid://dr2uyspo1qdx3" path="res://Sprites/Buildings/stallFruit.png" id="6_i1mqb"]
+[ext_resource type="Script" path="res://Scripts/DoorController.gd" id="7_l2jl2"]
 [ext_resource type="Texture2D" uid="uid://dyu31vi524yk5" path="res://Textures/sand.png" id="8_2bmn4"]
 [ext_resource type="Texture2D" uid="uid://pab8oc3n00mv" path="res://Textures/dirt.png" id="9_odcqi"]
 [ext_resource type="Texture2D" uid="uid://1xwkqjr3akle" path="res://Textures/WaterF1.png" id="10_0etda"]
@@ -19,7 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://bavj1vwr8i0yd" path="res://Prefabs/Interactables/bush.tscn" id="15_ducxi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pusyy"]
-size = Vector3(0.725, 0.795, 0.875)
+size = Vector3(0.86, 0.795, 0.875)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ql1bb"]
+size = Vector3(1, 1, 0.696)
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_x35rb"]
 
@@ -335,7 +339,7 @@ material = SubResource("StandardMaterial3D_fxjb1")
 [node name="CameraOW" parent="." instance=ExtResource("1_glhbo")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.818927, 0.000538462, 0.573897, 0.571693, -0.0867961, 0.815864, 0.0502513, 0.996226, 0.0707718, 0, 7.7, 0)
+transform = Transform3D(0.60838, -0.687208, 0.397012, 0.445028, 0.709585, 0.546296, -0.657132, -0.155674, 0.737525, 0, 7.7, 0)
 light_energy = 0.5
 shadow_enabled = true
 
@@ -359,7 +363,7 @@ shape = SubResource("BoxShape3D_pusyy")
 [node name="PineTree" parent="." instance=ExtResource("4_v2bit")]
 
 [node name="House" type="Sprite3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.3, -0.0272589, -4.2)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.28876, -0.116614, -4.3687)
 billboard = 1
 double_sided = false
 alpha_cut = 2
@@ -368,8 +372,17 @@ texture = ExtResource("3_g37kn")
 [node name="StaticBody3D" type="StaticBody3D" parent="House"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="House/StaticBody3D"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.0333679, 0, -0.11168)
+transform = Transform3D(0.742462, 0, 0.742462, 0, 1.05, 0, -0.742462, 0, 0.742462, -0.00621211, -0.336487, -0.240533)
 shape = SubResource("BoxShape3D_pusyy")
+
+[node name="Door" type="Area3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4036, 0, 0.580139)
+script = ExtResource("7_l2jl2")
+newScene = "indoor"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House/Door"]
+transform = Transform3D(0.212132, 0, 0.212132, 0, 0.3, 0, -0.212132, 0, 0.212132, 0.0332032, -0.364014, -0.611283)
+shape = SubResource("BoxShape3D_ql1bb")
 
 [node name="House3" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.9, -0.0272589, -12.6)
@@ -381,19 +394,28 @@ texture = ExtResource("5_bufjn")
 [node name="StaticBody3D" type="StaticBody3D" parent="House3"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="House3/StaticBody3D"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.0333679, 0, -0.11168)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.00472675, 0, -0.1482)
 shape = SubResource("BoxShape3D_pusyy")
 
-[node name="House2" type="Sprite3D" parent="."]
+[node name="Door" type="Area3D" parent="House3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139456, 0, 0.837524)
+script = ExtResource("7_l2jl2")
+newScene = "indoor_light"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House3/Door"]
+transform = Transform3D(0.212132, 0, 0.212132, 0, 0.3, 0, -0.212132, 0, 0.212132, -0.0206668, -0.362366, -0.68973)
+shape = SubResource("BoxShape3D_ql1bb")
+
+[node name="FruitStall" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.08968, -0.371177, -3.72488)
 billboard = 1
 double_sided = false
 alpha_cut = 2
 texture = ExtResource("6_i1mqb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="House2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="FruitStall"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="House2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FruitStall/StaticBody3D"]
 transform = Transform3D(0.494975, 0, 0.494975, 0, 0.7, 0, -0.494975, 0, 0.494975, 0.1, 0, -0.18)
 shape = SubResource("BoxShape3D_pusyy")
 
@@ -2111,6 +2133,8 @@ mesh = SubResource("PlaneMesh_rq8ya")
 [node name="Item" parent="." instance=ExtResource("12_6tokn")]
 
 [node name="Sign" parent="." instance=ExtResource("14_yjecf")]
+textArray = Array[String](["There's a rock.
+Over there ->"])
 
 [node name="GarbageCan" parent="." instance=ExtResource("14_u54kj")]
 
@@ -2124,3 +2148,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83147, 0.349731, -0.580692)
 
 [node name="Bush4" parent="." instance=ExtResource("15_ducxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83371, 0.349731, -1.98987)
+
+[connection signal="body_entered" from="House/Door" to="House/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="House/Door" to="House/Door" method="_on_body_exited"]
+[connection signal="body_entered" from="House3/Door" to="House3/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="House3/Door" to="House3/Door" method="_on_body_exited"]

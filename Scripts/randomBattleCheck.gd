@@ -6,6 +6,9 @@ var battleScenePath = "res://Scenes/battle.tscn"
 var encounterRate = 15      #Percent chance that battle will start when player enters
 var saveNode
 
+#TODO: Player getting stuck in ground on battle return, but this is too high? Needs further testing
+var yAdj = .15
+
 func _ready() -> void:
 	saveNode = get_node("/root/SaveHandler")
 
@@ -19,5 +22,5 @@ func _on_body_entered(body: Node3D) -> void:
 				var newLevel = randi_range(pokemonIDS[arrayPos].y, pokemonIDS[arrayPos].z)
 				saveNode._set_wild_data(pokemonIDS[arrayPos].x, newLevel)
 				var sceneName = get_tree().get_current_scene().scene_file_path.get_file()
-				saveNode.save_OW(Vector3(body.position.x, body.position.y, body.position.z), sceneName)
+				saveNode.save_OW(Vector3(body.position.x, body.position.y + yAdj, body.position.z), sceneName)
 				get_tree().change_scene_to_file(battleScenePath)

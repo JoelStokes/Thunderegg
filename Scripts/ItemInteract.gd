@@ -74,8 +74,10 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if (body.name == "PlayerOW"):
+		body._toggle_question(true)
 		inZone = true
 
 func _on_body_exited(body: Node3D) -> void:
 	if (body.name == "PlayerOW"):
+		body._toggle_question(false)
 		inZone = false

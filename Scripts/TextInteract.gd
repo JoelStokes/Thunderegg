@@ -91,8 +91,10 @@ func _add_item():
 
 func _on_body_entered(body):
 	if (body.name == "PlayerOW"):
+		body._toggle_question(true)
 		inZone = true
 
 func _on_body_exited(body):
 	if (body.name == "PlayerOW"):
+		body._toggle_question(false)
 		inZone = false

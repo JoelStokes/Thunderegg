@@ -12,8 +12,11 @@ const SOUTHWEST = Vector2(-13,0)
 const SPEED = 3
 var buffer = .3	#Used for stick angle & analog movement checks
 
-#Text & Cutscene variables
+#Text, Interactables, & Cutscene variables
 var frozen = false
+var question = false
+var questionAlpha = 200
+@onready var questionNode = get_node("Question")
 
 #Player movement graphics
 var northSprite = preload("res://Sprites/Objects/PlayerNorth.png")
@@ -73,6 +76,12 @@ func _physics_process(_delta: float) -> void:
 
 func _set_freeze(state) -> void:
 	frozen = state
+	
+func _toggle_question(state) -> void:
+	if (state):
+		questionNode.modulate = Color(1,1,1,questionAlpha)
+	else:
+		questionNode.modulate = Color(1,1,1,0)
 
 # Apply sprite, flip sprite if applicable, update moving direction's next raycast to check
 func _set_move(sprite, flip, x, z) -> void:

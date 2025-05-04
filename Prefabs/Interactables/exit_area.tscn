@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://pthci4chbqq5"]
+
+[ext_resource type="Script" path="res://Scripts/LoadingZone.gd" id="1_1yq42"]
+[ext_resource type="Texture2D" uid="uid://b2nccgxj1s28x" path="res://Textures/32x32/REDBRICKS.png" id="2_jt678"]
+[ext_resource type="Texture2D" uid="uid://der8twlexdaah" path="res://Sprites/Objects/ExitShadowLarge.png" id="3_3503m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hmqnn"]
+size = Vector3(1, 1, 0.637573)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwd7d"]
+albedo_texture = ExtResource("2_jt678")
+uv1_scale = Vector3(-4.875, -5.225, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v2yjm"]
+material = SubResource("StandardMaterial3D_jwd7d")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bu8a5"]
+size = Vector3(1, 1, 1.3)
+
+[node name="ExitArea" type="Area3D"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 2.88156, 0.238098, 3.03897)
+script = ExtResource("1_1yq42")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119544, 0.452004, 0.80198)
+shape = SubResource("BoxShape3D_hmqnn")
+
+[node name="ExitBlock" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.213, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_v2yjm")
+skeleton = NodePath("../../..")
+
+[node name="BlackGradient" type="Sprite3D" parent="ExitBlock"]
+transform = Transform3D(1.06066, 0, -1.06066, 0, 6.30841, 0, 1.06066, 0, 1.06066, -0.534647, 2.29395, 0.552649)
+sorting_offset = -1.0
+cast_shadow = 0
+billboard = 1
+shaded = true
+double_sided = false
+no_depth_test = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("3_3503m")
+region_rect = Rect2(193.008, 584.967, 91.0272, 47.0009)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ExitBlock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitBlock/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.148681)
+shape = SubResource("BoxShape3D_bu8a5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

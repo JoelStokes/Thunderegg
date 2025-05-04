@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn2imeldbspfk"
-path.s3tc="res://.godot/imported/CHESS.png-638cd31d5a026a9b32b5602212d0eb20.s3tc.ctex"
+uid="uid://ckh475vfywt0m"
+path.s3tc="res://.godot/imported/QuestionBubble.png-e0abed5af3efd37c6984f03a04d69707.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/32x32/CHESS.png"
-dest_files=["res://.godot/imported/CHESS.png-638cd31d5a026a9b32b5602212d0eb20.s3tc.ctex"]
+source_file="res://Sprites/UI/QuestionBubble.png"
+dest_files=["res://.godot/imported/QuestionBubble.png-e0abed5af3efd37c6984f03a04d69707.s3tc.ctex"]
 
 [params]
 
