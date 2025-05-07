@@ -13,10 +13,30 @@
 		"name": "Waterfall Model",
 		"type": "water",
 		"cat": "physical",
-		"pp": "15",
+		"pp": "30",
 		"accuracy": "100",
 		"priority": "0",
-		"power": "80",
-		"description": "The user charges at the target and may make it flinch."
+		"power": "40",
+		"description": "The opponent is hit with falling water."
+	},
+	"3": {
+		"name": "Kernel",
+		"type": "grass",
+		"cat": "physical",
+		"pp": "30",
+		"accuracy": "100",
+		"priority": "0",
+		"power": "25",
+		"description": "A kernel is hurled at the opponent."
+	},
+	"4": {
+		"name": "Firewall",
+		"type": "fire",
+		"cat": "special",
+		"pp": "25",
+		"accuracy": "100",
+		"priority": "0",
+		"power": "40",
+		"description": "A small wall of fire hurts the opponent."
 	}
 }

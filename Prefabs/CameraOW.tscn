@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://y7go1fv6pbns"]
+[gd_scene load_steps=7 format=3 uid="uid://y7go1fv6pbns"]
 
 [ext_resource type="Script" path="res://Scripts/Camera3DController.gd" id="1_13c2l"]
 [ext_resource type="Script" path="res://Scripts/TextController.gd" id="2_m6tbe"]
 [ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="3_lg0bn"]
 [ext_resource type="Script" path="res://Scripts/PauseController.gd" id="4_8col2"]
 [ext_resource type="Texture2D" uid="uid://62k8xld60e5q" path="res://Sprites/UI/Textbox.png" id="4_rt5if"]
+[ext_resource type="PackedScene" uid="uid://qhdtiyvx2bpm" path="res://Prefabs/UI/pause_button.tscn" id="6_simsj"]
 
 [node name="CameraOW" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10.9938, 19.6938)
@@ -14,7 +15,7 @@ far = 150.0
 script = ExtResource("1_13c2l")
 followPlayer = true
 
-[node name="Text Parent" type="Control" parent="."]
+[node name="Dialog Box" type="Control" parent="."]
 z_index = 50
 layout_mode = 3
 anchors_preset = 7
@@ -31,7 +32,7 @@ grow_vertical = 0
 scale = Vector2(1.2, 1.2)
 script = ExtResource("2_m6tbe")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Text Parent"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Dialog Box"]
 layout_mode = 0
 offset_left = -19.0
 offset_top = 42.0
@@ -43,23 +44,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="ColorRect" type="ColorRect" parent="Text Parent"]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -19.0
-offset_top = 42.0
-offset_right = 481.0
-offset_bottom = 171.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0.0980392, 0.0980392, 0.0980392, 0.905882)
-
-[node name="Textbox" type="Label" parent="Text Parent"]
+[node name="Textbox" type="Label" parent="Dialog Box"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -81,7 +66,7 @@ text = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pla
 autowrap_mode = 2
 text_overrun_behavior = 3
 
-[node name="TextArrow" type="Label" parent="Text Parent"]
+[node name="TextArrow" type="Label" parent="Dialog Box"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -122,30 +107,51 @@ offset_left = -23.0
 offset_top = 39.0
 offset_right = 298.0
 offset_bottom = 528.0
+scale = Vector2(0.64, 1)
 texture = ExtResource("4_rt5if")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="ColorRect" type="ColorRect" parent="Pause Menu"]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -19.0
-offset_top = 42.0
-offset_right = 481.0
-offset_bottom = 171.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.626166, 3.72971)
-color = Color(0.0980392, 0.0980392, 0.0980392, 0.905882)
+[node name="Pokemon" parent="Pause Menu" instance=ExtResource("6_simsj")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 150.045
+offset_bottom = 46.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="Trainer" type="Label" parent="Pause Menu"]
+[node name="Trainer" type="Control" parent="."]
+visible = false
+z_index = 50
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 59.0
+offset_top = -8.0
+offset_right = 59.0
+offset_bottom = -8.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Trainer"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 39.0
+offset_right = 298.0
+offset_bottom = 528.0
+texture = ExtResource("4_rt5if")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Trainer" type="Label" parent="Trainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -167,7 +173,7 @@ text = "Name: N/A"
 autowrap_mode = 2
 text_overrun_behavior = 3
 
-[node name="Money" type="Label" parent="Pause Menu"]
+[node name="Money" type="Label" parent="Trainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -189,7 +195,7 @@ text = "Money: 0$"
 autowrap_mode = 2
 text_overrun_behavior = 3
 
-[node name="Items" type="Label" parent="Pause Menu"]
+[node name="Items" type="Label" parent="Trainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -211,7 +217,7 @@ text = "Items Held: 0"
 autowrap_mode = 2
 text_overrun_behavior = 3
 
-[node name="ItemList" type="Label" parent="Pause Menu"]
+[node name="ItemList" type="Label" parent="Trainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -233,7 +239,7 @@ text = "N/A"
 autowrap_mode = 2
 text_overrun_behavior = 3
 
-[node name="Pokemon" type="Label" parent="Pause Menu"]
+[node name="Pokemon" type="Label" parent="Trainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -255,7 +261,7 @@ text = "Pokémon Caught: 0"
 autowrap_mode = 2
 text_overrun_behavior = 3
 
-[node name="PokemonList" type="Label" parent="Pause Menu"]
+[node name="PokemonList" type="Label" parent="Trainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -277,7 +283,7 @@ text = "N/A"
 autowrap_mode = 2
 text_overrun_behavior = 3
 
-[node name="LastPosition" type="Label" parent="Pause Menu"]
+[node name="LastPosition" type="Label" parent="Trainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -299,7 +305,206 @@ text = "Last Position: (0,0)"
 autowrap_mode = 2
 text_overrun_behavior = 3
 
-[node name="LastScene" type="Label" parent="Pause Menu"]
+[node name="LastScene" type="Label" parent="Trainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -6.24999
+offset_top = 478.75
+offset_right = 283.75
+offset_bottom = 585.75
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("3_lg0bn")
+theme_override_font_sizes/font_size = 28
+text = "Last Scene: N/A"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Party" type="Control" parent="."]
+visible = false
+z_index = 50
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 59.0
+offset_top = -8.0
+offset_right = 59.0
+offset_bottom = -8.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Party"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 39.0
+offset_right = 298.0
+offset_bottom = 528.0
+texture = ExtResource("4_rt5if")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Trainer" type="Label" parent="Party"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.00003
+offset_top = 50.0
+offset_right = 281.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("3_lg0bn")
+theme_override_font_sizes/font_size = 28
+text = "Name: N/A"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Money" type="Label" parent="Party"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.00003
+offset_top = 100.0
+offset_right = 281.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("3_lg0bn")
+theme_override_font_sizes/font_size = 28
+text = "Money: 0$"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Items" type="Label" parent="Party"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.99998
+offset_top = 152.0
+offset_right = 281.0
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("3_lg0bn")
+theme_override_font_sizes/font_size = 28
+text = "Items Held: 0"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="ItemList" type="Label" parent="Party"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -7.75
+offset_top = 193.25
+offset_right = 282.25
+offset_bottom = 300.25
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("3_lg0bn")
+theme_override_font_sizes/font_size = 20
+text = "N/A"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Pokemon" type="Label" parent="Party"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -7.49998
+offset_top = 276.0
+offset_right = 282.5
+offset_bottom = 383.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("3_lg0bn")
+theme_override_font_sizes/font_size = 28
+text = "Pokémon Caught: 0"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="PokemonList" type="Label" parent="Party"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -7.49998
+offset_top = 317.25
+offset_right = 282.5
+offset_bottom = 424.25
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("3_lg0bn")
+theme_override_font_sizes/font_size = 20
+text = "N/A"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="LastPosition" type="Label" parent="Party"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -7.49999
+offset_top = 430.0
+offset_right = 282.5
+offset_bottom = 537.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("3_lg0bn")
+theme_override_font_sizes/font_size = 28
+text = "Last Position: (0,0)"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="LastScene" type="Label" parent="Party"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 7
