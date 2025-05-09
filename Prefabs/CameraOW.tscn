@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://y7go1fv6pbns"]
+[gd_scene load_steps=6 format=3 uid="uid://y7go1fv6pbns"]
 
 [ext_resource type="Script" path="res://Scripts/Camera3DController.gd" id="1_13c2l"]
 [ext_resource type="Script" path="res://Scripts/TextController.gd" id="2_m6tbe"]
 [ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="3_lg0bn"]
-[ext_resource type="Script" path="res://Scripts/PauseController.gd" id="4_8col2"]
 [ext_resource type="Texture2D" uid="uid://62k8xld60e5q" path="res://Sprites/UI/Textbox.png" id="4_rt5if"]
 [ext_resource type="PackedScene" uid="uid://qhdtiyvx2bpm" path="res://Prefabs/UI/pause_button.tscn" id="6_simsj"]
 
@@ -15,7 +14,7 @@ far = 150.0
 script = ExtResource("1_13c2l")
 followPlayer = true
 
-[node name="Dialog Box" type="Control" parent="."]
+[node name="DialogBox" type="Control" parent="."]
 z_index = 50
 layout_mode = 3
 anchors_preset = 7
@@ -32,7 +31,7 @@ grow_vertical = 0
 scale = Vector2(1.2, 1.2)
 script = ExtResource("2_m6tbe")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Dialog Box"]
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogBox"]
 layout_mode = 0
 offset_left = -19.0
 offset_top = 42.0
@@ -44,7 +43,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="Textbox" type="Label" parent="Dialog Box"]
+[node name="Textbox" type="Label" parent="DialogBox"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -66,7 +65,7 @@ text = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pla
 autowrap_mode = 2
 text_overrun_behavior = 3
 
-[node name="TextArrow" type="Label" parent="Dialog Box"]
+[node name="TextArrow" type="Label" parent="DialogBox"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -91,6 +90,7 @@ autowrap_mode = 2
 text_overrun_behavior = 3
 
 [node name="Pause Menu" type="Control" parent="."]
+visible = false
 z_index = 50
 layout_direction = 2
 layout_mode = 3
@@ -99,7 +99,6 @@ offset_left = 59.0
 offset_top = -8.0
 offset_right = 59.0
 offset_bottom = -8.0
-script = ExtResource("4_8col2")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Pause Menu"]
 layout_mode = 0

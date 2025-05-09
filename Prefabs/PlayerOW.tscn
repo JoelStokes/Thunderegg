@@ -1,8 +1,172 @@
-[gd_scene load_steps=5 format=3 uid="uid://otd78ly42xmf"]
+[gd_scene load_steps=15 format=3 uid="uid://otd78ly42xmf"]
 
 [ext_resource type="Script" path="res://Scripts/Player3DController.gd" id="1_cocyq"]
-[ext_resource type="Texture2D" uid="uid://b8pbjxccj4nlg" path="res://Sprites/Objects/PlayerSouth.png" id="2_xb8yq"]
+[ext_resource type="Texture2D" uid="uid://dwfcid2dhjvfn" path="res://Spritesheets/potato_man_v2.png" id="2_t0gjy"]
 [ext_resource type="Texture2D" uid="uid://ckh475vfywt0m" path="res://Sprites/UI/QuestionBubble.png" id="3_pixhn"]
+
+[sub_resource type="Animation" id="Animation_d52oq"]
+resource_name = "walk_N"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_wk8tx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+
+[sub_resource type="Animation" id="Animation_cjtwo"]
+resource_name = "walk_NE"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_8ipbm"]
+resource_name = "walk_E"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43]
+}
+
+[sub_resource type="Animation" id="Animation_5isnr"]
+resource_name = "walk_SE"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [64, 65, 66, 67]
+}
+
+[sub_resource type="Animation" id="Animation_1uemj"]
+resource_name = "walk_S"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_e4hfr"]
+resource_name = "walk_SW"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [56, 57, 56, 59]
+}
+
+[sub_resource type="Animation" id="Animation_k1s35"]
+resource_name = "walk_W"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51]
+}
+
+[sub_resource type="Animation" id="Animation_8gxlm"]
+resource_name = "walk_NW"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_464yy"]
+_data = {
+"RESET": SubResource("Animation_wk8tx"),
+"walk_E": SubResource("Animation_8ipbm"),
+"walk_N": SubResource("Animation_d52oq"),
+"walk_NE": SubResource("Animation_cjtwo"),
+"walk_NW": SubResource("Animation_8gxlm"),
+"walk_S": SubResource("Animation_1uemj"),
+"walk_SE": SubResource("Animation_5isnr"),
+"walk_SW": SubResource("Animation_e4hfr"),
+"walk_W": SubResource("Animation_k1s35")
+}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_on7b4"]
 
@@ -15,10 +179,21 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.295232, 0)
 billboard = 1
 double_sided = false
 alpha_cut = 2
-texture = ExtResource("2_xb8yq")
+texture_filter = 0
+texture = ExtResource("2_t0gjy")
+hframes = 8
+vframes = 9
+frame = 24
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="Sprite3D"]
+libraries = {
+"": SubResource("AnimationLibrary_464yy")
+}
+speed_scale = 1.3
 
 [node name="Question" type="Sprite3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.121286, 0.84876, 0.0329214)
+cast_shadow = 0
 modulate = Color(1, 1, 1, 0)
 billboard = 1
 double_sided = false

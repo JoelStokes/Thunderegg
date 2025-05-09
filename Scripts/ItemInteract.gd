@@ -22,7 +22,7 @@ var textCounter = 0
 var textFinished = true
 
 func _ready() -> void:
-	textNode = get_node("../CameraOW/Text Parent")
+	textNode = get_node("../CameraOW/DialogBox")
 	playerNode = get_node("../PlayerOW")
 	saveNode = get_node("/root/SaveHandler")
 	

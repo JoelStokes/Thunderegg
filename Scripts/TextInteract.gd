@@ -25,7 +25,7 @@ var currTextArray
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	textNode = get_node("../CameraOW/Text Parent")
+	textNode = get_node("../CameraOW/DialogBox")
 	playerNode = get_node("../PlayerOW")
 
 	# If item given from interaction, check if the player has already recieved it

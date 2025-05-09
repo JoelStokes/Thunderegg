@@ -2133,8 +2133,7 @@ mesh = SubResource("PlaneMesh_rq8ya")
 [node name="Item" parent="." instance=ExtResource("12_6tokn")]
 
 [node name="Sign" parent="." instance=ExtResource("14_yjecf")]
-textArray = Array[String](["There's a rock.
-Over there ->"])
+textArray = Array[String](["\"I've been feeling a lot better ever since the doctor gave me bones!\""])
 
 [node name="GarbageCan" parent="." instance=ExtResource("14_u54kj")]
 

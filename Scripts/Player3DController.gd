@@ -19,12 +19,9 @@ var questionAlpha = 200
 @onready var questionNode = get_node("Question")
 
 #Player movement graphics
-var northSprite = preload("res://Sprites/Objects/PlayerNorth.png")
-var southSprite = preload("res://Sprites/Objects/PlayerSouth.png")
-var northeastSprite = preload("res://Sprites/Objects/PlayerNortheast.png") #Flipped for SW
-var northwestSprite = preload("res://Sprites/Objects/PlayerNorthwest.png")
-var southeastSprite = preload("res://Sprites/Objects/PlayerSoutheast.png")
-@onready var sprite3D = get_node("Sprite3D")
+var lastAnim = ""
+@onready var animator = get_node("Sprite3D/PlayerAnimation")
+var stoppedMoving = false	#Helps animation restart again on same direction move
 
 #Ground checks for movement to prevent falling off map
 var raycastMove = .25
@@ -52,23 +49,26 @@ func _physics_process(_delta: float) -> void:
 		if not is_on_floor():
 			self.velocity += get_gravity() * _delta
 		
-		if (direction.x < -buffer && direction.y < -buffer):		#UpLeft / W
-			_set_move(northSprite, true, -raycastMove, -raycastMove)
-		elif (direction.x < -buffer && direction.y > buffer):		#DownLeft / S
-			_set_move(southSprite, false, -raycastMove, raycastMove)
-		elif (direction.x > buffer && direction.y < -buffer):		#UpRight / N
-			_set_move(northSprite, false, raycastMove, -raycastMove)
-		elif (direction.x > buffer && direction.y > buffer):		#DownRight / E
-			_set_move(southSprite, true, raycastMove, raycastMove)
-		elif (direction.x < -buffer):		#Left / SW
-			_set_move(northeastSprite, true, -raycastMove, 0)
-		elif (direction.x > buffer):	#Right / NE
-			_set_move(northeastSprite, false, raycastMove, 0)
-		elif (direction.y > buffer):	#Down / SE
-			_set_move(southeastSprite, false, 0, raycastMove)	
-		elif (direction.y < -buffer):	#Up / NW
-			_set_move(northwestSprite, false, 0, -raycastMove)
-		
+		if (direction.x < -buffer && direction.y < -buffer):		#UpLeft / NW
+			_set_move("NW", -raycastMove, -raycastMove)
+		elif (direction.x < -buffer && direction.y > buffer):		#DownLeft / SW
+			_set_move("SW", -raycastMove, raycastMove)
+		elif (direction.x > buffer && direction.y < -buffer):		#UpRight / NE
+			_set_move("NE", raycastMove, -raycastMove)
+		elif (direction.x > buffer && direction.y > buffer):		#DownRight / SE
+			_set_move("SE", raycastMove, raycastMove)
+		elif (direction.x < -buffer):		#Left / W
+			_set_move("W", -raycastMove, 0)
+		elif (direction.x > buffer):	#Right / E
+			_set_move("E", raycastMove, 0)
+		elif (direction.y > buffer):	#Down / S
+			_set_move("S", 0, raycastMove)	
+		elif (direction.y < -buffer):	#Up / N
+			_set_move("N", 0, -raycastMove)
+		else:
+			_stop_anim()
+			stoppedMoving = true
+	
 		# Check Raycast in direction player is moving. If Raycast is not null, let the player move
 		raycast.position = Vector3(rayX, raycast.position.y, rayZ)
 		if (raycast.get_collider()):
@@ -76,6 +76,8 @@ func _physics_process(_delta: float) -> void:
 
 func _set_freeze(state) -> void:
 	frozen = state
+	_stop_anim()
+	stoppedMoving = true
 	
 func _toggle_question(state) -> void:
 	if (state):
@@ -83,9 +85,16 @@ func _toggle_question(state) -> void:
 	else:
 		questionNode.modulate = Color(1,1,1,0)
 
-# Apply sprite, flip sprite if applicable, update moving direction's next raycast to check
-func _set_move(sprite, flip, x, z) -> void:
-	sprite3D.texture = sprite
-	sprite3D.flip_h = flip
+# Set animation & update moving direction's next raycast to check
+func _set_move(dir, x, z) -> void:
+	var newAnim = "walk_" + dir
+	if (lastAnim != newAnim || stoppedMoving):
+		animator.play(newAnim)
+		lastAnim = newAnim
+		stoppedMoving = false
 	rayX = x
 	rayZ = z
+
+func _stop_anim() -> void:
+	animator.stop()
+	animator.seek(0, true)
