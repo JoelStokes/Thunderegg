@@ -4,23 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dwfcid2dhjvfn" path="res://Spritesheets/potato_man_v2.png" id="2_t0gjy"]
 [ext_resource type="Texture2D" uid="uid://ckh475vfywt0m" path="res://Sprites/UI/QuestionBubble.png" id="3_pixhn"]
 
-[sub_resource type="Animation" id="Animation_d52oq"]
-resource_name = "walk_N"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [24, 25, 26, 27]
-}
-
 [sub_resource type="Animation" id="Animation_wk8tx"]
 length = 0.001
 tracks/0/type = "value"
@@ -34,23 +17,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [24]
-}
-
-[sub_resource type="Animation" id="Animation_cjtwo"]
-resource_name = "walk_NE"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [16, 17, 18, 19]
 }
 
 [sub_resource type="Animation" id="Animation_8ipbm"]
@@ -70,8 +36,8 @@ tracks/0/keys = {
 "values": [40, 41, 42, 43]
 }
 
-[sub_resource type="Animation" id="Animation_5isnr"]
-resource_name = "walk_SE"
+[sub_resource type="Animation" id="Animation_d52oq"]
+resource_name = "walk_N"
 length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
@@ -84,7 +50,41 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [64, 65, 66, 67]
+"values": [24, 25, 26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_cjtwo"]
+resource_name = "walk_NE"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_8gxlm"]
+resource_name = "walk_NW"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_1uemj"]
@@ -102,6 +102,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_5isnr"]
+resource_name = "walk_SE"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [64, 65, 66, 67]
 }
 
 [sub_resource type="Animation" id="Animation_e4hfr"]
@@ -136,23 +153,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [48, 49, 50, 51]
-}
-
-[sub_resource type="Animation" id="Animation_8gxlm"]
-resource_name = "walk_NW"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_464yy"]

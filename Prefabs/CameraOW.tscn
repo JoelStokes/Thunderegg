@@ -1,18 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://y7go1fv6pbns"]
+[gd_scene load_steps=8 format=3 uid="uid://y7go1fv6pbns"]
 
 [ext_resource type="Script" path="res://Scripts/Camera3DController.gd" id="1_13c2l"]
+[ext_resource type="Shader" path="res://Shaders/sceneTransition.gdshader" id="2_83yi2"]
 [ext_resource type="Script" path="res://Scripts/TextController.gd" id="2_m6tbe"]
 [ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="3_lg0bn"]
 [ext_resource type="Texture2D" uid="uid://62k8xld60e5q" path="res://Sprites/UI/Textbox.png" id="4_rt5if"]
 [ext_resource type="PackedScene" uid="uid://qhdtiyvx2bpm" path="res://Prefabs/UI/pause_button.tscn" id="6_simsj"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pmv25"]
+shader = ExtResource("2_83yi2")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 50.0
+
 [node name="CameraOW" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10.9938, 19.6938)
 projection = 1
-size = 12.0
+size = 10.0
 far = 150.0
 script = ExtResource("1_13c2l")
 followPlayer = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_pmv25")
+offset_right = 1277.0
+offset_bottom = 721.0
+color = Color(0, 0, 0, 1)
 
 [node name="DialogBox" type="Control" parent="."]
 z_index = 50

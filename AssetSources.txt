@@ -56,3 +56,9 @@ https://opengameart.org/content/ground-texture-tiles-32-x-32
 https://opengameart.org/content/32x32-grass-block
 https://opengameart.org/content/wooden-box-pixel-art-32x32
 https://opengameart.org/content/grass-texture-pack
+
+PSX Water Shader
+https://godotshaders.com/shader/psx-style-water-surface-pixelation-waves-scrolling-textures/
+
+Scene Transition Shader
+https://godotshaders.com/shader/diamond-based-screen-transition/

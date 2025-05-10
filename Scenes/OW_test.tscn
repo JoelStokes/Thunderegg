@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://twwp3yvlq7rh"]
+[gd_scene load_steps=117 format=3 uid="uid://twwp3yvlq7rh"]
 
 [ext_resource type="Texture2D" uid="uid://drq5jfo2pyc56" path="res://Textures/GrassTexture.jpg" id="1_5g4x4"]
 [ext_resource type="PackedScene" uid="uid://y7go1fv6pbns" path="res://Prefabs/CameraOW.tscn" id="1_glhbo"]
@@ -12,12 +12,12 @@
 [ext_resource type="Script" path="res://Scripts/DoorController.gd" id="7_l2jl2"]
 [ext_resource type="Texture2D" uid="uid://dyu31vi524yk5" path="res://Textures/sand.png" id="8_2bmn4"]
 [ext_resource type="Texture2D" uid="uid://pab8oc3n00mv" path="res://Textures/dirt.png" id="9_odcqi"]
-[ext_resource type="Texture2D" uid="uid://1xwkqjr3akle" path="res://Textures/WaterF1.png" id="10_0etda"]
 [ext_resource type="PackedScene" uid="uid://otd78ly42xmf" path="res://Prefabs/PlayerOW.tscn" id="10_rq2hp"]
 [ext_resource type="PackedScene" uid="uid://b87rgey2gttlu" path="res://Prefabs/Interactables/item.tscn" id="12_6tokn"]
 [ext_resource type="PackedScene" uid="uid://creu44by7pnv2" path="res://Prefabs/Interactables/garbage_can.tscn" id="14_u54kj"]
 [ext_resource type="PackedScene" uid="uid://b7axjc5fi2i2b" path="res://Prefabs/Interactables/sign.tscn" id="14_yjecf"]
 [ext_resource type="PackedScene" uid="uid://bavj1vwr8i0yd" path="res://Prefabs/Interactables/bush.tscn" id="15_ducxi"]
+[ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://Shaders/Water/ocean_surface.tscn" id="18_r5fao"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pusyy"]
 size = Vector3(0.86, 0.795, 0.875)
@@ -325,14 +325,6 @@ left_to_right = 1.0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gd0v8"]
 data = PackedVector3Array(0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxjb1"]
-albedo_color = Color(0.361364, 0.725393, 1, 1)
-albedo_texture = ExtResource("10_0etda")
-uv1_scale = Vector3(25, 25, 25)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_rq8ya"]
-material = SubResource("StandardMaterial3D_fxjb1")
 
 [node name="3DTest" type="Node3D"]
 
@@ -2126,10 +2118,6 @@ shape = SubResource("ConcavePolygonShape3D_gd0v8")
 
 [node name="PlayerOW" parent="." instance=ExtResource("10_rq2hp")]
 
-[node name="Water Plane" type="MeshInstance3D" parent="."]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, -1.34802, 0)
-mesh = SubResource("PlaneMesh_rq8ya")
-
 [node name="Item" parent="." instance=ExtResource("12_6tokn")]
 
 [node name="Sign" parent="." instance=ExtResource("14_yjecf")]
@@ -2147,6 +2135,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83147, 0.349731, -0.580692)
 
 [node name="Bush4" parent="." instance=ExtResource("15_ducxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83371, 0.349731, -1.98987)
+
+[node name="OceanSurface" parent="." instance=ExtResource("18_r5fao")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -1.48242, 0)
 
 [connection signal="body_entered" from="House/Door" to="House/Door" method="_on_body_entered"]
 [connection signal="body_exited" from="House/Door" to="House/Door" method="_on_body_exited"]
