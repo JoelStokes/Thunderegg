@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://v4lvey210py7"]
+
+[ext_resource type="Script" path="res://Scripts/DoorController.gd" id="1_il6um"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ql1bb"]
+size = Vector3(1, 1, 0.696)
+
+[node name="Door" type="Area3D"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.4036, 0, 0.580139)
+script = ExtResource("1_il6um")
+newScene = "indoor"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("BoxShape3D_ql1bb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

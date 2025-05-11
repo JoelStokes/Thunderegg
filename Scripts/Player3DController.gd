@@ -67,7 +67,6 @@ func _physics_process(_delta: float) -> void:
 			_set_move("N", 0, -raycastMove)
 		else:
 			_stop_anim()
-			stoppedMoving = true
 	
 		# Check Raycast in direction player is moving. If Raycast is not null, let the player move
 		raycast.position = Vector3(rayX, raycast.position.y, rayZ)
@@ -77,7 +76,6 @@ func _physics_process(_delta: float) -> void:
 func _set_freeze(state) -> void:
 	frozen = state
 	_stop_anim()
-	stoppedMoving = true
 	
 func _toggle_question(state) -> void:
 	if (state):
@@ -96,5 +94,8 @@ func _set_move(dir, x, z) -> void:
 	rayZ = z
 
 func _stop_anim() -> void:
-	animator.stop()
-	animator.seek(0, true)
+	# Don't do in cases where animator hasn't loaded yet (ex. freeze on scene load)
+	if (animator):
+		animator.stop()
+		animator.seek(0, true)
+		stoppedMoving = true

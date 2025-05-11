@@ -10,12 +10,13 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pmv25"]
 shader = ExtResource("2_83yi2")
 shader_parameter/progress = 0.0
-shader_parameter/diamondPixelSize = 50.0
+shader_parameter/fadeOut = false
+shader_parameter/diamondPixelSize = 60.0
 
 [node name="CameraOW" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10.9938, 19.6938)
 projection = 1
-size = 10.0
+size = 9.5
 far = 150.0
 script = ExtResource("1_13c2l")
 followPlayer = true
@@ -26,6 +27,7 @@ followPlayer = true
 material = SubResource("ShaderMaterial_pmv25")
 offset_right = 1277.0
 offset_bottom = 721.0
+scale = Vector2(1.24, 1.16)
 color = Color(0, 0, 0, 1)
 
 [node name="DialogBox" type="Control" parent="."]

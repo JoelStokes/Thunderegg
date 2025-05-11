@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c6jgaipws28ux" path="res://Sprites/Objects/PokeBall.png" id="5_v5jnn"]
 [ext_resource type="Texture2D" uid="uid://vk2tsqnj46xn" path="res://Sprites/UI/Eyeball.png" id="6_3fvrm"]
 
-[node name="Battle" type="Node2D"]
+[node name="Scene" type="Node2D"]
 script = ExtResource("1_278dn")
 
 [node name="UI" type="Control" parent="."]

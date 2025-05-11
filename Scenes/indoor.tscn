@@ -49,7 +49,7 @@ size = Vector3(0.9, 1.25, 0.9)
 [sub_resource type="BoxShape3D" id="BoxShape3D_uqaqt"]
 size = Vector3(1.195, 3.045, 1.81)
 
-[node name="3DTest" type="Node3D"]
+[node name="Scene" type="Node3D"]
 
 [node name="CameraOW" parent="." instance=ExtResource("1_q3q74")]
 followPlayer = false
