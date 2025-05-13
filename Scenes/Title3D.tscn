@@ -1,0 +1,169 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtuqp1grfalon"]
+
+[ext_resource type="Script" path="res://Scripts/CameraTitleController.gd" id="1_jxlsp"]
+[ext_resource type="Shader" path="res://Shaders/sceneTransition.gdshader" id="2_3cw5g"]
+[ext_resource type="Texture2D" uid="uid://cyosn7wabckr" path="res://Sprites/UI/Logo.png" id="3_ife06"]
+[ext_resource type="Texture2D" uid="uid://62k8xld60e5q" path="res://Sprites/UI/Textbox.png" id="6_oqwgv"]
+[ext_resource type="FontFile" uid="uid://kylqcoobnw06" path="res://Fonts/pokemon-rs.ttf" id="7_retpg"]
+[ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://Shaders/Water/ocean_surface.tscn" id="18_tre37"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pmv25"]
+shader = ExtResource("2_3cw5g")
+shader_parameter/progress = 1.0
+shader_parameter/fadeOut = false
+shader_parameter/diamondPixelSize = 60.0
+
+[node name="Scene" type="Node3D"]
+
+[node name="CameraTitle" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10.9938, 19.6938)
+projection = 1
+size = 9.5
+far = 150.0
+script = ExtResource("1_jxlsp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CameraTitle"]
+
+[node name="ColorRect" type="ColorRect" parent="CameraTitle/CanvasLayer"]
+material = SubResource("ShaderMaterial_pmv25")
+offset_right = 1277.0
+offset_bottom = 721.0
+scale = Vector2(1.24, 1.16)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.60838, -0.687208, 0.397012, 0.445028, 0.709585, 0.546296, -0.657132, -0.155674, 0.737525, 0, 7.7, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="OceanSurface" parent="." instance=ExtResource("18_tre37")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -1.48242, 0)
+
+[node name="Logo" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -330.0
+offset_top = 54.0
+offset_right = 5723.0
+offset_bottom = 2676.0
+grow_horizontal = 2
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_ife06")
+
+[node name="Shadow" type="TextureRect" parent="Logo"]
+modulate = Color(0, 0, 0, 0.588235)
+z_index = -1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -3101.5
+offset_top = 50.0
+offset_right = 2951.5
+offset_bottom = 2672.0
+grow_horizontal = 2
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("3_ife06")
+
+[node name="SelectBox" type="Control" parent="."]
+z_index = 50
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = -236.0
+offset_right = -229.0
+offset_bottom = -236.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="SelectBox"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 42.0
+offset_right = 482.0
+offset_bottom = 173.0
+texture = ExtResource("6_oqwgv")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="NewGameButton" type="Button" parent="SelectBox/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.5
+offset_top = -63.8334
+offset_right = 61.5
+offset_bottom = -17.8334
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 35
+text = "New Game"
+
+[node name="ContinueButton" type="Button" parent="SelectBox/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -111.5
+offset_top = -118.833
+offset_right = 118.5
+offset_bottom = -72.8333
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 35
+text = "Continue - Trainer"
+
+[node name="DebugBox" type="Control" parent="."]
+z_index = 50
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = -485.0
+offset_right = -229.0
+offset_bottom = -485.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DebugBox"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 42.0
+offset_right = 482.0
+offset_bottom = 173.0
+texture = ExtResource("6_oqwgv")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="TrainerNameBox" type="LineEdit" parent="DebugBox/NinePatchRect"]
+offset_left = 122.333
+offset_top = 42.1667
+offset_right = 189.396
+offset_bottom = 73.1667
+scale = Vector2(2, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 9

@@ -9,7 +9,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pmv25"]
 shader = ExtResource("2_83yi2")
-shader_parameter/progress = 0.0
+shader_parameter/progress = 1.0
 shader_parameter/fadeOut = false
 shader_parameter/diamondPixelSize = 60.0
 
@@ -28,6 +28,7 @@ material = SubResource("ShaderMaterial_pmv25")
 offset_right = 1277.0
 offset_bottom = 721.0
 scale = Vector2(1.24, 1.16)
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="DialogBox" type="Control" parent="."]
@@ -115,6 +116,7 @@ offset_left = 59.0
 offset_top = -8.0
 offset_right = 59.0
 offset_bottom = -8.0
+mouse_filter = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Pause Menu"]
 layout_mode = 0

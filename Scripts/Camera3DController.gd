@@ -36,7 +36,7 @@ func _ready() -> void:
 	if (followPlayer):
 		self.position = Vector3(startPos.x + player.position.x, startPos.y + player.position.y, startPos.z + player.position.z)
 
-	# Freeze player until scene start shader animation finished
+	# Freeze player (if there is a player) until scene start shader animation finished
 	player._set_freeze(true)
 
 # Smoothly lerp the camera to the player's position if set to follow
