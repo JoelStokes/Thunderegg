@@ -98,6 +98,16 @@ func save_Dex(id, newStatus):
 	userSave.Dex[id] = newStatus
 	save_game()
 
+#Save Main, SFX, and Music volumes
+func save_Audio(main:float = -1.0, sfx:float = -1.0, music:float = -1.0):
+	if (main >= 0):
+		userSave.mainVolume = main
+	if (sfx >= 0):
+		userSave.sfxVolume = sfx
+	if (music >= 0):
+		userSave.musicVolume = music
+	save_game()
+
 #Remove previous save file to start from scratch
 func delete_save():
 	DirAccess.remove_absolute(SAVE_GAME_PATH)

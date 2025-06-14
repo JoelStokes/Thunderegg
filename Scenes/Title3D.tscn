@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dtuqp1grfalon"]
 
-[ext_resource type="Script" path="res://Scripts/CameraTitleController.gd" id="1_jxlsp"]
+[ext_resource type="Script" path="res://Scripts/Title3DController.gd" id="1_vyyqr"]
 [ext_resource type="Shader" path="res://Shaders/sceneTransition.gdshader" id="2_3cw5g"]
 [ext_resource type="Texture2D" uid="uid://cyosn7wabckr" path="res://Sprites/UI/Logo.png" id="3_ife06"]
 [ext_resource type="Texture2D" uid="uid://62k8xld60e5q" path="res://Sprites/UI/Textbox.png" id="6_oqwgv"]
@@ -20,7 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10.9938
 projection = 1
 size = 9.5
 far = 150.0
-script = ExtResource("1_jxlsp")
+script = ExtResource("1_vyyqr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CameraTitle"]
 
@@ -45,11 +45,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -330.0
-offset_top = 54.0
+offset_top = 79.0
 offset_right = 5723.0
-offset_bottom = 2676.0
+offset_bottom = 2701.0
 grow_horizontal = 2
-scale = Vector2(0.125, 0.125)
+scale = Vector2(0.12, 0.12)
 texture = ExtResource("3_ife06")
 
 [node name="Shadow" type="TextureRect" parent="Logo"]
@@ -68,6 +68,7 @@ scale = Vector2(1.02, 1.02)
 texture = ExtResource("3_ife06")
 
 [node name="SelectBox" type="Control" parent="."]
+unique_name_in_owner = true
 z_index = 50
 layout_mode = 3
 anchors_preset = 7
@@ -76,19 +77,19 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -229.0
-offset_top = -236.0
+offset_top = -298.0
 offset_right = -229.0
-offset_bottom = -236.0
+offset_bottom = -298.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.2, 1.2)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="SelectBox"]
 layout_mode = 0
-offset_left = -19.0
-offset_top = 42.0
-offset_right = 482.0
-offset_bottom = 173.0
+offset_left = 47.5
+offset_top = 41.6667
+offset_right = 382.31
+offset_bottom = 186.662
 texture = ExtResource("6_oqwgv")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -96,6 +97,7 @@ patch_margin_right = 6
 patch_margin_bottom = 6
 
 [node name="NewGameButton" type="Button" parent="SelectBox/NinePatchRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -113,16 +115,17 @@ theme_override_font_sizes/font_size = 35
 text = "New Game"
 
 [node name="ContinueButton" type="Button" parent="SelectBox/NinePatchRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -111.5
-offset_top = -118.833
-offset_right = 118.5
-offset_bottom = -72.8333
+offset_left = -111.176
+offset_top = -125.828
+offset_right = 118.824
+offset_bottom = -79.8286
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("7_retpg")
@@ -130,6 +133,7 @@ theme_override_font_sizes/font_size = 35
 text = "Continue - Trainer"
 
 [node name="DebugBox" type="Control" parent="."]
+unique_name_in_owner = true
 z_index = 50
 layout_mode = 3
 anchors_preset = 7
@@ -138,32 +142,783 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -229.0
-offset_top = -485.0
+offset_top = -519.0
 offset_right = -229.0
-offset_bottom = -485.0
+offset_bottom = -519.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.2, 1.2)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="DebugBox"]
 layout_mode = 0
-offset_left = -19.0
-offset_top = 42.0
-offset_right = 482.0
-offset_bottom = 173.0
+offset_left = -74.165
+offset_top = -108.62
+offset_right = 525.835
+offset_bottom = 373.33
 texture = ExtResource("6_oqwgv")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="TrainerNameBox" type="LineEdit" parent="DebugBox/NinePatchRect"]
-offset_left = 122.333
-offset_top = 42.1667
-offset_right = 189.396
-offset_bottom = 73.1667
+[node name="NewGameDebug" type="Button" parent="DebugBox/NinePatchRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -85.0017
+offset_top = -59.9967
+offset_right = 102.998
+offset_bottom = -13.9967
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 35
+text = "Start New Game"
+
+[node name="Party Header" type="Label" parent="DebugBox/NinePatchRect"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 61.6648
+offset_top = -465.83
+offset_right = 261.665
+offset_bottom = -365.83
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Current Party"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Trainer Name" type="Label" parent="DebugBox/NinePatchRect"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.835
+offset_top = -462.497
+offset_right = -80.835
+offset_bottom = -362.497
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Trainer Name:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="TrainerNameBox" type="LineEdit" parent="DebugBox/NinePatchRect/Trainer Name"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 137.5
+offset_top = -3.33333
+offset_right = 204.563
+offset_bottom = 27.6667
 scale = Vector2(2, 1.5)
 tooltip_text = "Type in your trainer's name"
 theme_override_fonts/font = ExtResource("7_retpg")
 theme_override_font_sizes/font_size = 15
 max_length = 9
+
+[node name="Money" type="Label" parent="DebugBox/NinePatchRect"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.668
+offset_top = -403.33
+offset_right = -81.6683
+offset_bottom = -303.33
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Money: "
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="MoneyBox" type="LineEdit" parent="DebugBox/NinePatchRect/Money"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 137.5
+offset_top = -3.33334
+offset_right = 204.563
+offset_bottom = 27.6667
+scale = Vector2(2, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 9
+
+[node name="Items" type="Label" parent="DebugBox/NinePatchRect"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.668
+offset_top = -288.33
+offset_right = -81.6683
+offset_bottom = -188.33
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Items"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Item1" type="Label" parent="DebugBox/NinePatchRect"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.668
+offset_top = -244.997
+offset_right = -81.6683
+offset_bottom = -144.997
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "ID:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="ItemID1" type="LineEdit" parent="DebugBox/NinePatchRect/Item1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 35.0
+offset_top = -4.16667
+offset_right = 102.063
+offset_bottom = 26.8333
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Amount1" type="LineEdit" parent="DebugBox/NinePatchRect/Item1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 196.667
+offset_top = -4.16667
+offset_right = 263.729
+offset_bottom = 26.8333
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Amount" type="Label" parent="DebugBox/NinePatchRect/Item1"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 14.1666
+offset_top = -96.6667
+offset_right = 214.167
+offset_bottom = 3.33334
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Amount:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Item2" type="Label" parent="DebugBox/NinePatchRect"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.668
+offset_top = -182.497
+offset_right = -81.6683
+offset_bottom = -82.4967
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "ID:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="ItemID2" type="LineEdit" parent="DebugBox/NinePatchRect/Item2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 35.0
+offset_top = -4.16667
+offset_right = 102.063
+offset_bottom = 26.8333
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Amount2" type="LineEdit" parent="DebugBox/NinePatchRect/Item2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 196.667
+offset_top = -4.16667
+offset_right = 263.729
+offset_bottom = 26.8333
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Amount" type="Label" parent="DebugBox/NinePatchRect/Item2"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 14.1666
+offset_top = -96.6667
+offset_right = 214.167
+offset_bottom = 3.33334
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Amount:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Item3" type="Label" parent="DebugBox/NinePatchRect"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.668
+offset_top = -122.497
+offset_right = -81.6683
+offset_bottom = -22.4967
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "ID:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="ItemID3" type="LineEdit" parent="DebugBox/NinePatchRect/Item3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 35.0
+offset_top = -4.16667
+offset_right = 102.063
+offset_bottom = 26.8333
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Amount3" type="LineEdit" parent="DebugBox/NinePatchRect/Item3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 196.667
+offset_top = -4.16667
+offset_right = 263.729
+offset_bottom = 26.8333
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Amount" type="Label" parent="DebugBox/NinePatchRect/Item3"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 14.1666
+offset_top = -96.6667
+offset_right = 214.167
+offset_bottom = 3.33334
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Amount:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Scene" type="Label" parent="DebugBox/NinePatchRect"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.668
+offset_top = -343.33
+offset_right = -81.6683
+offset_bottom = -243.33
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Scene:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="SceneBox" type="LineEdit" parent="DebugBox/NinePatchRect/Scene"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 138.333
+offset_top = -4.99999
+offset_right = 205.396
+offset_bottom = 26.0
+scale = Vector2(2, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 15
+
+[node name="Party1" type="Label" parent="DebugBox/NinePatchRect"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 23.3317
+offset_top = -421.664
+offset_right = 223.332
+offset_bottom = -321.664
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "#1"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Poke1ID" type="LineEdit" parent="DebugBox/NinePatchRect/Party1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 72.5
+offset_top = -4.16664
+offset_right = 139.563
+offset_bottom = 26.8334
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Poke1Level" type="LineEdit" parent="DebugBox/NinePatchRect/Party1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 193.333
+offset_top = -4.16664
+offset_right = 260.396
+offset_bottom = 26.8334
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Poke1Name" type="LineEdit" parent="DebugBox/NinePatchRect/Party1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 112.5
+offset_top = 52.4997
+offset_right = 179.563
+offset_bottom = 83.4997
+scale = Vector2(2, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 9
+
+[node name="Pokemon ID" type="Label" parent="DebugBox/NinePatchRect/Party1"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.6669
+offset_top = -101.666
+offset_right = 138.333
+offset_bottom = -1.66634
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "ID:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Nickname" type="Label" parent="DebugBox/NinePatchRect/Party1"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0001
+offset_top = -41.6663
+offset_right = 140.0
+offset_bottom = 58.3337
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Name:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Level" type="Label" parent="DebugBox/NinePatchRect/Party1"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -100.0
+offset_right = 260.0
+offset_bottom = -0.000320435
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Lv:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Party2" type="Label" parent="DebugBox/NinePatchRect"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 23.3317
+offset_top = -295.83
+offset_right = 223.332
+offset_bottom = -195.83
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "#2"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Poke2ID" type="LineEdit" parent="DebugBox/NinePatchRect/Party2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 72.5
+offset_top = -4.16664
+offset_right = 139.563
+offset_bottom = 26.8334
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Poke2Level" type="LineEdit" parent="DebugBox/NinePatchRect/Party2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 193.333
+offset_top = -4.16664
+offset_right = 260.396
+offset_bottom = 26.8334
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Poke2Name" type="LineEdit" parent="DebugBox/NinePatchRect/Party2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 112.5
+offset_top = 52.4997
+offset_right = 179.563
+offset_bottom = 83.4997
+scale = Vector2(2, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 9
+
+[node name="Pokemon ID" type="Label" parent="DebugBox/NinePatchRect/Party2"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.6669
+offset_top = -101.666
+offset_right = 138.333
+offset_bottom = -1.66634
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "ID:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Nickname" type="Label" parent="DebugBox/NinePatchRect/Party2"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0001
+offset_top = -41.6663
+offset_right = 140.0
+offset_bottom = 58.3337
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Name:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Level" type="Label" parent="DebugBox/NinePatchRect/Party2"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -100.0
+offset_right = 260.0
+offset_bottom = -0.000320435
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Lv:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Party3" type="Label" parent="DebugBox/NinePatchRect"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 23.3317
+offset_top = -171.663
+offset_right = 223.332
+offset_bottom = -71.6634
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "#3"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Poke3ID" type="LineEdit" parent="DebugBox/NinePatchRect/Party3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 72.5
+offset_top = -4.16664
+offset_right = 139.563
+offset_bottom = 26.8334
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Poke3Level" type="LineEdit" parent="DebugBox/NinePatchRect/Party3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 193.333
+offset_top = -4.16664
+offset_right = 260.396
+offset_bottom = 26.8334
+scale = Vector2(0.799998, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 3
+
+[node name="Poke3Name" type="LineEdit" parent="DebugBox/NinePatchRect/Party3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 112.5
+offset_top = 52.4997
+offset_right = 179.563
+offset_bottom = 83.4997
+scale = Vector2(2, 1.5)
+tooltip_text = "Type in your trainer's name"
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 15
+max_length = 9
+
+[node name="Pokemon ID" type="Label" parent="DebugBox/NinePatchRect/Party3"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.6669
+offset_top = -101.666
+offset_right = 138.333
+offset_bottom = -1.66634
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "ID:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Nickname" type="Label" parent="DebugBox/NinePatchRect/Party3"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0001
+offset_top = -41.6663
+offset_right = 140.0
+offset_bottom = 58.3337
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Name:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="Level" type="Label" parent="DebugBox/NinePatchRect/Party3"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -100.0
+offset_right = 260.0
+offset_bottom = -0.000320435
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_retpg")
+theme_override_font_sizes/font_size = 28
+text = "Lv:"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[connection signal="pressed" from="SelectBox/NinePatchRect/NewGameButton" to="CameraTitle" method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="SelectBox/NinePatchRect/ContinueButton" to="CameraTitle" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="DebugBox/NinePatchRect/NewGameDebug" to="CameraTitle" method="_on_new_game_debug_pressed"]

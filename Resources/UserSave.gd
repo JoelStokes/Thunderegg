@@ -15,6 +15,11 @@ class_name UserSave
 @export var wildPokemonLevel := 0
 @export var wildTrainerID := 0
 
+#Audio Settings
+@export var mainVolume := 0.8
+@export var sfxVolume := 1.0
+@export var musicVolume := 1.0
+
 #Badges are saved as array so player can theoretically get a few out of order
 @export var Badges = create_filled_int_array(8,0)
 
