@@ -11,5 +11,20 @@
 		"name": "PokeBall",
 		"type": "pokeball",
 		"strength": 1
+	},
+	"3": {
+		"name": "GreatBall",
+		"type": "pokeball",
+		"strength": 2
+	},
+	"4": {
+		"name": "UltraBall",
+		"type": "pokeball",
+		"strength": 3
+	},
+	"5": {
+		"name": "MasterBall",
+		"type": "pokeball",
+		"strength": 99
 	}
 }

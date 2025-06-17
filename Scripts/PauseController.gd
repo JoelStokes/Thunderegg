@@ -1,13 +1,19 @@
 extends Control
 
-@onready var trainerNameNode = $Trainer
-@onready var moneyNode = $Money
-@onready var itemTotalNode = $Items
-@onready var itemListNode = $ItemList
-@onready var dexTotalNode = $Pokemon
-@onready var dexListNode = $PokemonList
-@onready var lastPositionNode = $LastPosition
-@onready var lastSceneNode = $LastScene
+# Menus & Buttons
+@onready var trainerButton = %TrainerButton
+@onready var trainerMenu = %TrainerMenu
+@onready var partyMenu = %PartyMenu
+
+# Text
+@onready var trainerNameNode = trainerMenu.get_node("Trainer")
+@onready var moneyNode = trainerMenu.get_node("Money")
+@onready var itemTotalNode = trainerMenu.get_node("Items")
+@onready var itemListNode = trainerMenu.get_node("ItemList")
+@onready var dexTotalNode = trainerMenu.get_node("Pokemon")
+@onready var dexListNode = trainerMenu.get_node("PokemonList")
+@onready var lastPositionNode = trainerMenu.get_node("LastPosition")
+@onready var lastSceneNode = trainerMenu.get_node("LastScene")
 var playerNode
 var saveNode
 
@@ -19,13 +25,16 @@ var pokemonData
 var paused = false
 
 func _ready() -> void:
-	#Get nodes & data
+	# Get nodes & data
 	playerNode = get_node("../../PlayerOW")
 	saveNode = get_node("/root/SaveHandler")
 	itemData = JSON.parse_string(FileAccess.get_file_as_string(itemFile))
 	pokemonData = JSON.parse_string(FileAccess.get_file_as_string(pokemonFile))
 
+	# Hide Menus
 	visible = false
+	trainerMenu.visible = false
+	partyMenu.visible = false
 
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Pause")):
@@ -35,6 +44,7 @@ func _toggle_pause():
 	paused = !paused
 	
 	if (paused):
+		trainerButton.text = " " + str(saveNode.load_specific("name"))
 		trainerNameNode.text = "Trainer: " + str(saveNode.load_specific("name"))
 		moneyNode.text = "Money: " + str(saveNode.load_specific("money")) + "$"
 
@@ -74,3 +84,19 @@ func _toggle_pause():
 	else:
 		visible = false
 		playerNode._set_freeze(false)
+		_hide_menus()
+
+func _hide_menus() -> void:
+	trainerMenu.visible = false
+	partyMenu.visible = false
+
+func _on_exit_button_pressed() -> void:
+	_toggle_pause()
+
+func _on_trainer_button_pressed() -> void:
+	_hide_menus()
+	trainerMenu.visible = true
+
+func _on_party_button_pressed() -> void:
+	_hide_menus()
+	partyMenu.visible = true
