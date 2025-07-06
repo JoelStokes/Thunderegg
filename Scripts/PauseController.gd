@@ -4,6 +4,7 @@ extends Control
 @onready var trainerButton = %TrainerButton
 @onready var trainerMenu = %TrainerMenu
 @onready var partyMenu = %PartyMenu
+@onready var settingsMenu = %SettingsMenu
 
 # Text
 @onready var trainerNameNode = trainerMenu.get_node("Trainer")
@@ -14,6 +15,12 @@ extends Control
 @onready var dexListNode = trainerMenu.get_node("PokemonList")
 @onready var lastPositionNode = trainerMenu.get_node("LastPosition")
 @onready var lastSceneNode = trainerMenu.get_node("LastScene")
+
+# Volume Sliders
+@onready var mainVolumeSlider = settingsMenu.get_node("MainVolume")
+@onready var sfxVolumeSlider = settingsMenu.get_node("SFXVolume")
+@onready var musicVolumeSlider = settingsMenu.get_node("MusicVolume")
+
 var playerNode
 var saveNode
 
@@ -35,6 +42,7 @@ func _ready() -> void:
 	visible = false
 	trainerMenu.visible = false
 	partyMenu.visible = false
+	settingsMenu.visible = false
 
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Pause")):
@@ -79,6 +87,11 @@ func _toggle_pause():
 		lastPositionNode.text = "Last Position: " + str(saveNode.load_specific("lastPos"))
 		lastSceneNode.text = "Last Scene: " + str(saveNode.load_specific("lastScene"))
 		
+		#Set Volume Sliders
+		mainVolumeSlider.value = saveNode.load_specific("mainVolume")
+		sfxVolumeSlider.value = saveNode.load_specific("sfxVolume")
+		musicVolumeSlider.value = saveNode.load_specific("musicVolume")
+
 		visible = true
 		playerNode._set_freeze(true)
 	else:
@@ -89,6 +102,7 @@ func _toggle_pause():
 func _hide_menus() -> void:
 	trainerMenu.visible = false
 	partyMenu.visible = false
+	settingsMenu.visible = false
 
 func _on_exit_button_pressed() -> void:
 	_toggle_pause()
@@ -100,3 +114,7 @@ func _on_trainer_button_pressed() -> void:
 func _on_party_button_pressed() -> void:
 	_hide_menus()
 	partyMenu.visible = true
+
+func _on_settings_button_pressed() -> void:
+	_hide_menus()
+	settingsMenu.visible = true
