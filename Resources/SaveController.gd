@@ -80,8 +80,9 @@ func load_specific(location, id : int = -1):
 		else:
 			data = userSave.get(location)
 	else:
-		# No position has been set yet, default to empty vector3
-		return Vector3(0,0,0)
+		# No data at location
+		print("No data found in DataLocation, returning 0")
+		return 0
 	return data
 
 #Save OW level & location
@@ -99,13 +100,13 @@ func save_Dex(id, newStatus):
 	save_game()
 
 #Save Main, SFX, and Music volumes
-func save_Audio(main:float = -1.0, sfx:float = -1.0, music:float = -1.0):
-	if (main >= 0):
-		userSave.mainVolume = main
-	if (sfx >= 0):
-		userSave.sfxVolume = sfx
-	if (music >= 0):
-		userSave.musicVolume = music
+func save_Audio(type:String, value:float):
+	if (type == "Main"):
+		userSave.mainVolume = value
+	elif (type == "SFX"):
+		userSave.sfxVolume = value
+	elif (type == "Music"):
+		userSave.musicVolume = value
 	save_game()
 
 #Remove previous save file to start from scratch

@@ -16,10 +16,13 @@ extends Control
 @onready var lastPositionNode = trainerMenu.get_node("LastPosition")
 @onready var lastSceneNode = trainerMenu.get_node("LastScene")
 
-# Volume Sliders
+# Volume Sliders / Audio Bus
 @onready var mainVolumeSlider = settingsMenu.get_node("MainVolume")
 @onready var sfxVolumeSlider = settingsMenu.get_node("SFXVolume")
 @onready var musicVolumeSlider = settingsMenu.get_node("MusicVolume")
+var mainBusIndex = 0
+var sfxBusIndex = 0
+var musicBusIndex = 0
 
 var playerNode
 var saveNode
@@ -43,6 +46,11 @@ func _ready() -> void:
 	trainerMenu.visible = false
 	partyMenu.visible = false
 	settingsMenu.visible = false
+	
+	# Get Audio Bus Locations
+	mainBusIndex = AudioServer.get_bus_index("Master")
+	sfxBusIndex = AudioServer.get_bus_index("SFX")
+	musicBusIndex = AudioServer.get_bus_index("Music")
 
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Pause")):
@@ -118,3 +126,15 @@ func _on_party_button_pressed() -> void:
 func _on_settings_button_pressed() -> void:
 	_hide_menus()
 	settingsMenu.visible = true
+
+func _on_main_volume_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(mainBusIndex, linear_to_db(value))
+	saveNode.save_Audio("Main", value)
+
+func _on_sfx_volume_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(sfxBusIndex, linear_to_db(value))
+	saveNode.save_Audio("SFX", value)
+
+func _on_music_volume_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(musicBusIndex, linear_to_db(value))
+	saveNode.save_Audio("Music", value)

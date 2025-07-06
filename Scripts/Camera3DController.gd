@@ -25,6 +25,9 @@ func _ready() -> void:
 
 	# Set player position if a non-zero save exists
 	var lastPos = saveNode.load_specific("lastPos")
+	if (lastPos is int):	#Prevent error in cases where a 0 position was passed
+		print("Error! No Location Set! Defaulting to 0,0,0")
+		lastPos = Vector3.ZERO
 	if (lastPos != Vector3.ZERO):
 		player.position = lastPos
 		
